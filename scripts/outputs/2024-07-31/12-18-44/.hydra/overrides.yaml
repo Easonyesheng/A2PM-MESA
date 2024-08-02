@@ -1,9 +1,0 @@
-- +experiment=a2pm_mesa_egam_dkm_scannet
-- test_area_acc=False
-- test_pm_acc=False
-- verbose=0
-- name=mesa-f-dkm-sn-eval
-- dataset_name=ScanNet
-- dataset.scene_name=scene0795_00
-- dataset.image_name0=75
-- dataset.image_name1=195
