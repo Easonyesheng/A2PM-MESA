@@ -2,7 +2,7 @@
  * @Author: EasonZhang
  * @Date: 2024-07-26 15:03:49
  * @LastEditors: Easonyesheng preacher@sjtu.edu.cn
- * @LastEditTime: 2024-08-01 20:20:27
+ * @LastEditTime: 2024-08-02 11:18:03
  * @FilePath: /A2PM-MESA/README.md
  * @Description: Readme
  * 
@@ -16,7 +16,7 @@
 
 This is a user-friendly implementation of **Area to Point Matching** (A2PM) framework, powered by [hydra](hydra.cc).
 
-It contains the implementation of [SGAM](https://arxiv.org/abs/2305.00194) (arXiv'23), a training-free version of [MESA](https://openaccess.thecvf.com/content/CVPR2024/html/Zhang_MESA_Matching_Everything_by_Segmenting_Anything_CVPR_2024_paper.html) (CVPR'24) and [DMESA]() (arXiv'24).
+It contains the implementation of [SGAM](https://arxiv.org/abs/2305.00194) (arXiv'23), a training-free version of [MESA](https://openaccess.thecvf.com/content/CVPR2024/html/Zhang_MESA_Matching_Everything_by_Segmenting_Anything_CVPR_2024_paper.html) (CVPR'24) and [DMESA](https://arxiv.org/abs/2408.00279) (arXiv'24).
 
 *Due to the power of hydra, the implementation is highly configurable and easy to **extend**.*
 
@@ -103,7 +103,7 @@ In the following, we will introduce how to use the code by describing its compon
     - The `MESA-free` is easier to use, but its performance is slightly lower than the original `MESA`.
 
   - `DMESA`
-    - A dense counterpart of MESA proposed in [paper](), more einfficient and flexible.
+    - A dense counterpart of MESA proposed in [paper](https://arxiv.org/abs/2408.00279), more einfficient and flexible.
     - The implementation in `area_matchers/dmesa.py`.
     - The configuration is in `conf/area_matcher/dmesa.yaml`. 
 
@@ -215,6 +215,17 @@ If you find this work useful, please consider citing:
     pages     = {20217-20226}
 }
 ```
+```bibtex
+@misc{DMESA,
+    title={DMESA: Densely Matching Everything by Segmenting Anything},
+    author={Yesheng Zhang and Xu Zhao},
+    year={2024},
+    eprint={2408.00279},
+    archivePrefix={arXiv},
+    primaryClass={cs.CV}
+}
+```
+
 
 # Acknowledgement
 We thank the authors of the following repositories for their great works:
