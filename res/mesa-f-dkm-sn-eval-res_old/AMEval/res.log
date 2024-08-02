@@ -1,3 +1,0 @@
-2024-07-30 15:53:17.901 | INFO     | utils.common:test_dir_if_not_create:37 - Create New Folder: /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-sn-eval-res_old/ratios
-2024-07-30 15:53:17.901 | SUCCESS  | metric.Evaluation:get_PoseAUC:240 - load baseline pm pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-sn-eval-res_old/ratios/pm_pose_errs.txt
-2024-07-30 15:53:17.901 | SUCCESS  | metric.Evaluation:get_PoseAUC:241 - load challenger a2pm_0.5 pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-sn-eval-res_old/ratios/a2pm-0.5_pose_errs.txt
