@@ -1,0 +1,747 @@
+2024-07-29 12:13:23.290 | SUCCESS  | metric.Evaluation:get_PoseAUC:240 - load baseline pm pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/pm_pose_errs.txt
+2024-07-29 12:13:23.290 | SUCCESS  | metric.Evaluation:get_PoseAUC:241 - load challenger a2pm_0.5 pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/a2pm-0.5_pose_errs.txt
+2024-07-29 12:13:23.291 | INFO     | metric.Evaluation:get_PoseAUC:263 - load baseline pm pose errors shape = (60, 2)
+2024-07-29 12:13:23.292 | INFO     | metric.Evaluation:get_PoseAUC:284 - load challenger a2pm pose errors shape = (60, 2)
+2024-07-29 12:13:23.292 | INFO     | metric.Evaluation:get_PoseAUC:288 - common name shape (60,)
+2024-07-29 12:13:23.294 | INFO     | metric.Evaluation:get_PoseAUC:300 - common idx baseline shape (60,)
+2024-07-29 12:13:23.294 | INFO     | metric.Evaluation:get_PoseAUC:311 - common baseline pose errs shape (60, 2)
+2024-07-29 12:13:23.294 | INFO     | metric.Evaluation:get_PoseAUC:312 - common challenger pose errs shape (60, 2)
+2024-07-29 12:13:23.294 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (60,)
+2024-07-29 12:13:23.294 | INFO     | utils.geo:pose_auc:1059 - get (60,) errors
+2024-07-29 12:13:23.295 | SUCCESS  | metric.Evaluation:get_PoseAUC:319 - baseline pm pose auc: {'auc@5': 0.6337720769394852, 'auc@10': 0.7820518554918212, 'auc@20': 0.873187580267585}
+2024-07-29 12:13:23.295 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (60,)
+2024-07-29 12:13:23.295 | INFO     | utils.geo:pose_auc:1059 - get (60,) errors
+2024-07-29 12:13:23.295 | SUCCESS  | metric.Evaluation:get_PoseAUC:324 - challenger a2pm_0.5 pose auc: {'auc@5': 0.634378274094106, 'auc@10': 0.7807564921796519, 'auc@20': 0.8723288581463114}
+2024-07-29 12:13:23.296 | SUCCESS  | metric.Evaluation:get_PoseAUC:326 - baseline error mean: [1.10358501 3.15891408]
+2024-07-29 12:13:23.296 | SUCCESS  | metric.Evaluation:get_PoseAUC:327 - challenger error mean: [1.12186909 3.17364953]
+2024-07-29 12:13:23.296 | SUCCESS  | metric.Evaluation:get_PoseAUC:240 - load baseline pm pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/pm_pose_errs.txt
+2024-07-29 12:13:23.296 | SUCCESS  | metric.Evaluation:get_PoseAUC:241 - load challenger a2pm_2.0 pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/a2pm-2.0_pose_errs.txt
+2024-07-29 12:13:23.297 | INFO     | metric.Evaluation:get_PoseAUC:263 - load baseline pm pose errors shape = (60, 2)
+2024-07-29 12:13:23.298 | INFO     | metric.Evaluation:get_PoseAUC:284 - load challenger a2pm pose errors shape = (60, 2)
+2024-07-29 12:13:23.298 | INFO     | metric.Evaluation:get_PoseAUC:288 - common name shape (60,)
+2024-07-29 12:13:23.299 | INFO     | metric.Evaluation:get_PoseAUC:300 - common idx baseline shape (60,)
+2024-07-29 12:13:23.299 | INFO     | metric.Evaluation:get_PoseAUC:311 - common baseline pose errs shape (60, 2)
+2024-07-29 12:13:23.299 | INFO     | metric.Evaluation:get_PoseAUC:312 - common challenger pose errs shape (60, 2)
+2024-07-29 12:13:23.300 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (60,)
+2024-07-29 12:13:23.300 | INFO     | utils.geo:pose_auc:1059 - get (60,) errors
+2024-07-29 12:13:23.300 | SUCCESS  | metric.Evaluation:get_PoseAUC:319 - baseline pm pose auc: {'auc@5': 0.6337720769394852, 'auc@10': 0.7820518554918212, 'auc@20': 0.873187580267585}
+2024-07-29 12:13:23.300 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (60,)
+2024-07-29 12:13:23.300 | INFO     | utils.geo:pose_auc:1059 - get (60,) errors
+2024-07-29 12:13:23.301 | SUCCESS  | metric.Evaluation:get_PoseAUC:324 - challenger a2pm_2.0 pose auc: {'auc@5': 0.6919107746017413, 'auc@10': 0.8170537363796455, 'auc@20': 0.8918602015231561}
+2024-07-29 12:13:23.301 | SUCCESS  | metric.Evaluation:get_PoseAUC:326 - baseline error mean: [1.10358501 3.15891408]
+2024-07-29 12:13:23.301 | SUCCESS  | metric.Evaluation:get_PoseAUC:327 - challenger error mean: [1.03605883 2.56468343]
+2024-07-29 12:13:23.301 | SUCCESS  | metric.Evaluation:get_PoseAUC:240 - load baseline pm pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/pm_pose_errs.txt
+2024-07-29 12:13:23.302 | SUCCESS  | metric.Evaluation:get_PoseAUC:241 - load challenger a2pm_3.0 pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/a2pm-3.0_pose_errs.txt
+2024-07-29 12:13:23.302 | INFO     | metric.Evaluation:get_PoseAUC:263 - load baseline pm pose errors shape = (60, 2)
+2024-07-29 12:13:23.303 | INFO     | metric.Evaluation:get_PoseAUC:284 - load challenger a2pm pose errors shape = (60, 2)
+2024-07-29 12:13:23.303 | INFO     | metric.Evaluation:get_PoseAUC:288 - common name shape (60,)
+2024-07-29 12:13:23.304 | INFO     | metric.Evaluation:get_PoseAUC:300 - common idx baseline shape (60,)
+2024-07-29 12:13:23.304 | INFO     | metric.Evaluation:get_PoseAUC:311 - common baseline pose errs shape (60, 2)
+2024-07-29 12:13:23.305 | INFO     | metric.Evaluation:get_PoseAUC:312 - common challenger pose errs shape (60, 2)
+2024-07-29 12:13:23.305 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (60,)
+2024-07-29 12:13:23.305 | INFO     | utils.geo:pose_auc:1059 - get (60,) errors
+2024-07-29 12:13:23.305 | SUCCESS  | metric.Evaluation:get_PoseAUC:319 - baseline pm pose auc: {'auc@5': 0.6337720769394852, 'auc@10': 0.7820518554918212, 'auc@20': 0.873187580267585}
+2024-07-29 12:13:23.305 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (60,)
+2024-07-29 12:13:23.306 | INFO     | utils.geo:pose_auc:1059 - get (60,) errors
+2024-07-29 12:13:23.306 | SUCCESS  | metric.Evaluation:get_PoseAUC:324 - challenger a2pm_3.0 pose auc: {'auc@5': 0.7131898016876154, 'auc@10': 0.83841488576012, 'auc@20': 0.9122601043821916}
+2024-07-29 12:13:23.306 | SUCCESS  | metric.Evaluation:get_PoseAUC:326 - baseline error mean: [1.10358501 3.15891408]
+2024-07-29 12:13:23.306 | SUCCESS  | metric.Evaluation:get_PoseAUC:327 - challenger error mean: [0.90472195 1.79894952]
+2024-07-29 12:13:23.307 | SUCCESS  | metric.Evaluation:get_PoseAUC:240 - load baseline pm pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/pm_pose_errs.txt
+2024-07-29 12:13:23.307 | SUCCESS  | metric.Evaluation:get_PoseAUC:241 - load challenger a2pm_3.5 pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/a2pm-3.5_pose_errs.txt
+2024-07-29 12:13:23.307 | INFO     | metric.Evaluation:get_PoseAUC:263 - load baseline pm pose errors shape = (60, 2)
+2024-07-29 12:13:23.308 | INFO     | metric.Evaluation:get_PoseAUC:284 - load challenger a2pm pose errors shape = (60, 2)
+2024-07-29 12:13:23.308 | INFO     | metric.Evaluation:get_PoseAUC:288 - common name shape (60,)
+2024-07-29 12:13:23.309 | INFO     | metric.Evaluation:get_PoseAUC:300 - common idx baseline shape (60,)
+2024-07-29 12:13:23.310 | INFO     | metric.Evaluation:get_PoseAUC:311 - common baseline pose errs shape (60, 2)
+2024-07-29 12:13:23.310 | INFO     | metric.Evaluation:get_PoseAUC:312 - common challenger pose errs shape (60, 2)
+2024-07-29 12:13:23.310 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (60,)
+2024-07-29 12:13:23.310 | INFO     | utils.geo:pose_auc:1059 - get (60,) errors
+2024-07-29 12:13:23.310 | SUCCESS  | metric.Evaluation:get_PoseAUC:319 - baseline pm pose auc: {'auc@5': 0.6337720769394852, 'auc@10': 0.7820518554918212, 'auc@20': 0.873187580267585}
+2024-07-29 12:13:23.311 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (60,)
+2024-07-29 12:13:23.311 | INFO     | utils.geo:pose_auc:1059 - get (60,) errors
+2024-07-29 12:13:23.311 | SUCCESS  | metric.Evaluation:get_PoseAUC:324 - challenger a2pm_3.5 pose auc: {'auc@5': 0.7128580425168515, 'auc@10': 0.8310044662448247, 'auc@20': 0.8988355664557457}
+2024-07-29 12:13:23.311 | SUCCESS  | metric.Evaluation:get_PoseAUC:326 - baseline error mean: [1.10358501 3.15891408]
+2024-07-29 12:13:23.312 | SUCCESS  | metric.Evaluation:get_PoseAUC:327 - challenger error mean: [0.97127324 2.2846111 ]
+2024-07-29 12:13:23.312 | SUCCESS  | metric.Evaluation:get_PoseAUC:240 - load baseline pm pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/pm_pose_errs.txt
+2024-07-29 12:13:23.312 | SUCCESS  | metric.Evaluation:get_PoseAUC:241 - load challenger a2pm_5.0 pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/a2pm-5.0_pose_errs.txt
+2024-07-29 12:13:23.312 | INFO     | metric.Evaluation:get_PoseAUC:263 - load baseline pm pose errors shape = (60, 2)
+2024-07-29 12:13:23.313 | INFO     | metric.Evaluation:get_PoseAUC:284 - load challenger a2pm pose errors shape = (60, 2)
+2024-07-29 12:13:23.313 | INFO     | metric.Evaluation:get_PoseAUC:288 - common name shape (60,)
+2024-07-29 12:13:23.315 | INFO     | metric.Evaluation:get_PoseAUC:300 - common idx baseline shape (60,)
+2024-07-29 12:13:23.315 | INFO     | metric.Evaluation:get_PoseAUC:311 - common baseline pose errs shape (60, 2)
+2024-07-29 12:13:23.315 | INFO     | metric.Evaluation:get_PoseAUC:312 - common challenger pose errs shape (60, 2)
+2024-07-29 12:13:23.315 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (60,)
+2024-07-29 12:13:23.315 | INFO     | utils.geo:pose_auc:1059 - get (60,) errors
+2024-07-29 12:13:23.316 | SUCCESS  | metric.Evaluation:get_PoseAUC:319 - baseline pm pose auc: {'auc@5': 0.6337720769394852, 'auc@10': 0.7820518554918212, 'auc@20': 0.873187580267585}
+2024-07-29 12:13:23.316 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (60,)
+2024-07-29 12:13:23.316 | INFO     | utils.geo:pose_auc:1059 - get (60,) errors
+2024-07-29 12:13:23.316 | SUCCESS  | metric.Evaluation:get_PoseAUC:324 - challenger a2pm_5.0 pose auc: {'auc@5': 0.6893598952072433, 'auc@10': 0.8320451890431257, 'auc@20': 0.9076892611882297}
+2024-07-29 12:13:23.317 | SUCCESS  | metric.Evaluation:get_PoseAUC:326 - baseline error mean: [1.10358501 3.15891408]
+2024-07-29 12:13:23.317 | SUCCESS  | metric.Evaluation:get_PoseAUC:327 - challenger error mean: [3.85900612 4.37745677]
+2024-07-29 12:13:23.317 | CRITICAL | metric.Evaluation:run:352 - best phi: 3.0, best auc diff: 0.058284426377011846
+2024-07-29 12:13:23.317 | INFO     | metric.Evaluation:__init__:403 - Initialize the AM Evaluation with configs: {'root_path': '/opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res', 'name': 'am', 'AMP_Thd': [0.6, 0.7, 0.8], 'res_folder': 'ratios', 'AOR_post': '_aor.txt', 'ACR_post': '_acr.txt', 'file_name_post': '_ameval_names.txt', 'time_post': '_area_match_time.txt'}
+2024-07-29 12:13:23.331 | ERROR    | __main__:<module>:80 - AMEval failed: /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/am_aor.txt not found.
+2024-07-29 14:33:13.703 | SUCCESS  | metric.Evaluation:get_PoseAUC:240 - load baseline pm pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/pm_pose_errs.txt
+2024-07-29 14:33:13.704 | SUCCESS  | metric.Evaluation:get_PoseAUC:241 - load challenger a2pm_0.5 pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/a2pm-0.5_pose_errs.txt
+2024-07-29 14:33:13.705 | INFO     | metric.Evaluation:get_PoseAUC:263 - load baseline pm pose errors shape = (157, 2)
+2024-07-29 14:33:13.706 | INFO     | metric.Evaluation:get_PoseAUC:284 - load challenger a2pm pose errors shape = (157, 2)
+2024-07-29 14:33:13.706 | INFO     | metric.Evaluation:get_PoseAUC:288 - common name shape (157,)
+2024-07-29 14:33:13.711 | INFO     | metric.Evaluation:get_PoseAUC:300 - common idx baseline shape (157,)
+2024-07-29 14:33:13.711 | INFO     | metric.Evaluation:get_PoseAUC:311 - common baseline pose errs shape (157, 2)
+2024-07-29 14:33:13.711 | INFO     | metric.Evaluation:get_PoseAUC:312 - common challenger pose errs shape (157, 2)
+2024-07-29 14:33:13.711 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (157,)
+2024-07-29 14:33:13.711 | INFO     | utils.geo:pose_auc:1059 - get (157,) errors
+2024-07-29 14:33:13.712 | SUCCESS  | metric.Evaluation:get_PoseAUC:319 - baseline pm pose auc: {'auc@5': 0.6318809205868292, 'auc@10': 0.7745234301626895, 'auc@20': 0.8618349115326447}
+2024-07-29 14:33:13.712 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (157,)
+2024-07-29 14:33:13.712 | INFO     | utils.geo:pose_auc:1059 - get (157,) errors
+2024-07-29 14:33:13.713 | SUCCESS  | metric.Evaluation:get_PoseAUC:324 - challenger a2pm_0.5 pose auc: {'auc@5': 0.630059799247237, 'auc@10': 0.7689688210884741, 'auc@20': 0.8556286839844087}
+2024-07-29 14:33:13.713 | SUCCESS  | metric.Evaluation:get_PoseAUC:326 - baseline error mean: [1.46474689 3.61153952]
+2024-07-29 14:33:13.714 | SUCCESS  | metric.Evaluation:get_PoseAUC:327 - challenger error mean: [1.71201637 3.4553056 ]
+2024-07-29 14:33:13.714 | SUCCESS  | metric.Evaluation:get_PoseAUC:240 - load baseline pm pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/pm_pose_errs.txt
+2024-07-29 14:33:13.714 | SUCCESS  | metric.Evaluation:get_PoseAUC:241 - load challenger a2pm_2.0 pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/a2pm-2.0_pose_errs.txt
+2024-07-29 14:33:13.715 | INFO     | metric.Evaluation:get_PoseAUC:263 - load baseline pm pose errors shape = (157, 2)
+2024-07-29 14:33:13.716 | INFO     | metric.Evaluation:get_PoseAUC:284 - load challenger a2pm pose errors shape = (157, 2)
+2024-07-29 14:33:13.716 | INFO     | metric.Evaluation:get_PoseAUC:288 - common name shape (157,)
+2024-07-29 14:33:13.720 | INFO     | metric.Evaluation:get_PoseAUC:300 - common idx baseline shape (157,)
+2024-07-29 14:33:13.720 | INFO     | metric.Evaluation:get_PoseAUC:311 - common baseline pose errs shape (157, 2)
+2024-07-29 14:33:13.721 | INFO     | metric.Evaluation:get_PoseAUC:312 - common challenger pose errs shape (157, 2)
+2024-07-29 14:33:13.721 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (157,)
+2024-07-29 14:33:13.721 | INFO     | utils.geo:pose_auc:1059 - get (157,) errors
+2024-07-29 14:33:13.721 | SUCCESS  | metric.Evaluation:get_PoseAUC:319 - baseline pm pose auc: {'auc@5': 0.6318809205868292, 'auc@10': 0.7745234301626895, 'auc@20': 0.8618349115326447}
+2024-07-29 14:33:13.722 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (157,)
+2024-07-29 14:33:13.722 | INFO     | utils.geo:pose_auc:1059 - get (157,) errors
+2024-07-29 14:33:13.722 | SUCCESS  | metric.Evaluation:get_PoseAUC:324 - challenger a2pm_2.0 pose auc: {'auc@5': 0.6482082764025379, 'auc@10': 0.7867736903799558, 'auc@20': 0.8718037924902953}
+2024-07-29 14:33:13.722 | SUCCESS  | metric.Evaluation:get_PoseAUC:326 - baseline error mean: [1.46474689 3.61153952]
+2024-07-29 14:33:13.723 | SUCCESS  | metric.Evaluation:get_PoseAUC:327 - challenger error mean: [1.46287063 3.30226986]
+2024-07-29 14:33:13.723 | SUCCESS  | metric.Evaluation:get_PoseAUC:240 - load baseline pm pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/pm_pose_errs.txt
+2024-07-29 14:33:13.723 | SUCCESS  | metric.Evaluation:get_PoseAUC:241 - load challenger a2pm_3.0 pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/a2pm-3.0_pose_errs.txt
+2024-07-29 14:33:13.724 | INFO     | metric.Evaluation:get_PoseAUC:263 - load baseline pm pose errors shape = (157, 2)
+2024-07-29 14:33:13.725 | INFO     | metric.Evaluation:get_PoseAUC:284 - load challenger a2pm pose errors shape = (157, 2)
+2024-07-29 14:33:13.725 | INFO     | metric.Evaluation:get_PoseAUC:288 - common name shape (157,)
+2024-07-29 14:33:13.729 | INFO     | metric.Evaluation:get_PoseAUC:300 - common idx baseline shape (157,)
+2024-07-29 14:33:13.730 | INFO     | metric.Evaluation:get_PoseAUC:311 - common baseline pose errs shape (157, 2)
+2024-07-29 14:33:13.730 | INFO     | metric.Evaluation:get_PoseAUC:312 - common challenger pose errs shape (157, 2)
+2024-07-29 14:33:13.730 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (157,)
+2024-07-29 14:33:13.730 | INFO     | utils.geo:pose_auc:1059 - get (157,) errors
+2024-07-29 14:33:13.731 | SUCCESS  | metric.Evaluation:get_PoseAUC:319 - baseline pm pose auc: {'auc@5': 0.6318809205868292, 'auc@10': 0.7745234301626895, 'auc@20': 0.8618349115326447}
+2024-07-29 14:33:13.731 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (157,)
+2024-07-29 14:33:13.731 | INFO     | utils.geo:pose_auc:1059 - get (157,) errors
+2024-07-29 14:33:13.731 | SUCCESS  | metric.Evaluation:get_PoseAUC:324 - challenger a2pm_3.0 pose auc: {'auc@5': 0.6433304475608205, 'auc@10': 0.781329609073533, 'auc@20': 0.8657301872787864}
+2024-07-29 14:33:13.732 | SUCCESS  | metric.Evaluation:get_PoseAUC:326 - baseline error mean: [1.46474689 3.61153952]
+2024-07-29 14:33:13.732 | SUCCESS  | metric.Evaluation:get_PoseAUC:327 - challenger error mean: [2.59960905 4.15476433]
+2024-07-29 14:33:13.732 | SUCCESS  | metric.Evaluation:get_PoseAUC:240 - load baseline pm pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/pm_pose_errs.txt
+2024-07-29 14:33:13.732 | SUCCESS  | metric.Evaluation:get_PoseAUC:241 - load challenger a2pm_3.5 pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/a2pm-3.5_pose_errs.txt
+2024-07-29 14:33:13.733 | INFO     | metric.Evaluation:get_PoseAUC:263 - load baseline pm pose errors shape = (157, 2)
+2024-07-29 14:33:13.734 | INFO     | metric.Evaluation:get_PoseAUC:284 - load challenger a2pm pose errors shape = (157, 2)
+2024-07-29 14:33:13.734 | INFO     | metric.Evaluation:get_PoseAUC:288 - common name shape (157,)
+2024-07-29 14:33:13.738 | INFO     | metric.Evaluation:get_PoseAUC:300 - common idx baseline shape (157,)
+2024-07-29 14:33:13.738 | INFO     | metric.Evaluation:get_PoseAUC:311 - common baseline pose errs shape (157, 2)
+2024-07-29 14:33:13.738 | INFO     | metric.Evaluation:get_PoseAUC:312 - common challenger pose errs shape (157, 2)
+2024-07-29 14:33:13.739 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (157,)
+2024-07-29 14:33:13.739 | INFO     | utils.geo:pose_auc:1059 - get (157,) errors
+2024-07-29 14:33:13.739 | SUCCESS  | metric.Evaluation:get_PoseAUC:319 - baseline pm pose auc: {'auc@5': 0.6318809205868292, 'auc@10': 0.7745234301626895, 'auc@20': 0.8618349115326447}
+2024-07-29 14:33:13.739 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (157,)
+2024-07-29 14:33:13.739 | INFO     | utils.geo:pose_auc:1059 - get (157,) errors
+2024-07-29 14:33:13.740 | SUCCESS  | metric.Evaluation:get_PoseAUC:324 - challenger a2pm_3.5 pose auc: {'auc@5': 0.6671897968057994, 'auc@10': 0.7928873974904654, 'auc@20': 0.8691213261402062}
+2024-07-29 14:33:13.740 | SUCCESS  | metric.Evaluation:get_PoseAUC:326 - baseline error mean: [1.46474689 3.61153952]
+2024-07-29 14:33:13.740 | SUCCESS  | metric.Evaluation:get_PoseAUC:327 - challenger error mean: [1.39505044 3.27353118]
+2024-07-29 14:33:13.741 | SUCCESS  | metric.Evaluation:get_PoseAUC:240 - load baseline pm pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/pm_pose_errs.txt
+2024-07-29 14:33:13.741 | SUCCESS  | metric.Evaluation:get_PoseAUC:241 - load challenger a2pm_5.0 pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/a2pm-5.0_pose_errs.txt
+2024-07-29 14:33:13.742 | INFO     | metric.Evaluation:get_PoseAUC:263 - load baseline pm pose errors shape = (157, 2)
+2024-07-29 14:33:13.742 | INFO     | metric.Evaluation:get_PoseAUC:284 - load challenger a2pm pose errors shape = (157, 2)
+2024-07-29 14:33:13.743 | INFO     | metric.Evaluation:get_PoseAUC:288 - common name shape (157,)
+2024-07-29 14:33:13.747 | INFO     | metric.Evaluation:get_PoseAUC:300 - common idx baseline shape (157,)
+2024-07-29 14:33:13.747 | INFO     | metric.Evaluation:get_PoseAUC:311 - common baseline pose errs shape (157, 2)
+2024-07-29 14:33:13.747 | INFO     | metric.Evaluation:get_PoseAUC:312 - common challenger pose errs shape (157, 2)
+2024-07-29 14:33:13.747 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (157,)
+2024-07-29 14:33:13.748 | INFO     | utils.geo:pose_auc:1059 - get (157,) errors
+2024-07-29 14:33:13.748 | SUCCESS  | metric.Evaluation:get_PoseAUC:319 - baseline pm pose auc: {'auc@5': 0.6318809205868292, 'auc@10': 0.7745234301626895, 'auc@20': 0.8618349115326447}
+2024-07-29 14:33:13.748 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (157,)
+2024-07-29 14:33:13.748 | INFO     | utils.geo:pose_auc:1059 - get (157,) errors
+2024-07-29 14:33:13.749 | SUCCESS  | metric.Evaluation:get_PoseAUC:324 - challenger a2pm_5.0 pose auc: {'auc@5': 0.639852826631772, 'auc@10': 0.7812076071371868, 'auc@20': 0.8693226074381577}
+2024-07-29 14:33:13.749 | SUCCESS  | metric.Evaluation:get_PoseAUC:326 - baseline error mean: [1.46474689 3.61153952]
+2024-07-29 14:33:13.749 | SUCCESS  | metric.Evaluation:get_PoseAUC:327 - challenger error mean: [2.6822659  3.80217719]
+2024-07-29 14:33:13.749 | CRITICAL | metric.Evaluation:run:352 - best phi: 3.5, best auc diff: 0.02031975271810253
+2024-07-29 14:33:13.750 | INFO     | metric.Evaluation:__init__:403 - Initialize the AM Evaluation with configs: {'root_path': '/opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res', 'name': 'am', 'AMP_Thd': [0.6, 0.7, 0.8], 'res_folder': 'ratios', 'AOR_post': '_aor.txt', 'ACR_post': '_acr.txt', 'file_name_post': '_ameval_names.txt', 'time_post': '_area_match_time.txt'}
+2024-07-29 14:33:13.760 | ERROR    | __main__:<module>:80 - AMEval failed: /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/am_aor.txt not found.
+2024-07-29 14:53:18.771 | SUCCESS  | metric.Evaluation:get_PoseAUC:240 - load baseline pm pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/pm_pose_errs.txt
+2024-07-29 14:53:18.771 | SUCCESS  | metric.Evaluation:get_PoseAUC:241 - load challenger a2pm_0.5 pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/a2pm-0.5_pose_errs.txt
+2024-07-29 14:53:18.773 | INFO     | metric.Evaluation:get_PoseAUC:263 - load baseline pm pose errors shape = (172, 2)
+2024-07-29 14:53:18.775 | INFO     | metric.Evaluation:get_PoseAUC:284 - load challenger a2pm pose errors shape = (172, 2)
+2024-07-29 14:53:18.776 | INFO     | metric.Evaluation:get_PoseAUC:288 - common name shape (172,)
+2024-07-29 14:53:18.782 | INFO     | metric.Evaluation:get_PoseAUC:300 - common idx baseline shape (172,)
+2024-07-29 14:53:18.782 | INFO     | metric.Evaluation:get_PoseAUC:311 - common baseline pose errs shape (172, 2)
+2024-07-29 14:53:18.782 | INFO     | metric.Evaluation:get_PoseAUC:312 - common challenger pose errs shape (172, 2)
+2024-07-29 14:53:18.782 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (172,)
+2024-07-29 14:53:18.783 | INFO     | utils.geo:pose_auc:1059 - get (172,) errors
+2024-07-29 14:53:18.783 | SUCCESS  | metric.Evaluation:get_PoseAUC:319 - baseline pm pose auc: {'auc@5': 0.6397323730069424, 'auc@10': 0.7762471531864722, 'auc@20': 0.8606911610238959}
+2024-07-29 14:53:18.783 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (172,)
+2024-07-29 14:53:18.783 | INFO     | utils.geo:pose_auc:1059 - get (172,) errors
+2024-07-29 14:53:18.784 | SUCCESS  | metric.Evaluation:get_PoseAUC:324 - challenger a2pm_0.5 pose auc: {'auc@5': 0.6381561257763206, 'auc@10': 0.7712199853880576, 'auc@20': 0.8550476880970891}
+2024-07-29 14:53:18.784 | SUCCESS  | metric.Evaluation:get_PoseAUC:326 - baseline error mean: [1.92937667 3.88625752]
+2024-07-29 14:53:18.784 | SUCCESS  | metric.Evaluation:get_PoseAUC:327 - challenger error mean: [2.15501406 3.74378224]
+2024-07-29 14:53:18.785 | SUCCESS  | metric.Evaluation:get_PoseAUC:240 - load baseline pm pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/pm_pose_errs.txt
+2024-07-29 14:53:18.785 | SUCCESS  | metric.Evaluation:get_PoseAUC:241 - load challenger a2pm_2.0 pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/a2pm-2.0_pose_errs.txt
+2024-07-29 14:53:18.786 | INFO     | metric.Evaluation:get_PoseAUC:263 - load baseline pm pose errors shape = (172, 2)
+2024-07-29 14:53:18.787 | INFO     | metric.Evaluation:get_PoseAUC:284 - load challenger a2pm pose errors shape = (172, 2)
+2024-07-29 14:53:18.787 | INFO     | metric.Evaluation:get_PoseAUC:288 - common name shape (172,)
+2024-07-29 14:53:18.792 | INFO     | metric.Evaluation:get_PoseAUC:300 - common idx baseline shape (172,)
+2024-07-29 14:53:18.792 | INFO     | metric.Evaluation:get_PoseAUC:311 - common baseline pose errs shape (172, 2)
+2024-07-29 14:53:18.792 | INFO     | metric.Evaluation:get_PoseAUC:312 - common challenger pose errs shape (172, 2)
+2024-07-29 14:53:18.793 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (172,)
+2024-07-29 14:53:18.793 | INFO     | utils.geo:pose_auc:1059 - get (172,) errors
+2024-07-29 14:53:18.794 | SUCCESS  | metric.Evaluation:get_PoseAUC:319 - baseline pm pose auc: {'auc@5': 0.6397323730069424, 'auc@10': 0.7762471531864722, 'auc@20': 0.8606911610238959}
+2024-07-29 14:53:18.795 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (172,)
+2024-07-29 14:53:18.795 | INFO     | utils.geo:pose_auc:1059 - get (172,) errors
+2024-07-29 14:53:18.796 | SUCCESS  | metric.Evaluation:get_PoseAUC:324 - challenger a2pm_2.0 pose auc: {'auc@5': 0.6602366689920225, 'auc@10': 0.7931364722405104, 'auc@20': 0.8739604496443821}
+2024-07-29 14:53:18.797 | SUCCESS  | metric.Evaluation:get_PoseAUC:326 - baseline error mean: [1.92937667 3.88625752]
+2024-07-29 14:53:18.798 | SUCCESS  | metric.Evaluation:get_PoseAUC:327 - challenger error mean: [1.62175663 3.21858494]
+2024-07-29 14:53:18.798 | SUCCESS  | metric.Evaluation:get_PoseAUC:240 - load baseline pm pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/pm_pose_errs.txt
+2024-07-29 14:53:18.799 | SUCCESS  | metric.Evaluation:get_PoseAUC:241 - load challenger a2pm_3.0 pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/a2pm-3.0_pose_errs.txt
+2024-07-29 14:53:18.801 | INFO     | metric.Evaluation:get_PoseAUC:263 - load baseline pm pose errors shape = (172, 2)
+2024-07-29 14:53:18.805 | INFO     | metric.Evaluation:get_PoseAUC:284 - load challenger a2pm pose errors shape = (172, 2)
+2024-07-29 14:53:18.807 | INFO     | metric.Evaluation:get_PoseAUC:288 - common name shape (172,)
+2024-07-29 14:53:18.820 | INFO     | metric.Evaluation:get_PoseAUC:300 - common idx baseline shape (172,)
+2024-07-29 14:53:18.821 | INFO     | metric.Evaluation:get_PoseAUC:311 - common baseline pose errs shape (172, 2)
+2024-07-29 14:53:18.821 | INFO     | metric.Evaluation:get_PoseAUC:312 - common challenger pose errs shape (172, 2)
+2024-07-29 14:53:18.822 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (172,)
+2024-07-29 14:53:18.822 | INFO     | utils.geo:pose_auc:1059 - get (172,) errors
+2024-07-29 14:53:18.823 | SUCCESS  | metric.Evaluation:get_PoseAUC:319 - baseline pm pose auc: {'auc@5': 0.6397323730069424, 'auc@10': 0.7762471531864722, 'auc@20': 0.8606911610238959}
+2024-07-29 14:53:18.824 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (172,)
+2024-07-29 14:53:18.824 | INFO     | utils.geo:pose_auc:1059 - get (172,) errors
+2024-07-29 14:53:18.825 | SUCCESS  | metric.Evaluation:get_PoseAUC:324 - challenger a2pm_3.0 pose auc: {'auc@5': 0.6481452131335839, 'auc@10': 0.7814406791890027, 'auc@20': 0.8621462994229733}
+2024-07-29 14:53:18.826 | SUCCESS  | metric.Evaluation:get_PoseAUC:326 - baseline error mean: [1.92937667 3.88625752]
+2024-07-29 14:53:18.827 | SUCCESS  | metric.Evaluation:get_PoseAUC:327 - challenger error mean: [2.96774187 4.44823341]
+2024-07-29 14:53:18.827 | SUCCESS  | metric.Evaluation:get_PoseAUC:240 - load baseline pm pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/pm_pose_errs.txt
+2024-07-29 14:53:18.828 | SUCCESS  | metric.Evaluation:get_PoseAUC:241 - load challenger a2pm_3.5 pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/a2pm-3.5_pose_errs.txt
+2024-07-29 14:53:18.829 | INFO     | metric.Evaluation:get_PoseAUC:263 - load baseline pm pose errors shape = (172, 2)
+2024-07-29 14:53:18.830 | INFO     | metric.Evaluation:get_PoseAUC:284 - load challenger a2pm pose errors shape = (172, 2)
+2024-07-29 14:53:18.831 | INFO     | metric.Evaluation:get_PoseAUC:288 - common name shape (172,)
+2024-07-29 14:53:18.836 | INFO     | metric.Evaluation:get_PoseAUC:300 - common idx baseline shape (172,)
+2024-07-29 14:53:18.836 | INFO     | metric.Evaluation:get_PoseAUC:311 - common baseline pose errs shape (172, 2)
+2024-07-29 14:53:18.837 | INFO     | metric.Evaluation:get_PoseAUC:312 - common challenger pose errs shape (172, 2)
+2024-07-29 14:53:18.837 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (172,)
+2024-07-29 14:53:18.837 | INFO     | utils.geo:pose_auc:1059 - get (172,) errors
+2024-07-29 14:53:18.838 | SUCCESS  | metric.Evaluation:get_PoseAUC:319 - baseline pm pose auc: {'auc@5': 0.6397323730069424, 'auc@10': 0.7762471531864722, 'auc@20': 0.8606911610238959}
+2024-07-29 14:53:18.838 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (172,)
+2024-07-29 14:53:18.838 | INFO     | utils.geo:pose_auc:1059 - get (172,) errors
+2024-07-29 14:53:18.839 | SUCCESS  | metric.Evaluation:get_PoseAUC:324 - challenger a2pm_3.5 pose auc: {'auc@5': 0.6693791497733359, 'auc@10': 0.7917181932398529, 'auc@20': 0.8679109234445856}
+2024-07-29 14:53:18.839 | SUCCESS  | metric.Evaluation:get_PoseAUC:326 - baseline error mean: [1.92937667 3.88625752]
+2024-07-29 14:53:18.839 | SUCCESS  | metric.Evaluation:get_PoseAUC:327 - challenger error mean: [1.90288403 3.60822523]
+2024-07-29 14:53:18.839 | SUCCESS  | metric.Evaluation:get_PoseAUC:240 - load baseline pm pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/pm_pose_errs.txt
+2024-07-29 14:53:18.840 | SUCCESS  | metric.Evaluation:get_PoseAUC:241 - load challenger a2pm_5.0 pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/a2pm-5.0_pose_errs.txt
+2024-07-29 14:53:18.840 | INFO     | metric.Evaluation:get_PoseAUC:263 - load baseline pm pose errors shape = (172, 2)
+2024-07-29 14:53:18.841 | INFO     | metric.Evaluation:get_PoseAUC:284 - load challenger a2pm pose errors shape = (172, 2)
+2024-07-29 14:53:18.842 | INFO     | metric.Evaluation:get_PoseAUC:288 - common name shape (172,)
+2024-07-29 14:53:18.846 | INFO     | metric.Evaluation:get_PoseAUC:300 - common idx baseline shape (172,)
+2024-07-29 14:53:18.846 | INFO     | metric.Evaluation:get_PoseAUC:311 - common baseline pose errs shape (172, 2)
+2024-07-29 14:53:18.846 | INFO     | metric.Evaluation:get_PoseAUC:312 - common challenger pose errs shape (172, 2)
+2024-07-29 14:53:18.847 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (172,)
+2024-07-29 14:53:18.847 | INFO     | utils.geo:pose_auc:1059 - get (172,) errors
+2024-07-29 14:53:18.847 | SUCCESS  | metric.Evaluation:get_PoseAUC:319 - baseline pm pose auc: {'auc@5': 0.6397323730069424, 'auc@10': 0.7762471531864722, 'auc@20': 0.8606911610238959}
+2024-07-29 14:53:18.847 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (172,)
+2024-07-29 14:53:18.848 | INFO     | utils.geo:pose_auc:1059 - get (172,) errors
+2024-07-29 14:53:18.848 | SUCCESS  | metric.Evaluation:get_PoseAUC:324 - challenger a2pm_5.0 pose auc: {'auc@5': 0.6475517228845187, 'auc@10': 0.785526718593098, 'auc@20': 0.8704311046891163}
+2024-07-29 14:53:18.848 | SUCCESS  | metric.Evaluation:get_PoseAUC:326 - baseline error mean: [1.92937667 3.88625752]
+2024-07-29 14:53:18.848 | SUCCESS  | metric.Evaluation:get_PoseAUC:327 - challenger error mean: [2.77032439 3.74283967]
+2024-07-29 14:53:18.849 | CRITICAL | metric.Evaluation:run:352 - best phi: 3.5, best auc diff: 0.017445859746821335
+2024-07-29 14:53:18.849 | INFO     | metric.Evaluation:__init__:403 - Initialize the AM Evaluation with configs: {'root_path': '/opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res', 'name': 'am', 'AMP_Thd': [0.6, 0.7, 0.8], 'res_folder': 'ratios', 'AOR_post': '_aor.txt', 'ACR_post': '_acr.txt', 'file_name_post': '_ameval_names.txt', 'time_post': '_area_match_time.txt'}
+2024-07-29 14:53:18.859 | ERROR    | __main__:<module>:80 - AMEval failed: /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/am_aor.txt not found.
+2024-07-29 17:16:36.051 | SUCCESS  | metric.Evaluation:get_PoseAUC:240 - load baseline pm pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/pm_pose_errs.txt
+2024-07-29 17:16:36.051 | SUCCESS  | metric.Evaluation:get_PoseAUC:241 - load challenger a2pm_0.5 pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/a2pm-0.5_pose_errs.txt
+2024-07-29 17:16:36.052 | INFO     | metric.Evaluation:get_PoseAUC:263 - load baseline pm pose errors shape = (271, 2)
+2024-07-29 17:16:36.054 | INFO     | metric.Evaluation:get_PoseAUC:284 - load challenger a2pm pose errors shape = (271, 2)
+2024-07-29 17:16:36.055 | INFO     | metric.Evaluation:get_PoseAUC:288 - common name shape (271,)
+2024-07-29 17:16:36.062 | INFO     | metric.Evaluation:get_PoseAUC:300 - common idx baseline shape (271,)
+2024-07-29 17:16:36.062 | INFO     | metric.Evaluation:get_PoseAUC:311 - common baseline pose errs shape (271, 2)
+2024-07-29 17:16:36.063 | INFO     | metric.Evaluation:get_PoseAUC:312 - common challenger pose errs shape (271, 2)
+2024-07-29 17:16:36.063 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (271,)
+2024-07-29 17:16:36.063 | INFO     | utils.geo:pose_auc:1059 - get (271,) errors
+2024-07-29 17:16:36.063 | SUCCESS  | metric.Evaluation:get_PoseAUC:319 - baseline pm pose auc: {'auc@5': 0.6413240525094642, 'auc@10': 0.7738170434211997, 'auc@20': 0.8586209422999482}
+2024-07-29 17:16:36.064 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (271,)
+2024-07-29 17:16:36.064 | INFO     | utils.geo:pose_auc:1059 - get (271,) errors
+2024-07-29 17:16:36.064 | SUCCESS  | metric.Evaluation:get_PoseAUC:324 - challenger a2pm_0.5 pose auc: {'auc@5': 0.6383370506085598, 'auc@10': 0.7658134935375172, 'auc@20': 0.8502661135137115}
+2024-07-29 17:16:36.065 | SUCCESS  | metric.Evaluation:get_PoseAUC:326 - baseline error mean: [2.47978678 3.76987191]
+2024-07-29 17:16:36.065 | SUCCESS  | metric.Evaluation:get_PoseAUC:327 - challenger error mean: [2.64843517 3.84677958]
+2024-07-29 17:16:36.065 | SUCCESS  | metric.Evaluation:get_PoseAUC:240 - load baseline pm pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/pm_pose_errs.txt
+2024-07-29 17:16:36.065 | SUCCESS  | metric.Evaluation:get_PoseAUC:241 - load challenger a2pm_2.0 pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/a2pm-2.0_pose_errs.txt
+2024-07-29 17:16:36.067 | INFO     | metric.Evaluation:get_PoseAUC:263 - load baseline pm pose errors shape = (271, 2)
+2024-07-29 17:16:36.068 | INFO     | metric.Evaluation:get_PoseAUC:284 - load challenger a2pm pose errors shape = (271, 2)
+2024-07-29 17:16:36.069 | INFO     | metric.Evaluation:get_PoseAUC:288 - common name shape (271,)
+2024-07-29 17:16:36.076 | INFO     | metric.Evaluation:get_PoseAUC:300 - common idx baseline shape (271,)
+2024-07-29 17:16:36.076 | INFO     | metric.Evaluation:get_PoseAUC:311 - common baseline pose errs shape (271, 2)
+2024-07-29 17:16:36.076 | INFO     | metric.Evaluation:get_PoseAUC:312 - common challenger pose errs shape (271, 2)
+2024-07-29 17:16:36.077 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (271,)
+2024-07-29 17:16:36.077 | INFO     | utils.geo:pose_auc:1059 - get (271,) errors
+2024-07-29 17:16:36.077 | SUCCESS  | metric.Evaluation:get_PoseAUC:319 - baseline pm pose auc: {'auc@5': 0.6413240525094642, 'auc@10': 0.7738170434211997, 'auc@20': 0.8586209422999482}
+2024-07-29 17:16:36.077 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (271,)
+2024-07-29 17:16:36.078 | INFO     | utils.geo:pose_auc:1059 - get (271,) errors
+2024-07-29 17:16:36.078 | SUCCESS  | metric.Evaluation:get_PoseAUC:324 - challenger a2pm_2.0 pose auc: {'auc@5': 0.658428916698817, 'auc@10': 0.784732776836568, 'auc@20': 0.8683377574535245}
+2024-07-29 17:16:36.078 | SUCCESS  | metric.Evaluation:get_PoseAUC:326 - baseline error mean: [2.47978678 3.76987191]
+2024-07-29 17:16:36.078 | SUCCESS  | metric.Evaluation:get_PoseAUC:327 - challenger error mean: [1.93798569 3.34145815]
+2024-07-29 17:16:36.079 | SUCCESS  | metric.Evaluation:get_PoseAUC:240 - load baseline pm pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/pm_pose_errs.txt
+2024-07-29 17:16:36.079 | SUCCESS  | metric.Evaluation:get_PoseAUC:241 - load challenger a2pm_3.0 pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/a2pm-3.0_pose_errs.txt
+2024-07-29 17:16:36.080 | INFO     | metric.Evaluation:get_PoseAUC:263 - load baseline pm pose errors shape = (271, 2)
+2024-07-29 17:16:36.081 | INFO     | metric.Evaluation:get_PoseAUC:284 - load challenger a2pm pose errors shape = (271, 2)
+2024-07-29 17:16:36.082 | INFO     | metric.Evaluation:get_PoseAUC:288 - common name shape (271,)
+2024-07-29 17:16:36.090 | INFO     | metric.Evaluation:get_PoseAUC:300 - common idx baseline shape (271,)
+2024-07-29 17:16:36.090 | INFO     | metric.Evaluation:get_PoseAUC:311 - common baseline pose errs shape (271, 2)
+2024-07-29 17:16:36.090 | INFO     | metric.Evaluation:get_PoseAUC:312 - common challenger pose errs shape (271, 2)
+2024-07-29 17:16:36.090 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (271,)
+2024-07-29 17:16:36.090 | INFO     | utils.geo:pose_auc:1059 - get (271,) errors
+2024-07-29 17:16:36.091 | SUCCESS  | metric.Evaluation:get_PoseAUC:319 - baseline pm pose auc: {'auc@5': 0.6413240525094642, 'auc@10': 0.7738170434211997, 'auc@20': 0.8586209422999482}
+2024-07-29 17:16:36.091 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (271,)
+2024-07-29 17:16:36.091 | INFO     | utils.geo:pose_auc:1059 - get (271,) errors
+2024-07-29 17:16:36.091 | SUCCESS  | metric.Evaluation:get_PoseAUC:324 - challenger a2pm_3.0 pose auc: {'auc@5': 0.6327426779336366, 'auc@10': 0.7638514404175271, 'auc@20': 0.8528129299711518}
+2024-07-29 17:16:36.092 | SUCCESS  | metric.Evaluation:get_PoseAUC:326 - baseline error mean: [2.47978678 3.76987191]
+2024-07-29 17:16:36.092 | SUCCESS  | metric.Evaluation:get_PoseAUC:327 - challenger error mean: [2.82836449 4.29303898]
+2024-07-29 17:16:36.092 | SUCCESS  | metric.Evaluation:get_PoseAUC:240 - load baseline pm pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/pm_pose_errs.txt
+2024-07-29 17:16:36.092 | SUCCESS  | metric.Evaluation:get_PoseAUC:241 - load challenger a2pm_3.5 pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/a2pm-3.5_pose_errs.txt
+2024-07-29 17:16:36.094 | INFO     | metric.Evaluation:get_PoseAUC:263 - load baseline pm pose errors shape = (271, 2)
+2024-07-29 17:16:36.095 | INFO     | metric.Evaluation:get_PoseAUC:284 - load challenger a2pm pose errors shape = (271, 2)
+2024-07-29 17:16:36.096 | INFO     | metric.Evaluation:get_PoseAUC:288 - common name shape (271,)
+2024-07-29 17:16:36.103 | INFO     | metric.Evaluation:get_PoseAUC:300 - common idx baseline shape (271,)
+2024-07-29 17:16:36.103 | INFO     | metric.Evaluation:get_PoseAUC:311 - common baseline pose errs shape (271, 2)
+2024-07-29 17:16:36.103 | INFO     | metric.Evaluation:get_PoseAUC:312 - common challenger pose errs shape (271, 2)
+2024-07-29 17:16:36.104 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (271,)
+2024-07-29 17:16:36.104 | INFO     | utils.geo:pose_auc:1059 - get (271,) errors
+2024-07-29 17:16:36.104 | SUCCESS  | metric.Evaluation:get_PoseAUC:319 - baseline pm pose auc: {'auc@5': 0.6413240525094642, 'auc@10': 0.7738170434211997, 'auc@20': 0.8586209422999482}
+2024-07-29 17:16:36.104 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (271,)
+2024-07-29 17:16:36.104 | INFO     | utils.geo:pose_auc:1059 - get (271,) errors
+2024-07-29 17:16:36.105 | SUCCESS  | metric.Evaluation:get_PoseAUC:324 - challenger a2pm_3.5 pose auc: {'auc@5': 0.6564024357823823, 'auc@10': 0.7798254053044767, 'auc@20': 0.8613757908645348}
+2024-07-29 17:16:36.105 | SUCCESS  | metric.Evaluation:get_PoseAUC:326 - baseline error mean: [2.47978678 3.76987191]
+2024-07-29 17:16:36.105 | SUCCESS  | metric.Evaluation:get_PoseAUC:327 - challenger error mean: [2.14920276 3.67713487]
+2024-07-29 17:16:36.105 | SUCCESS  | metric.Evaluation:get_PoseAUC:240 - load baseline pm pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/pm_pose_errs.txt
+2024-07-29 17:16:36.106 | SUCCESS  | metric.Evaluation:get_PoseAUC:241 - load challenger a2pm_5.0 pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/a2pm-5.0_pose_errs.txt
+2024-07-29 17:16:36.107 | INFO     | metric.Evaluation:get_PoseAUC:263 - load baseline pm pose errors shape = (271, 2)
+2024-07-29 17:16:36.108 | INFO     | metric.Evaluation:get_PoseAUC:284 - load challenger a2pm pose errors shape = (271, 2)
+2024-07-29 17:16:36.109 | INFO     | metric.Evaluation:get_PoseAUC:288 - common name shape (271,)
+2024-07-29 17:16:36.116 | INFO     | metric.Evaluation:get_PoseAUC:300 - common idx baseline shape (271,)
+2024-07-29 17:16:36.117 | INFO     | metric.Evaluation:get_PoseAUC:311 - common baseline pose errs shape (271, 2)
+2024-07-29 17:16:36.117 | INFO     | metric.Evaluation:get_PoseAUC:312 - common challenger pose errs shape (271, 2)
+2024-07-29 17:16:36.117 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (271,)
+2024-07-29 17:16:36.117 | INFO     | utils.geo:pose_auc:1059 - get (271,) errors
+2024-07-29 17:16:36.118 | SUCCESS  | metric.Evaluation:get_PoseAUC:319 - baseline pm pose auc: {'auc@5': 0.6413240525094642, 'auc@10': 0.7738170434211997, 'auc@20': 0.8586209422999482}
+2024-07-29 17:16:36.118 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (271,)
+2024-07-29 17:16:36.118 | INFO     | utils.geo:pose_auc:1059 - get (271,) errors
+2024-07-29 17:16:36.118 | SUCCESS  | metric.Evaluation:get_PoseAUC:324 - challenger a2pm_5.0 pose auc: {'auc@5': 0.6469132201867784, 'auc@10': 0.779345517669882, 'auc@20': 0.862513140382261}
+2024-07-29 17:16:36.119 | SUCCESS  | metric.Evaluation:get_PoseAUC:326 - baseline error mean: [2.47978678 3.76987191]
+2024-07-29 17:16:36.119 | SUCCESS  | metric.Evaluation:get_PoseAUC:327 - challenger error mean: [2.65829805 3.93523792]
+2024-07-29 17:16:36.119 | CRITICAL | metric.Evaluation:run:352 - best phi: 2.0, best auc diff: 0.012579137586099076
+2024-07-29 17:16:36.119 | INFO     | metric.Evaluation:__init__:403 - Initialize the AM Evaluation with configs: {'root_path': '/opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res', 'name': 'am', 'AMP_Thd': [0.6, 0.7, 0.8], 'res_folder': 'ratios', 'AOR_post': '_aor.txt', 'ACR_post': '_acr.txt', 'file_name_post': '_ameval_names.txt', 'time_post': '_area_match_time.txt'}
+2024-07-29 17:16:36.130 | ERROR    | __main__:<module>:80 - AMEval failed: /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/am_aor.txt not found.
+2024-07-29 17:31:15.905 | SUCCESS  | metric.Evaluation:get_PoseAUC:240 - load baseline pm pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/pm_pose_errs.txt
+2024-07-29 17:31:15.905 | SUCCESS  | metric.Evaluation:get_PoseAUC:241 - load challenger a2pm_0.5 pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/a2pm-0.5_pose_errs.txt
+2024-07-29 17:31:15.907 | INFO     | metric.Evaluation:get_PoseAUC:263 - load baseline pm pose errors shape = (282, 2)
+2024-07-29 17:31:15.908 | INFO     | metric.Evaluation:get_PoseAUC:284 - load challenger a2pm pose errors shape = (282, 2)
+2024-07-29 17:31:15.909 | INFO     | metric.Evaluation:get_PoseAUC:288 - common name shape (282,)
+2024-07-29 17:31:15.918 | INFO     | metric.Evaluation:get_PoseAUC:300 - common idx baseline shape (282,)
+2024-07-29 17:31:15.918 | INFO     | metric.Evaluation:get_PoseAUC:311 - common baseline pose errs shape (282, 2)
+2024-07-29 17:31:15.918 | INFO     | metric.Evaluation:get_PoseAUC:312 - common challenger pose errs shape (282, 2)
+2024-07-29 17:31:15.919 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (282,)
+2024-07-29 17:31:15.919 | INFO     | utils.geo:pose_auc:1059 - get (282,) errors
+2024-07-29 17:31:15.919 | SUCCESS  | metric.Evaluation:get_PoseAUC:319 - baseline pm pose auc: {'auc@5': 0.6415370448841713, 'auc@10': 0.7739777765275919, 'auc@20': 0.8580316754259002}
+2024-07-29 17:31:15.919 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (282,)
+2024-07-29 17:31:15.920 | INFO     | utils.geo:pose_auc:1059 - get (282,) errors
+2024-07-29 17:31:15.920 | SUCCESS  | metric.Evaluation:get_PoseAUC:324 - challenger a2pm_0.5 pose auc: {'auc@5': 0.6391092440123032, 'auc@10': 0.766507765237383, 'auc@20': 0.8501134159090542}
+2024-07-29 17:31:15.920 | SUCCESS  | metric.Evaluation:get_PoseAUC:326 - baseline error mean: [2.42333914 3.80514268]
+2024-07-29 17:31:15.921 | SUCCESS  | metric.Evaluation:get_PoseAUC:327 - challenger error mean: [2.58505711 3.87614473]
+2024-07-29 17:31:15.921 | SUCCESS  | metric.Evaluation:get_PoseAUC:240 - load baseline pm pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/pm_pose_errs.txt
+2024-07-29 17:31:15.921 | SUCCESS  | metric.Evaluation:get_PoseAUC:241 - load challenger a2pm_2.0 pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/a2pm-2.0_pose_errs.txt
+2024-07-29 17:31:15.922 | INFO     | metric.Evaluation:get_PoseAUC:263 - load baseline pm pose errors shape = (282, 2)
+2024-07-29 17:31:15.924 | INFO     | metric.Evaluation:get_PoseAUC:284 - load challenger a2pm pose errors shape = (282, 2)
+2024-07-29 17:31:15.924 | INFO     | metric.Evaluation:get_PoseAUC:288 - common name shape (282,)
+2024-07-29 17:31:15.933 | INFO     | metric.Evaluation:get_PoseAUC:300 - common idx baseline shape (282,)
+2024-07-29 17:31:15.933 | INFO     | metric.Evaluation:get_PoseAUC:311 - common baseline pose errs shape (282, 2)
+2024-07-29 17:31:15.933 | INFO     | metric.Evaluation:get_PoseAUC:312 - common challenger pose errs shape (282, 2)
+2024-07-29 17:31:15.933 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (282,)
+2024-07-29 17:31:15.933 | INFO     | utils.geo:pose_auc:1059 - get (282,) errors
+2024-07-29 17:31:15.934 | SUCCESS  | metric.Evaluation:get_PoseAUC:319 - baseline pm pose auc: {'auc@5': 0.6415370448841713, 'auc@10': 0.7739777765275919, 'auc@20': 0.8580316754259002}
+2024-07-29 17:31:15.934 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (282,)
+2024-07-29 17:31:15.934 | INFO     | utils.geo:pose_auc:1059 - get (282,) errors
+2024-07-29 17:31:15.934 | SUCCESS  | metric.Evaluation:get_PoseAUC:324 - challenger a2pm_2.0 pose auc: {'auc@5': 0.6619789650343672, 'auc@10': 0.7882429020562624, 'auc@20': 0.8710301070868196}
+2024-07-29 17:31:15.935 | SUCCESS  | metric.Evaluation:get_PoseAUC:326 - baseline error mean: [2.42333914 3.80514268]
+2024-07-29 17:31:15.935 | SUCCESS  | metric.Evaluation:get_PoseAUC:327 - challenger error mean: [1.88419748 3.25842951]
+2024-07-29 17:31:15.935 | SUCCESS  | metric.Evaluation:get_PoseAUC:240 - load baseline pm pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/pm_pose_errs.txt
+2024-07-29 17:31:15.935 | SUCCESS  | metric.Evaluation:get_PoseAUC:241 - load challenger a2pm_3.0 pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/a2pm-3.0_pose_errs.txt
+2024-07-29 17:31:15.937 | INFO     | metric.Evaluation:get_PoseAUC:263 - load baseline pm pose errors shape = (282, 2)
+2024-07-29 17:31:15.938 | INFO     | metric.Evaluation:get_PoseAUC:284 - load challenger a2pm pose errors shape = (282, 2)
+2024-07-29 17:31:15.939 | INFO     | metric.Evaluation:get_PoseAUC:288 - common name shape (282,)
+2024-07-29 17:31:15.947 | INFO     | metric.Evaluation:get_PoseAUC:300 - common idx baseline shape (282,)
+2024-07-29 17:31:15.947 | INFO     | metric.Evaluation:get_PoseAUC:311 - common baseline pose errs shape (282, 2)
+2024-07-29 17:31:15.947 | INFO     | metric.Evaluation:get_PoseAUC:312 - common challenger pose errs shape (282, 2)
+2024-07-29 17:31:15.947 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (282,)
+2024-07-29 17:31:15.947 | INFO     | utils.geo:pose_auc:1059 - get (282,) errors
+2024-07-29 17:31:15.948 | SUCCESS  | metric.Evaluation:get_PoseAUC:319 - baseline pm pose auc: {'auc@5': 0.6415370448841713, 'auc@10': 0.7739777765275919, 'auc@20': 0.8580316754259002}
+2024-07-29 17:31:15.948 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (282,)
+2024-07-29 17:31:15.948 | INFO     | utils.geo:pose_auc:1059 - get (282,) errors
+2024-07-29 17:31:15.949 | SUCCESS  | metric.Evaluation:get_PoseAUC:324 - challenger a2pm_3.0 pose auc: {'auc@5': 0.6337933010121952, 'auc@10': 0.7655882304344299, 'auc@20': 0.8548169302725597}
+2024-07-29 17:31:15.949 | SUCCESS  | metric.Evaluation:get_PoseAUC:326 - baseline error mean: [2.42333914 3.80514268]
+2024-07-29 17:31:15.949 | SUCCESS  | metric.Evaluation:get_PoseAUC:327 - challenger error mean: [2.7621305  4.18933408]
+2024-07-29 17:31:15.950 | SUCCESS  | metric.Evaluation:get_PoseAUC:240 - load baseline pm pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/pm_pose_errs.txt
+2024-07-29 17:31:15.950 | SUCCESS  | metric.Evaluation:get_PoseAUC:241 - load challenger a2pm_3.5 pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/a2pm-3.5_pose_errs.txt
+2024-07-29 17:31:15.952 | INFO     | metric.Evaluation:get_PoseAUC:263 - load baseline pm pose errors shape = (282, 2)
+2024-07-29 17:31:15.954 | INFO     | metric.Evaluation:get_PoseAUC:284 - load challenger a2pm pose errors shape = (282, 2)
+2024-07-29 17:31:15.954 | INFO     | metric.Evaluation:get_PoseAUC:288 - common name shape (282,)
+2024-07-29 17:31:15.962 | INFO     | metric.Evaluation:get_PoseAUC:300 - common idx baseline shape (282,)
+2024-07-29 17:31:15.962 | INFO     | metric.Evaluation:get_PoseAUC:311 - common baseline pose errs shape (282, 2)
+2024-07-29 17:31:15.963 | INFO     | metric.Evaluation:get_PoseAUC:312 - common challenger pose errs shape (282, 2)
+2024-07-29 17:31:15.963 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (282,)
+2024-07-29 17:31:15.963 | INFO     | utils.geo:pose_auc:1059 - get (282,) errors
+2024-07-29 17:31:15.963 | SUCCESS  | metric.Evaluation:get_PoseAUC:319 - baseline pm pose auc: {'auc@5': 0.6415370448841713, 'auc@10': 0.7739777765275919, 'auc@20': 0.8580316754259002}
+2024-07-29 17:31:15.964 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (282,)
+2024-07-29 17:31:15.964 | INFO     | utils.geo:pose_auc:1059 - get (282,) errors
+2024-07-29 17:31:15.964 | SUCCESS  | metric.Evaluation:get_PoseAUC:324 - challenger a2pm_3.5 pose auc: {'auc@5': 0.6598318466729978, 'auc@10': 0.7816540608861456, 'auc@20': 0.8619530782154025}
+2024-07-29 17:31:15.964 | SUCCESS  | metric.Evaluation:get_PoseAUC:326 - baseline error mean: [2.42333914 3.80514268]
+2024-07-29 17:31:15.965 | SUCCESS  | metric.Evaluation:get_PoseAUC:327 - challenger error mean: [2.09208392 3.63288597]
+2024-07-29 17:31:15.965 | SUCCESS  | metric.Evaluation:get_PoseAUC:240 - load baseline pm pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/pm_pose_errs.txt
+2024-07-29 17:31:15.965 | SUCCESS  | metric.Evaluation:get_PoseAUC:241 - load challenger a2pm_5.0 pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/a2pm-5.0_pose_errs.txt
+2024-07-29 17:31:15.966 | INFO     | metric.Evaluation:get_PoseAUC:263 - load baseline pm pose errors shape = (282, 2)
+2024-07-29 17:31:15.968 | INFO     | metric.Evaluation:get_PoseAUC:284 - load challenger a2pm pose errors shape = (282, 2)
+2024-07-29 17:31:15.968 | INFO     | metric.Evaluation:get_PoseAUC:288 - common name shape (282,)
+2024-07-29 17:31:15.977 | INFO     | metric.Evaluation:get_PoseAUC:300 - common idx baseline shape (282,)
+2024-07-29 17:31:15.978 | INFO     | metric.Evaluation:get_PoseAUC:311 - common baseline pose errs shape (282, 2)
+2024-07-29 17:31:15.978 | INFO     | metric.Evaluation:get_PoseAUC:312 - common challenger pose errs shape (282, 2)
+2024-07-29 17:31:15.978 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (282,)
+2024-07-29 17:31:15.978 | INFO     | utils.geo:pose_auc:1059 - get (282,) errors
+2024-07-29 17:31:15.979 | SUCCESS  | metric.Evaluation:get_PoseAUC:319 - baseline pm pose auc: {'auc@5': 0.6415370448841713, 'auc@10': 0.7739777765275919, 'auc@20': 0.8580316754259002}
+2024-07-29 17:31:15.979 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (282,)
+2024-07-29 17:31:15.979 | INFO     | utils.geo:pose_auc:1059 - get (282,) errors
+2024-07-29 17:31:15.979 | SUCCESS  | metric.Evaluation:get_PoseAUC:324 - challenger a2pm_5.0 pose auc: {'auc@5': 0.6494198180862909, 'auc@10': 0.7797571790335659, 'auc@20': 0.8628197257026604}
+2024-07-29 17:31:15.980 | SUCCESS  | metric.Evaluation:get_PoseAUC:326 - baseline error mean: [2.42333914 3.80514268]
+2024-07-29 17:31:15.980 | SUCCESS  | metric.Evaluation:get_PoseAUC:327 - challenger error mean: [2.59720577 3.87167823]
+2024-07-29 17:31:15.980 | CRITICAL | metric.Evaluation:run:352 - best phi: 2.0, best auc diff: 0.015901825779928564
+2024-07-29 17:31:15.980 | INFO     | metric.Evaluation:__init__:403 - Initialize the AM Evaluation with configs: {'root_path': '/opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res', 'name': 'am', 'AMP_Thd': [0.6, 0.7, 0.8], 'res_folder': 'ratios', 'AOR_post': '_aor.txt', 'ACR_post': '_acr.txt', 'file_name_post': '_ameval_names.txt', 'time_post': '_area_match_time.txt'}
+2024-07-29 17:31:15.992 | ERROR    | __main__:<module>:80 - AMEval failed: /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/am_aor.txt not found.
+2024-07-29 20:52:17.026 | SUCCESS  | metric.Evaluation:get_PoseAUC:240 - load baseline pm pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/pm_pose_errs.txt
+2024-07-29 20:52:17.027 | SUCCESS  | metric.Evaluation:get_PoseAUC:241 - load challenger a2pm_0.5 pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/a2pm-0.5_pose_errs.txt
+2024-07-29 20:52:17.030 | INFO     | metric.Evaluation:get_PoseAUC:263 - load baseline pm pose errors shape = (444, 2)
+2024-07-29 20:52:17.033 | INFO     | metric.Evaluation:get_PoseAUC:284 - load challenger a2pm pose errors shape = (444, 2)
+2024-07-29 20:52:17.034 | INFO     | metric.Evaluation:get_PoseAUC:288 - common name shape (444,)
+2024-07-29 20:52:17.048 | INFO     | metric.Evaluation:get_PoseAUC:300 - common idx baseline shape (444,)
+2024-07-29 20:52:17.048 | INFO     | metric.Evaluation:get_PoseAUC:311 - common baseline pose errs shape (444, 2)
+2024-07-29 20:52:17.048 | INFO     | metric.Evaluation:get_PoseAUC:312 - common challenger pose errs shape (444, 2)
+2024-07-29 20:52:17.048 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (444,)
+2024-07-29 20:52:17.049 | INFO     | utils.geo:pose_auc:1059 - get (444,) errors
+2024-07-29 20:52:17.049 | SUCCESS  | metric.Evaluation:get_PoseAUC:319 - baseline pm pose auc: {'auc@5': 0.6624597683187036, 'auc@10': 0.7918372059379934, 'auc@20': 0.8727867184141456}
+2024-07-29 20:52:17.049 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (444,)
+2024-07-29 20:52:17.049 | INFO     | utils.geo:pose_auc:1059 - get (444,) errors
+2024-07-29 20:52:17.050 | SUCCESS  | metric.Evaluation:get_PoseAUC:324 - challenger a2pm_0.5 pose auc: {'auc@5': 0.6634093671031581, 'auc@10': 0.7885199147201319, 'auc@20': 0.8689096648923151}
+2024-07-29 20:52:17.050 | SUCCESS  | metric.Evaluation:get_PoseAUC:326 - baseline error mean: [2.04387684 3.28767407]
+2024-07-29 20:52:17.051 | SUCCESS  | metric.Evaluation:get_PoseAUC:327 - challenger error mean: [2.13000483 3.30968729]
+2024-07-29 20:52:17.051 | SUCCESS  | metric.Evaluation:get_PoseAUC:240 - load baseline pm pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/pm_pose_errs.txt
+2024-07-29 20:52:17.051 | SUCCESS  | metric.Evaluation:get_PoseAUC:241 - load challenger a2pm_2.0 pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/a2pm-2.0_pose_errs.txt
+2024-07-29 20:52:17.054 | INFO     | metric.Evaluation:get_PoseAUC:263 - load baseline pm pose errors shape = (444, 2)
+2024-07-29 20:52:17.056 | INFO     | metric.Evaluation:get_PoseAUC:284 - load challenger a2pm pose errors shape = (444, 2)
+2024-07-29 20:52:17.057 | INFO     | metric.Evaluation:get_PoseAUC:288 - common name shape (444,)
+2024-07-29 20:52:17.072 | INFO     | metric.Evaluation:get_PoseAUC:300 - common idx baseline shape (444,)
+2024-07-29 20:52:17.072 | INFO     | metric.Evaluation:get_PoseAUC:311 - common baseline pose errs shape (444, 2)
+2024-07-29 20:52:17.072 | INFO     | metric.Evaluation:get_PoseAUC:312 - common challenger pose errs shape (444, 2)
+2024-07-29 20:52:17.072 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (444,)
+2024-07-29 20:52:17.072 | INFO     | utils.geo:pose_auc:1059 - get (444,) errors
+2024-07-29 20:52:17.073 | SUCCESS  | metric.Evaluation:get_PoseAUC:319 - baseline pm pose auc: {'auc@5': 0.6624597683187036, 'auc@10': 0.7918372059379934, 'auc@20': 0.8727867184141456}
+2024-07-29 20:52:17.073 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (444,)
+2024-07-29 20:52:17.073 | INFO     | utils.geo:pose_auc:1059 - get (444,) errors
+2024-07-29 20:52:17.074 | SUCCESS  | metric.Evaluation:get_PoseAUC:324 - challenger a2pm_2.0 pose auc: {'auc@5': 0.691966671861633, 'auc@10': 0.8119828200288974, 'auc@20': 0.8874303989159668}
+2024-07-29 20:52:17.074 | SUCCESS  | metric.Evaluation:get_PoseAUC:326 - baseline error mean: [2.04387684 3.28767407]
+2024-07-29 20:52:17.074 | SUCCESS  | metric.Evaluation:get_PoseAUC:327 - challenger error mean: [1.63369795 2.82941267]
+2024-07-29 20:52:17.074 | SUCCESS  | metric.Evaluation:get_PoseAUC:240 - load baseline pm pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/pm_pose_errs.txt
+2024-07-29 20:52:17.074 | SUCCESS  | metric.Evaluation:get_PoseAUC:241 - load challenger a2pm_3.0 pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/a2pm-3.0_pose_errs.txt
+2024-07-29 20:52:17.077 | INFO     | metric.Evaluation:get_PoseAUC:263 - load baseline pm pose errors shape = (444, 2)
+2024-07-29 20:52:17.080 | INFO     | metric.Evaluation:get_PoseAUC:284 - load challenger a2pm pose errors shape = (444, 2)
+2024-07-29 20:52:17.081 | INFO     | metric.Evaluation:get_PoseAUC:288 - common name shape (444,)
+2024-07-29 20:52:17.094 | INFO     | metric.Evaluation:get_PoseAUC:300 - common idx baseline shape (444,)
+2024-07-29 20:52:17.095 | INFO     | metric.Evaluation:get_PoseAUC:311 - common baseline pose errs shape (444, 2)
+2024-07-29 20:52:17.095 | INFO     | metric.Evaluation:get_PoseAUC:312 - common challenger pose errs shape (444, 2)
+2024-07-29 20:52:17.095 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (444,)
+2024-07-29 20:52:17.095 | INFO     | utils.geo:pose_auc:1059 - get (444,) errors
+2024-07-29 20:52:17.096 | SUCCESS  | metric.Evaluation:get_PoseAUC:319 - baseline pm pose auc: {'auc@5': 0.6624597683187036, 'auc@10': 0.7918372059379934, 'auc@20': 0.8727867184141456}
+2024-07-29 20:52:17.096 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (444,)
+2024-07-29 20:52:17.096 | INFO     | utils.geo:pose_auc:1059 - get (444,) errors
+2024-07-29 20:52:17.096 | SUCCESS  | metric.Evaluation:get_PoseAUC:324 - challenger a2pm_3.0 pose auc: {'auc@5': 0.6712732120697338, 'auc@10': 0.7933592716232084, 'auc@20': 0.8727658361664478}
+2024-07-29 20:52:17.097 | SUCCESS  | metric.Evaluation:get_PoseAUC:326 - baseline error mean: [2.04387684 3.28767407]
+2024-07-29 20:52:17.097 | SUCCESS  | metric.Evaluation:get_PoseAUC:327 - challenger error mean: [2.24055027 3.50418367]
+2024-07-29 20:52:17.097 | SUCCESS  | metric.Evaluation:get_PoseAUC:240 - load baseline pm pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/pm_pose_errs.txt
+2024-07-29 20:52:17.097 | SUCCESS  | metric.Evaluation:get_PoseAUC:241 - load challenger a2pm_3.5 pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/a2pm-3.5_pose_errs.txt
+2024-07-29 20:52:17.100 | INFO     | metric.Evaluation:get_PoseAUC:263 - load baseline pm pose errors shape = (444, 2)
+2024-07-29 20:52:17.103 | INFO     | metric.Evaluation:get_PoseAUC:284 - load challenger a2pm pose errors shape = (444, 2)
+2024-07-29 20:52:17.104 | INFO     | metric.Evaluation:get_PoseAUC:288 - common name shape (444,)
+2024-07-29 20:52:17.117 | INFO     | metric.Evaluation:get_PoseAUC:300 - common idx baseline shape (444,)
+2024-07-29 20:52:17.118 | INFO     | metric.Evaluation:get_PoseAUC:311 - common baseline pose errs shape (444, 2)
+2024-07-29 20:52:17.118 | INFO     | metric.Evaluation:get_PoseAUC:312 - common challenger pose errs shape (444, 2)
+2024-07-29 20:52:17.118 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (444,)
+2024-07-29 20:52:17.118 | INFO     | utils.geo:pose_auc:1059 - get (444,) errors
+2024-07-29 20:52:17.119 | SUCCESS  | metric.Evaluation:get_PoseAUC:319 - baseline pm pose auc: {'auc@5': 0.6624597683187036, 'auc@10': 0.7918372059379934, 'auc@20': 0.8727867184141456}
+2024-07-29 20:52:17.119 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (444,)
+2024-07-29 20:52:17.119 | INFO     | utils.geo:pose_auc:1059 - get (444,) errors
+2024-07-29 20:52:17.119 | SUCCESS  | metric.Evaluation:get_PoseAUC:324 - challenger a2pm_3.5 pose auc: {'auc@5': 0.6919528620186626, 'auc@10': 0.8072457889556659, 'auc@20': 0.8822362281989632}
+2024-07-29 20:52:17.120 | SUCCESS  | metric.Evaluation:get_PoseAUC:326 - baseline error mean: [2.04387684 3.28767407]
+2024-07-29 20:52:17.120 | SUCCESS  | metric.Evaluation:get_PoseAUC:327 - challenger error mean: [1.73626782 3.0486014 ]
+2024-07-29 20:52:17.120 | SUCCESS  | metric.Evaluation:get_PoseAUC:240 - load baseline pm pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/pm_pose_errs.txt
+2024-07-29 20:52:17.120 | SUCCESS  | metric.Evaluation:get_PoseAUC:241 - load challenger a2pm_5.0 pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/a2pm-5.0_pose_errs.txt
+2024-07-29 20:52:17.124 | INFO     | metric.Evaluation:get_PoseAUC:263 - load baseline pm pose errors shape = (444, 2)
+2024-07-29 20:52:17.127 | INFO     | metric.Evaluation:get_PoseAUC:284 - load challenger a2pm pose errors shape = (444, 2)
+2024-07-29 20:52:17.128 | INFO     | metric.Evaluation:get_PoseAUC:288 - common name shape (444,)
+2024-07-29 20:52:17.142 | INFO     | metric.Evaluation:get_PoseAUC:300 - common idx baseline shape (444,)
+2024-07-29 20:52:17.142 | INFO     | metric.Evaluation:get_PoseAUC:311 - common baseline pose errs shape (444, 2)
+2024-07-29 20:52:17.142 | INFO     | metric.Evaluation:get_PoseAUC:312 - common challenger pose errs shape (444, 2)
+2024-07-29 20:52:17.143 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (444,)
+2024-07-29 20:52:17.143 | INFO     | utils.geo:pose_auc:1059 - get (444,) errors
+2024-07-29 20:52:17.143 | SUCCESS  | metric.Evaluation:get_PoseAUC:319 - baseline pm pose auc: {'auc@5': 0.6624597683187036, 'auc@10': 0.7918372059379934, 'auc@20': 0.8727867184141456}
+2024-07-29 20:52:17.144 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (444,)
+2024-07-29 20:52:17.144 | INFO     | utils.geo:pose_auc:1059 - get (444,) errors
+2024-07-29 20:52:17.144 | SUCCESS  | metric.Evaluation:get_PoseAUC:324 - challenger a2pm_5.0 pose auc: {'auc@5': 0.6797806126958184, 'auc@10': 0.8020352296717294, 'auc@20': 0.8806012114888546}
+2024-07-29 20:52:17.144 | SUCCESS  | metric.Evaluation:get_PoseAUC:326 - baseline error mean: [2.04387684 3.28767407]
+2024-07-29 20:52:17.145 | SUCCESS  | metric.Evaluation:get_PoseAUC:327 - challenger error mean: [2.05626208 3.24410985]
+2024-07-29 20:52:17.145 | CRITICAL | metric.Evaluation:run:352 - best phi: 2.0, best auc diff: 0.02143206604521819
+2024-07-29 20:52:17.145 | INFO     | metric.Evaluation:__init__:403 - Initialize the AM Evaluation with configs: {'root_path': '/opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res', 'name': 'am', 'AMP_Thd': [0.6, 0.7, 0.8], 'res_folder': 'ratios', 'AOR_post': '_aor.txt', 'ACR_post': '_acr.txt', 'file_name_post': '_ameval_names.txt', 'time_post': '_area_match_time.txt'}
+2024-07-29 20:52:17.156 | ERROR    | __main__:<module>:80 - AMEval failed: /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/am_aor.txt not found.
+2024-07-30 14:31:32.057 | SUCCESS  | metric.Evaluation:get_PoseAUC:240 - load baseline pm pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/pm_pose_errs.txt
+2024-07-30 14:31:32.057 | SUCCESS  | metric.Evaluation:get_PoseAUC:241 - load challenger a2pm_0.5 pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/a2pm-0.5_pose_errs.txt
+2024-07-30 14:31:32.073 | INFO     | metric.Evaluation:get_PoseAUC:263 - load baseline pm pose errors shape = (1254, 2)
+2024-07-30 14:31:32.089 | INFO     | metric.Evaluation:get_PoseAUC:284 - load challenger a2pm pose errors shape = (1254, 2)
+2024-07-30 14:31:32.092 | INFO     | metric.Evaluation:get_PoseAUC:288 - common name shape (1254,)
+2024-07-30 14:31:32.173 | INFO     | metric.Evaluation:get_PoseAUC:300 - common idx baseline shape (1254,)
+2024-07-30 14:31:32.173 | INFO     | metric.Evaluation:get_PoseAUC:311 - common baseline pose errs shape (1254, 2)
+2024-07-30 14:31:32.173 | INFO     | metric.Evaluation:get_PoseAUC:312 - common challenger pose errs shape (1254, 2)
+2024-07-30 14:31:32.174 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (1254,)
+2024-07-30 14:31:32.174 | INFO     | utils.geo:pose_auc:1059 - get (1254,) errors
+2024-07-30 14:31:32.174 | SUCCESS  | metric.Evaluation:get_PoseAUC:319 - baseline pm pose auc: {'auc@5': 0.6669067593188405, 'auc@10': 0.7945113951501162, 'auc@20': 0.8766779875258743}
+2024-07-30 14:31:32.175 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (1254,)
+2024-07-30 14:31:32.175 | INFO     | utils.geo:pose_auc:1059 - get (1254,) errors
+2024-07-30 14:31:32.175 | SUCCESS  | metric.Evaluation:get_PoseAUC:324 - challenger a2pm_0.5 pose auc: {'auc@5': 0.671785652156079, 'auc@10': 0.7986298235092217, 'auc@20': 0.8799041041460495}
+2024-07-30 14:31:32.176 | SUCCESS  | metric.Evaluation:get_PoseAUC:326 - baseline error mean: [1.62749644 3.33718485]
+2024-07-30 14:31:32.176 | SUCCESS  | metric.Evaluation:get_PoseAUC:327 - challenger error mean: [1.63848101 3.24926421]
+2024-07-30 14:31:32.176 | SUCCESS  | metric.Evaluation:get_PoseAUC:240 - load baseline pm pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/pm_pose_errs.txt
+2024-07-30 14:31:32.176 | SUCCESS  | metric.Evaluation:get_PoseAUC:241 - load challenger a2pm_2.0 pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/a2pm-2.0_pose_errs.txt
+2024-07-30 14:31:32.193 | INFO     | metric.Evaluation:get_PoseAUC:263 - load baseline pm pose errors shape = (1254, 2)
+2024-07-30 14:31:32.209 | INFO     | metric.Evaluation:get_PoseAUC:284 - load challenger a2pm pose errors shape = (1254, 2)
+2024-07-30 14:31:32.212 | INFO     | metric.Evaluation:get_PoseAUC:288 - common name shape (1254,)
+2024-07-30 14:31:32.279 | INFO     | metric.Evaluation:get_PoseAUC:300 - common idx baseline shape (1254,)
+2024-07-30 14:31:32.280 | INFO     | metric.Evaluation:get_PoseAUC:311 - common baseline pose errs shape (1254, 2)
+2024-07-30 14:31:32.280 | INFO     | metric.Evaluation:get_PoseAUC:312 - common challenger pose errs shape (1254, 2)
+2024-07-30 14:31:32.280 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (1254,)
+2024-07-30 14:31:32.281 | INFO     | utils.geo:pose_auc:1059 - get (1254,) errors
+2024-07-30 14:31:32.281 | SUCCESS  | metric.Evaluation:get_PoseAUC:319 - baseline pm pose auc: {'auc@5': 0.6669067593188405, 'auc@10': 0.7945113951501162, 'auc@20': 0.8766779875258743}
+2024-07-30 14:31:32.281 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (1254,)
+2024-07-30 14:31:32.282 | INFO     | utils.geo:pose_auc:1059 - get (1254,) errors
+2024-07-30 14:31:32.282 | SUCCESS  | metric.Evaluation:get_PoseAUC:324 - challenger a2pm_2.0 pose auc: {'auc@5': 0.6771195209832663, 'auc@10': 0.8021497793405714, 'auc@20': 0.8822305656407489}
+2024-07-30 14:31:32.282 | SUCCESS  | metric.Evaluation:get_PoseAUC:326 - baseline error mean: [1.62749644 3.33718485]
+2024-07-30 14:31:32.283 | SUCCESS  | metric.Evaluation:get_PoseAUC:327 - challenger error mean: [1.25967921 3.02513669]
+2024-07-30 14:31:32.283 | SUCCESS  | metric.Evaluation:get_PoseAUC:240 - load baseline pm pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/pm_pose_errs.txt
+2024-07-30 14:31:32.283 | SUCCESS  | metric.Evaluation:get_PoseAUC:241 - load challenger a2pm_3.0 pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/a2pm-3.0_pose_errs.txt
+2024-07-30 14:31:32.299 | INFO     | metric.Evaluation:get_PoseAUC:263 - load baseline pm pose errors shape = (1254, 2)
+2024-07-30 14:31:32.315 | INFO     | metric.Evaluation:get_PoseAUC:284 - load challenger a2pm pose errors shape = (1254, 2)
+2024-07-30 14:31:32.318 | INFO     | metric.Evaluation:get_PoseAUC:288 - common name shape (1254,)
+2024-07-30 14:31:32.382 | INFO     | metric.Evaluation:get_PoseAUC:300 - common idx baseline shape (1254,)
+2024-07-30 14:31:32.383 | INFO     | metric.Evaluation:get_PoseAUC:311 - common baseline pose errs shape (1254, 2)
+2024-07-30 14:31:32.383 | INFO     | metric.Evaluation:get_PoseAUC:312 - common challenger pose errs shape (1254, 2)
+2024-07-30 14:31:32.383 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (1254,)
+2024-07-30 14:31:32.383 | INFO     | utils.geo:pose_auc:1059 - get (1254,) errors
+2024-07-30 14:31:32.384 | SUCCESS  | metric.Evaluation:get_PoseAUC:319 - baseline pm pose auc: {'auc@5': 0.6669067593188405, 'auc@10': 0.7945113951501162, 'auc@20': 0.8766779875258743}
+2024-07-30 14:31:32.384 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (1254,)
+2024-07-30 14:31:32.384 | INFO     | utils.geo:pose_auc:1059 - get (1254,) errors
+2024-07-30 14:31:32.385 | SUCCESS  | metric.Evaluation:get_PoseAUC:324 - challenger a2pm_3.0 pose auc: {'auc@5': 0.6678653328017152, 'auc@10': 0.794991427812212, 'auc@20': 0.8779297472256429}
+2024-07-30 14:31:32.385 | SUCCESS  | metric.Evaluation:get_PoseAUC:326 - baseline error mean: [1.62749644 3.33718485]
+2024-07-30 14:31:32.385 | SUCCESS  | metric.Evaluation:get_PoseAUC:327 - challenger error mean: [1.41352223 3.22713126]
+2024-07-30 14:31:32.386 | SUCCESS  | metric.Evaluation:get_PoseAUC:240 - load baseline pm pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/pm_pose_errs.txt
+2024-07-30 14:31:32.386 | SUCCESS  | metric.Evaluation:get_PoseAUC:241 - load challenger a2pm_3.5 pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/a2pm-3.5_pose_errs.txt
+2024-07-30 14:31:32.401 | INFO     | metric.Evaluation:get_PoseAUC:263 - load baseline pm pose errors shape = (1254, 2)
+2024-07-30 14:31:32.417 | INFO     | metric.Evaluation:get_PoseAUC:284 - load challenger a2pm pose errors shape = (1254, 2)
+2024-07-30 14:31:32.420 | INFO     | metric.Evaluation:get_PoseAUC:288 - common name shape (1254,)
+2024-07-30 14:31:32.483 | INFO     | metric.Evaluation:get_PoseAUC:300 - common idx baseline shape (1254,)
+2024-07-30 14:31:32.484 | INFO     | metric.Evaluation:get_PoseAUC:311 - common baseline pose errs shape (1254, 2)
+2024-07-30 14:31:32.484 | INFO     | metric.Evaluation:get_PoseAUC:312 - common challenger pose errs shape (1254, 2)
+2024-07-30 14:31:32.484 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (1254,)
+2024-07-30 14:31:32.484 | INFO     | utils.geo:pose_auc:1059 - get (1254,) errors
+2024-07-30 14:31:32.485 | SUCCESS  | metric.Evaluation:get_PoseAUC:319 - baseline pm pose auc: {'auc@5': 0.6669067593188405, 'auc@10': 0.7945113951501162, 'auc@20': 0.8766779875258743}
+2024-07-30 14:31:32.485 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (1254,)
+2024-07-30 14:31:32.485 | INFO     | utils.geo:pose_auc:1059 - get (1254,) errors
+2024-07-30 14:31:32.486 | SUCCESS  | metric.Evaluation:get_PoseAUC:324 - challenger a2pm_3.5 pose auc: {'auc@5': 0.6757803551286978, 'auc@10': 0.800408338673577, 'auc@20': 0.880387734358175}
+2024-07-30 14:31:32.486 | SUCCESS  | metric.Evaluation:get_PoseAUC:326 - baseline error mean: [1.62749644 3.33718485]
+2024-07-30 14:31:32.486 | SUCCESS  | metric.Evaluation:get_PoseAUC:327 - challenger error mean: [1.43801891 3.22486565]
+2024-07-30 14:31:32.487 | SUCCESS  | metric.Evaluation:get_PoseAUC:240 - load baseline pm pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/pm_pose_errs.txt
+2024-07-30 14:31:32.487 | SUCCESS  | metric.Evaluation:get_PoseAUC:241 - load challenger a2pm_5.0 pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/a2pm-5.0_pose_errs.txt
+2024-07-30 14:31:32.503 | INFO     | metric.Evaluation:get_PoseAUC:263 - load baseline pm pose errors shape = (1254, 2)
+2024-07-30 14:31:32.519 | INFO     | metric.Evaluation:get_PoseAUC:284 - load challenger a2pm pose errors shape = (1254, 2)
+2024-07-30 14:31:32.522 | INFO     | metric.Evaluation:get_PoseAUC:288 - common name shape (1254,)
+2024-07-30 14:31:32.584 | INFO     | metric.Evaluation:get_PoseAUC:300 - common idx baseline shape (1254,)
+2024-07-30 14:31:32.584 | INFO     | metric.Evaluation:get_PoseAUC:311 - common baseline pose errs shape (1254, 2)
+2024-07-30 14:31:32.584 | INFO     | metric.Evaluation:get_PoseAUC:312 - common challenger pose errs shape (1254, 2)
+2024-07-30 14:31:32.585 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (1254,)
+2024-07-30 14:31:32.585 | INFO     | utils.geo:pose_auc:1059 - get (1254,) errors
+2024-07-30 14:31:32.585 | SUCCESS  | metric.Evaluation:get_PoseAUC:319 - baseline pm pose auc: {'auc@5': 0.6669067593188405, 'auc@10': 0.7945113951501162, 'auc@20': 0.8766779875258743}
+2024-07-30 14:31:32.586 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (1254,)
+2024-07-30 14:31:32.586 | INFO     | utils.geo:pose_auc:1059 - get (1254,) errors
+2024-07-30 14:31:32.586 | SUCCESS  | metric.Evaluation:get_PoseAUC:324 - challenger a2pm_5.0 pose auc: {'auc@5': 0.6727757989182904, 'auc@10': 0.7985842475669493, 'auc@20': 0.8804916851754465}
+2024-07-30 14:31:32.587 | SUCCESS  | metric.Evaluation:get_PoseAUC:326 - baseline error mean: [1.62749644 3.33718485]
+2024-07-30 14:31:32.587 | SUCCESS  | metric.Evaluation:get_PoseAUC:327 - challenger error mean: [1.44697934 3.08690082]
+2024-07-30 14:31:32.587 | CRITICAL | metric.Evaluation:run:352 - best phi: 2.0, best auc diff: 0.007801241323251884
+2024-07-30 14:31:32.587 | INFO     | metric.Evaluation:__init__:403 - Initialize the AM Evaluation with configs: {'root_path': '/opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res', 'name': 'am', 'AMP_Thd': [0.6, 0.7, 0.8], 'res_folder': 'ratios', 'AOR_post': '_aor.txt', 'ACR_post': '_acr.txt', 'file_name_post': '_ameval_names.txt', 'time_post': '_area_match_time.txt'}
+2024-07-30 14:31:32.598 | ERROR    | __main__:<module>:80 - AMEval failed: /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/am_aor.txt not found.
+2024-07-30 15:14:40.571 | SUCCESS  | metric.Evaluation:get_PoseAUC:240 - load baseline pm pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/pm_pose_errs.txt
+2024-07-30 15:14:40.571 | SUCCESS  | metric.Evaluation:get_PoseAUC:241 - load challenger a2pm_0.5 pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/a2pm-0.5_pose_errs.txt
+2024-07-30 15:14:40.588 | INFO     | metric.Evaluation:get_PoseAUC:263 - load baseline pm pose errors shape = (1285, 2)
+2024-07-30 15:14:40.605 | INFO     | metric.Evaluation:get_PoseAUC:284 - load challenger a2pm pose errors shape = (1285, 2)
+2024-07-30 15:14:40.608 | INFO     | metric.Evaluation:get_PoseAUC:288 - common name shape (1285,)
+2024-07-30 15:14:40.673 | INFO     | metric.Evaluation:get_PoseAUC:300 - common idx baseline shape (1285,)
+2024-07-30 15:14:40.673 | INFO     | metric.Evaluation:get_PoseAUC:311 - common baseline pose errs shape (1285, 2)
+2024-07-30 15:14:40.673 | INFO     | metric.Evaluation:get_PoseAUC:312 - common challenger pose errs shape (1285, 2)
+2024-07-30 15:14:40.674 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (1285,)
+2024-07-30 15:14:40.674 | INFO     | utils.geo:pose_auc:1059 - get (1285,) errors
+2024-07-30 15:14:40.674 | SUCCESS  | metric.Evaluation:get_PoseAUC:319 - baseline pm pose auc: {'auc@5': 0.6617442199851131, 'auc@10': 0.7903980135367294, 'auc@20': 0.8732622242745792}
+2024-07-30 15:14:40.675 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (1285,)
+2024-07-30 15:14:40.675 | INFO     | utils.geo:pose_auc:1059 - get (1285,) errors
+2024-07-30 15:14:40.675 | SUCCESS  | metric.Evaluation:get_PoseAUC:324 - challenger a2pm_0.5 pose auc: {'auc@5': 0.6654983727663734, 'auc@10': 0.7940149240074972, 'auc@20': 0.8761241401224213}
+2024-07-30 15:14:40.676 | SUCCESS  | metric.Evaluation:get_PoseAUC:326 - baseline error mean: [1.8841412  3.64736277]
+2024-07-30 15:14:40.676 | SUCCESS  | metric.Evaluation:get_PoseAUC:327 - challenger error mean: [1.75501444 3.44377945]
+2024-07-30 15:14:40.676 | SUCCESS  | metric.Evaluation:get_PoseAUC:240 - load baseline pm pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/pm_pose_errs.txt
+2024-07-30 15:14:40.676 | SUCCESS  | metric.Evaluation:get_PoseAUC:241 - load challenger a2pm_2.0 pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/a2pm-2.0_pose_errs.txt
+2024-07-30 15:14:40.693 | INFO     | metric.Evaluation:get_PoseAUC:263 - load baseline pm pose errors shape = (1285, 2)
+2024-07-30 15:14:40.710 | INFO     | metric.Evaluation:get_PoseAUC:284 - load challenger a2pm pose errors shape = (1285, 2)
+2024-07-30 15:14:40.713 | INFO     | metric.Evaluation:get_PoseAUC:288 - common name shape (1285,)
+2024-07-30 15:14:40.783 | INFO     | metric.Evaluation:get_PoseAUC:300 - common idx baseline shape (1285,)
+2024-07-30 15:14:40.784 | INFO     | metric.Evaluation:get_PoseAUC:311 - common baseline pose errs shape (1285, 2)
+2024-07-30 15:14:40.785 | INFO     | metric.Evaluation:get_PoseAUC:312 - common challenger pose errs shape (1285, 2)
+2024-07-30 15:14:40.785 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (1285,)
+2024-07-30 15:14:40.785 | INFO     | utils.geo:pose_auc:1059 - get (1285,) errors
+2024-07-30 15:14:40.786 | SUCCESS  | metric.Evaluation:get_PoseAUC:319 - baseline pm pose auc: {'auc@5': 0.6617442199851131, 'auc@10': 0.7903980135367294, 'auc@20': 0.8732622242745792}
+2024-07-30 15:14:40.787 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (1285,)
+2024-07-30 15:14:40.787 | INFO     | utils.geo:pose_auc:1059 - get (1285,) errors
+2024-07-30 15:14:40.788 | SUCCESS  | metric.Evaluation:get_PoseAUC:324 - challenger a2pm_2.0 pose auc: {'auc@5': 0.6708625111519657, 'auc@10': 0.7970259354159556, 'auc@20': 0.8783787164120703}
+2024-07-30 15:14:40.788 | SUCCESS  | metric.Evaluation:get_PoseAUC:326 - baseline error mean: [1.8841412  3.64736277]
+2024-07-30 15:14:40.788 | SUCCESS  | metric.Evaluation:get_PoseAUC:327 - challenger error mean: [1.52496939 3.34455867]
+2024-07-30 15:14:40.789 | SUCCESS  | metric.Evaluation:get_PoseAUC:240 - load baseline pm pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/pm_pose_errs.txt
+2024-07-30 15:14:40.789 | SUCCESS  | metric.Evaluation:get_PoseAUC:241 - load challenger a2pm_3.0 pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/a2pm-3.0_pose_errs.txt
+2024-07-30 15:14:40.812 | INFO     | metric.Evaluation:get_PoseAUC:263 - load baseline pm pose errors shape = (1285, 2)
+2024-07-30 15:14:40.836 | INFO     | metric.Evaluation:get_PoseAUC:284 - load challenger a2pm pose errors shape = (1285, 2)
+2024-07-30 15:14:40.840 | INFO     | metric.Evaluation:get_PoseAUC:288 - common name shape (1285,)
+2024-07-30 15:14:40.936 | INFO     | metric.Evaluation:get_PoseAUC:300 - common idx baseline shape (1285,)
+2024-07-30 15:14:40.937 | INFO     | metric.Evaluation:get_PoseAUC:311 - common baseline pose errs shape (1285, 2)
+2024-07-30 15:14:40.937 | INFO     | metric.Evaluation:get_PoseAUC:312 - common challenger pose errs shape (1285, 2)
+2024-07-30 15:14:40.937 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (1285,)
+2024-07-30 15:14:40.937 | INFO     | utils.geo:pose_auc:1059 - get (1285,) errors
+2024-07-30 15:14:40.938 | SUCCESS  | metric.Evaluation:get_PoseAUC:319 - baseline pm pose auc: {'auc@5': 0.6617442199851131, 'auc@10': 0.7903980135367294, 'auc@20': 0.8732622242745792}
+2024-07-30 15:14:40.938 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (1285,)
+2024-07-30 15:14:40.938 | INFO     | utils.geo:pose_auc:1059 - get (1285,) errors
+2024-07-30 15:14:40.939 | SUCCESS  | metric.Evaluation:get_PoseAUC:324 - challenger a2pm_3.0 pose auc: {'auc@5': 0.6617128739034144, 'auc@10': 0.7896834625696401, 'auc@20': 0.8734423044930868}
+2024-07-30 15:14:40.939 | SUCCESS  | metric.Evaluation:get_PoseAUC:326 - baseline error mean: [1.8841412  3.64736277]
+2024-07-30 15:14:40.939 | SUCCESS  | metric.Evaluation:get_PoseAUC:327 - challenger error mean: [1.67841397 3.55309734]
+2024-07-30 15:14:40.939 | SUCCESS  | metric.Evaluation:get_PoseAUC:240 - load baseline pm pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/pm_pose_errs.txt
+2024-07-30 15:14:40.940 | SUCCESS  | metric.Evaluation:get_PoseAUC:241 - load challenger a2pm_3.5 pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/a2pm-3.5_pose_errs.txt
+2024-07-30 15:14:40.956 | INFO     | metric.Evaluation:get_PoseAUC:263 - load baseline pm pose errors shape = (1285, 2)
+2024-07-30 15:14:40.973 | INFO     | metric.Evaluation:get_PoseAUC:284 - load challenger a2pm pose errors shape = (1285, 2)
+2024-07-30 15:14:40.976 | INFO     | metric.Evaluation:get_PoseAUC:288 - common name shape (1285,)
+2024-07-30 15:14:41.050 | INFO     | metric.Evaluation:get_PoseAUC:300 - common idx baseline shape (1285,)
+2024-07-30 15:14:41.050 | INFO     | metric.Evaluation:get_PoseAUC:311 - common baseline pose errs shape (1285, 2)
+2024-07-30 15:14:41.050 | INFO     | metric.Evaluation:get_PoseAUC:312 - common challenger pose errs shape (1285, 2)
+2024-07-30 15:14:41.050 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (1285,)
+2024-07-30 15:14:41.051 | INFO     | utils.geo:pose_auc:1059 - get (1285,) errors
+2024-07-30 15:14:41.051 | SUCCESS  | metric.Evaluation:get_PoseAUC:319 - baseline pm pose auc: {'auc@5': 0.6617442199851131, 'auc@10': 0.7903980135367294, 'auc@20': 0.8732622242745792}
+2024-07-30 15:14:41.051 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (1285,)
+2024-07-30 15:14:41.052 | INFO     | utils.geo:pose_auc:1059 - get (1285,) errors
+2024-07-30 15:14:41.052 | SUCCESS  | metric.Evaluation:get_PoseAUC:324 - challenger a2pm_3.5 pose auc: {'auc@5': 0.6694561614844216, 'auc@10': 0.7953175383328664, 'auc@20': 0.8766051939173659}
+2024-07-30 15:14:41.052 | SUCCESS  | metric.Evaluation:get_PoseAUC:326 - baseline error mean: [1.8841412  3.64736277]
+2024-07-30 15:14:41.053 | SUCCESS  | metric.Evaluation:get_PoseAUC:327 - challenger error mean: [1.6997626  3.53742448]
+2024-07-30 15:14:41.053 | SUCCESS  | metric.Evaluation:get_PoseAUC:240 - load baseline pm pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/pm_pose_errs.txt
+2024-07-30 15:14:41.053 | SUCCESS  | metric.Evaluation:get_PoseAUC:241 - load challenger a2pm_5.0 pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/a2pm-5.0_pose_errs.txt
+2024-07-30 15:14:41.070 | INFO     | metric.Evaluation:get_PoseAUC:263 - load baseline pm pose errors shape = (1285, 2)
+2024-07-30 15:14:41.090 | INFO     | metric.Evaluation:get_PoseAUC:284 - load challenger a2pm pose errors shape = (1285, 2)
+2024-07-30 15:14:41.094 | INFO     | metric.Evaluation:get_PoseAUC:288 - common name shape (1285,)
+2024-07-30 15:14:41.158 | INFO     | metric.Evaluation:get_PoseAUC:300 - common idx baseline shape (1285,)
+2024-07-30 15:14:41.159 | INFO     | metric.Evaluation:get_PoseAUC:311 - common baseline pose errs shape (1285, 2)
+2024-07-30 15:14:41.159 | INFO     | metric.Evaluation:get_PoseAUC:312 - common challenger pose errs shape (1285, 2)
+2024-07-30 15:14:41.159 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (1285,)
+2024-07-30 15:14:41.159 | INFO     | utils.geo:pose_auc:1059 - get (1285,) errors
+2024-07-30 15:14:41.160 | SUCCESS  | metric.Evaluation:get_PoseAUC:319 - baseline pm pose auc: {'auc@5': 0.6617442199851131, 'auc@10': 0.7903980135367294, 'auc@20': 0.8732622242745792}
+2024-07-30 15:14:41.160 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (1285,)
+2024-07-30 15:14:41.160 | INFO     | utils.geo:pose_auc:1059 - get (1285,) errors
+2024-07-30 15:14:41.161 | SUCCESS  | metric.Evaluation:get_PoseAUC:324 - challenger a2pm_5.0 pose auc: {'auc@5': 0.6671890532435205, 'auc@10': 0.7933796151106213, 'auc@20': 0.8763781380666638}
+2024-07-30 15:14:41.161 | SUCCESS  | metric.Evaluation:get_PoseAUC:326 - baseline error mean: [1.8841412  3.64736277]
+2024-07-30 15:14:41.161 | SUCCESS  | metric.Evaluation:get_PoseAUC:327 - challenger error mean: [1.56939515 3.29236708]
+2024-07-30 15:14:41.162 | CRITICAL | metric.Evaluation:run:352 - best phi: 2.0, best auc diff: 0.0069542350611899355
+2024-07-30 15:14:41.162 | INFO     | metric.Evaluation:__init__:403 - Initialize the AM Evaluation with configs: {'root_path': '/opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res', 'name': 'am', 'AMP_Thd': [0.6, 0.7, 0.8], 'res_folder': 'ratios', 'AOR_post': '_aor.txt', 'ACR_post': '_acr.txt', 'file_name_post': '_ameval_names.txt', 'time_post': '_area_match_time.txt'}
+2024-07-30 15:14:41.175 | ERROR    | __main__:<module>:80 - AMEval failed: /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/am_aor.txt not found.
+2024-07-30 15:37:08.505 | SUCCESS  | metric.Evaluation:get_PoseAUC:240 - load baseline pm pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/pm_pose_errs.txt
+2024-07-30 15:37:08.505 | SUCCESS  | metric.Evaluation:get_PoseAUC:241 - load challenger a2pm_0.5 pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/a2pm-0.5_pose_errs.txt
+2024-07-30 15:37:08.522 | INFO     | metric.Evaluation:get_PoseAUC:263 - load baseline pm pose errors shape = (1296, 2)
+2024-07-30 15:37:08.540 | INFO     | metric.Evaluation:get_PoseAUC:284 - load challenger a2pm pose errors shape = (1296, 2)
+2024-07-30 15:37:08.543 | INFO     | metric.Evaluation:get_PoseAUC:288 - common name shape (1296,)
+2024-07-30 15:37:08.607 | INFO     | metric.Evaluation:get_PoseAUC:300 - common idx baseline shape (1296,)
+2024-07-30 15:37:08.608 | INFO     | metric.Evaluation:get_PoseAUC:311 - common baseline pose errs shape (1296, 2)
+2024-07-30 15:37:08.608 | INFO     | metric.Evaluation:get_PoseAUC:312 - common challenger pose errs shape (1296, 2)
+2024-07-30 15:37:08.608 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (1296,)
+2024-07-30 15:37:08.608 | INFO     | utils.geo:pose_auc:1059 - get (1296,) errors
+2024-07-30 15:37:08.609 | SUCCESS  | metric.Evaluation:get_PoseAUC:319 - baseline pm pose auc: {'auc@5': 0.6592169593862197, 'auc@10': 0.7883648485568473, 'auc@20': 0.8716602286730885}
+2024-07-30 15:37:08.610 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (1296,)
+2024-07-30 15:37:08.610 | INFO     | utils.geo:pose_auc:1059 - get (1296,) errors
+2024-07-30 15:37:08.610 | SUCCESS  | metric.Evaluation:get_PoseAUC:324 - challenger a2pm_0.5 pose auc: {'auc@5': 0.6630400318262997, 'auc@10': 0.792237602132437, 'auc@20': 0.8746411246638222}
+2024-07-30 15:37:08.611 | SUCCESS  | metric.Evaluation:get_PoseAUC:326 - baseline error mean: [2.14898367 3.91687284]
+2024-07-30 15:37:08.611 | SUCCESS  | metric.Evaluation:get_PoseAUC:327 - challenger error mean: [2.02217785 3.71215204]
+2024-07-30 15:37:08.611 | SUCCESS  | metric.Evaluation:get_PoseAUC:240 - load baseline pm pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/pm_pose_errs.txt
+2024-07-30 15:37:08.612 | SUCCESS  | metric.Evaluation:get_PoseAUC:241 - load challenger a2pm_2.0 pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/a2pm-2.0_pose_errs.txt
+2024-07-30 15:37:08.629 | INFO     | metric.Evaluation:get_PoseAUC:263 - load baseline pm pose errors shape = (1296, 2)
+2024-07-30 15:37:08.646 | INFO     | metric.Evaluation:get_PoseAUC:284 - load challenger a2pm pose errors shape = (1296, 2)
+2024-07-30 15:37:08.650 | INFO     | metric.Evaluation:get_PoseAUC:288 - common name shape (1296,)
+2024-07-30 15:37:08.715 | INFO     | metric.Evaluation:get_PoseAUC:300 - common idx baseline shape (1296,)
+2024-07-30 15:37:08.715 | INFO     | metric.Evaluation:get_PoseAUC:311 - common baseline pose errs shape (1296, 2)
+2024-07-30 15:37:08.715 | INFO     | metric.Evaluation:get_PoseAUC:312 - common challenger pose errs shape (1296, 2)
+2024-07-30 15:37:08.716 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (1296,)
+2024-07-30 15:37:08.716 | INFO     | utils.geo:pose_auc:1059 - get (1296,) errors
+2024-07-30 15:37:08.716 | SUCCESS  | metric.Evaluation:get_PoseAUC:319 - baseline pm pose auc: {'auc@5': 0.6592169593862197, 'auc@10': 0.7883648485568473, 'auc@20': 0.8716602286730885}
+2024-07-30 15:37:08.717 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (1296,)
+2024-07-30 15:37:08.717 | INFO     | utils.geo:pose_auc:1059 - get (1296,) errors
+2024-07-30 15:37:08.717 | SUCCESS  | metric.Evaluation:get_PoseAUC:324 - challenger a2pm_2.0 pose auc: {'auc@5': 0.6682853349149129, 'auc@10': 0.7951601714836192, 'auc@20': 0.8768451220726421}
+2024-07-30 15:37:08.717 | SUCCESS  | metric.Evaluation:get_PoseAUC:326 - baseline error mean: [2.14898367 3.91687284]
+2024-07-30 15:37:08.718 | SUCCESS  | metric.Evaluation:get_PoseAUC:327 - challenger error mean: [1.79355597 3.61440227]
+2024-07-30 15:37:08.718 | SUCCESS  | metric.Evaluation:get_PoseAUC:240 - load baseline pm pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/pm_pose_errs.txt
+2024-07-30 15:37:08.718 | SUCCESS  | metric.Evaluation:get_PoseAUC:241 - load challenger a2pm_3.0 pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/a2pm-3.0_pose_errs.txt
+2024-07-30 15:37:08.735 | INFO     | metric.Evaluation:get_PoseAUC:263 - load baseline pm pose errors shape = (1296, 2)
+2024-07-30 15:37:08.753 | INFO     | metric.Evaluation:get_PoseAUC:284 - load challenger a2pm pose errors shape = (1296, 2)
+2024-07-30 15:37:08.756 | INFO     | metric.Evaluation:get_PoseAUC:288 - common name shape (1296,)
+2024-07-30 15:37:08.838 | INFO     | metric.Evaluation:get_PoseAUC:300 - common idx baseline shape (1296,)
+2024-07-30 15:37:08.839 | INFO     | metric.Evaluation:get_PoseAUC:311 - common baseline pose errs shape (1296, 2)
+2024-07-30 15:37:08.839 | INFO     | metric.Evaluation:get_PoseAUC:312 - common challenger pose errs shape (1296, 2)
+2024-07-30 15:37:08.839 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (1296,)
+2024-07-30 15:37:08.840 | INFO     | utils.geo:pose_auc:1059 - get (1296,) errors
+2024-07-30 15:37:08.840 | SUCCESS  | metric.Evaluation:get_PoseAUC:319 - baseline pm pose auc: {'auc@5': 0.6592169593862197, 'auc@10': 0.7883648485568473, 'auc@20': 0.8716602286730885}
+2024-07-30 15:37:08.840 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (1296,)
+2024-07-30 15:37:08.841 | INFO     | utils.geo:pose_auc:1059 - get (1296,) errors
+2024-07-30 15:37:08.841 | SUCCESS  | metric.Evaluation:get_PoseAUC:324 - challenger a2pm_3.0 pose auc: {'auc@5': 0.6596351948512542, 'auc@10': 0.7880261440908256, 'auc@20': 0.8720236712526834}
+2024-07-30 15:37:08.841 | SUCCESS  | metric.Evaluation:get_PoseAUC:326 - baseline error mean: [2.14898367 3.91687284]
+2024-07-30 15:37:08.842 | SUCCESS  | metric.Evaluation:get_PoseAUC:327 - challenger error mean: [1.80803573 3.69642431]
+2024-07-30 15:37:08.842 | SUCCESS  | metric.Evaluation:get_PoseAUC:240 - load baseline pm pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/pm_pose_errs.txt
+2024-07-30 15:37:08.842 | SUCCESS  | metric.Evaluation:get_PoseAUC:241 - load challenger a2pm_3.5 pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/a2pm-3.5_pose_errs.txt
+2024-07-30 15:37:08.859 | INFO     | metric.Evaluation:get_PoseAUC:263 - load baseline pm pose errors shape = (1296, 2)
+2024-07-30 15:37:08.877 | INFO     | metric.Evaluation:get_PoseAUC:284 - load challenger a2pm pose errors shape = (1296, 2)
+2024-07-30 15:37:08.880 | INFO     | metric.Evaluation:get_PoseAUC:288 - common name shape (1296,)
+2024-07-30 15:37:08.945 | INFO     | metric.Evaluation:get_PoseAUC:300 - common idx baseline shape (1296,)
+2024-07-30 15:37:08.945 | INFO     | metric.Evaluation:get_PoseAUC:311 - common baseline pose errs shape (1296, 2)
+2024-07-30 15:37:08.945 | INFO     | metric.Evaluation:get_PoseAUC:312 - common challenger pose errs shape (1296, 2)
+2024-07-30 15:37:08.945 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (1296,)
+2024-07-30 15:37:08.946 | INFO     | utils.geo:pose_auc:1059 - get (1296,) errors
+2024-07-30 15:37:08.946 | SUCCESS  | metric.Evaluation:get_PoseAUC:319 - baseline pm pose auc: {'auc@5': 0.6592169593862197, 'auc@10': 0.7883648485568473, 'auc@20': 0.8716602286730885}
+2024-07-30 15:37:08.946 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (1296,)
+2024-07-30 15:37:08.947 | INFO     | utils.geo:pose_auc:1059 - get (1296,) errors
+2024-07-30 15:37:08.947 | SUCCESS  | metric.Evaluation:get_PoseAUC:324 - challenger a2pm_3.5 pose auc: {'auc@5': 0.6674226878651934, 'auc@10': 0.7935321078105806, 'auc@20': 0.8751195691868865}
+2024-07-30 15:37:08.947 | SUCCESS  | metric.Evaluation:get_PoseAUC:326 - baseline error mean: [2.14898367 3.91687284]
+2024-07-30 15:37:08.948 | SUCCESS  | metric.Evaluation:get_PoseAUC:327 - challenger error mean: [1.82829291 3.70082656]
+2024-07-30 15:37:08.948 | SUCCESS  | metric.Evaluation:get_PoseAUC:240 - load baseline pm pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/pm_pose_errs.txt
+2024-07-30 15:37:08.948 | SUCCESS  | metric.Evaluation:get_PoseAUC:241 - load challenger a2pm_5.0 pose errors from /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/a2pm-5.0_pose_errs.txt
+2024-07-30 15:37:08.965 | INFO     | metric.Evaluation:get_PoseAUC:263 - load baseline pm pose errors shape = (1296, 2)
+2024-07-30 15:37:08.983 | INFO     | metric.Evaluation:get_PoseAUC:284 - load challenger a2pm pose errors shape = (1295, 2)
+2024-07-30 15:37:08.986 | INFO     | metric.Evaluation:get_PoseAUC:288 - common name shape (1295,)
+2024-07-30 15:37:09.050 | INFO     | metric.Evaluation:get_PoseAUC:300 - common idx baseline shape (1295,)
+2024-07-30 15:37:09.051 | INFO     | metric.Evaluation:get_PoseAUC:311 - common baseline pose errs shape (1295, 2)
+2024-07-30 15:37:09.051 | INFO     | metric.Evaluation:get_PoseAUC:312 - common challenger pose errs shape (1295, 2)
+2024-07-30 15:37:09.051 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (1295,)
+2024-07-30 15:37:09.051 | INFO     | utils.geo:pose_auc:1059 - get (1295,) errors
+2024-07-30 15:37:09.052 | SUCCESS  | metric.Evaluation:get_PoseAUC:319 - baseline pm pose auc: {'auc@5': 0.6591626275121637, 'auc@10': 0.7883058342560078, 'auc@20': 0.8716133298658306}
+2024-07-30 15:37:09.052 | INFO     | utils.geo:aggregate_pose_auc_simp:1052 - pose errs max  = (1295,)
+2024-07-30 15:37:09.052 | INFO     | utils.geo:pose_auc:1059 - get (1295,) errors
+2024-07-30 15:37:09.053 | SUCCESS  | metric.Evaluation:get_PoseAUC:324 - challenger a2pm_5.0 pose auc: {'auc@5': 0.6654737393592085, 'auc@10': 0.7919461940652874, 'auc@20': 0.8756719332042948}
+2024-07-30 15:37:09.053 | SUCCESS  | metric.Evaluation:get_PoseAUC:326 - baseline error mean: [2.14994386 3.91885335]
+2024-07-30 15:37:09.053 | SUCCESS  | metric.Evaluation:get_PoseAUC:327 - challenger error mean: [1.56092098 3.30015967]
+2024-07-30 15:37:09.054 | CRITICAL | metric.Evaluation:run:352 - best phi: 2.0, best auc diff: 0.007016197285006243
+2024-07-30 15:37:09.054 | INFO     | metric.Evaluation:__init__:403 - Initialize the AM Evaluation with configs: {'root_path': '/opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res', 'name': 'am', 'AMP_Thd': [0.6, 0.7, 0.8], 'res_folder': 'ratios', 'AOR_post': '_aor.txt', 'ACR_post': '_acr.txt', 'file_name_post': '_ameval_names.txt', 'time_post': '_area_match_time.txt'}
+2024-07-30 15:37:09.065 | ERROR    | __main__:<module>:80 - AMEval failed: /opt/data/private/A2PM-git/A2PM-MESA/res/mesa-f-dkm-md-eval-res/ratios/am_aor.txt not found.

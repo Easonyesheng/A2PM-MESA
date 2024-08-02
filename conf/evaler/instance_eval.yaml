@@ -1,0 +1,7 @@
+_target_: metric.instance_eval.InstanceEval
+
+sample_mode: random
+eval_corr_num: 1000
+sac_mode: MAGSAC
+out_path: ''
+draw_verbose: False

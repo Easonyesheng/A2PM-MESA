@@ -1,0 +1,9 @@
+- +experiment=a2pm_dmesa_egam_dkm_scannet
+- test_area_acc=False
+- test_pm_acc=False
+- verbose=0
+- name=dmesa-dkm-scannet
+- dataset_name=ScanNet
+- dataset.scene_name=scene0799_00
+- dataset.image_name0=180
+- dataset.image_name1=1095

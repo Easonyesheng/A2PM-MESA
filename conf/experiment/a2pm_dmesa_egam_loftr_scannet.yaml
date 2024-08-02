@@ -1,0 +1,68 @@
+# @package _global_
+defaults:
+ - /dataset: scannet_sam
+ - /point_matcher: loftr_indoor
+ - /area_matcher: dmesa
+ - /geo_area_matcher: egam
+ - /evaler: instance_eval
+ - _self_
+
+name: 'dmesa-egam-loftr-scannet'
+dataset_name: ScanNet
+test_area_acc: 0
+test_pose_err: 1
+test_pm_acc: 0
+pm_acc_thds: [1, 3, 5, 7, 9]
+
+# size info
+area_from_size_W: 640 # semantic size
+area_from_size_H: 480
+
+eval_from_size_W: 640
+eval_from_size_H: 480
+
+crop_from_size_W: 1296
+crop_from_size_H: 968
+
+crop_size_W: 480
+crop_size_H: 480
+
+# others
+verbose: 1
+out_path: /opt/data/private/A2PM-git/A2PM-MESA/res/${name}-res
+match_num: 1000
+
+############################################# UPDATE #############################################
+# match info for eval
+evaler:
+  eval_corr_num: ${match_num}
+  sample_mode: random
+  sac_mode: MAGSAC
+  out_path: ${out_path}
+  draw_verbose: ${verbose}
+
+# update point_matcher
+point_matcher:
+  dataset_name: ${dataset_name}
+
+## update the size info for gam
+geo_area_matcher:
+  datasetName: ${dataset_name}
+  crop_size_W: ${crop_size_W}
+  crop_size_H: ${crop_size_H}
+  crop_from_size_W: ${crop_from_size_W}
+  crop_from_size_H: ${crop_from_size_H}
+  eval_from_size_W: ${eval_from_size_W}
+  eval_from_size_H: ${eval_from_size_H}
+  area_from_size_W: ${area_from_size_W}
+  area_from_size_H: ${area_from_size_H}
+  verbose: ${verbose}
+
+
+## update the size info for area_matcher
+area_matcher:
+  datasetName: ${dataset_name}
+  W: ${area_from_size_W}
+  H: ${area_from_size_H}
+  draw_verbose: ${verbose}
+

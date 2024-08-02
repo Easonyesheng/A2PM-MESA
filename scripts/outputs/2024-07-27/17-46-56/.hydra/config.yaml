@@ -1,0 +1,95 @@
+dataset:
+  _target_: dataloader.megadepth.MegaDepthDataloader
+  root_path: /opt/data/private/SA2M/data/megadepth_test_1500
+  scene_name: MegaDepth
+  image_name0: 0022_0.3_0.5_1560
+  image_name1: 0022_0.3_0.5_1921
+  sem_mode: SAM
+  sem_folder: /opt/data/private/SA2M/data/SAMRes
+  sem_post: npy
+point_matcher:
+  _target_: point_matchers.dkm.DKMMatcher
+  dataset_name: ${dataset_name}
+  weights: /opt/data/private/SA2M/hydra-mesa/point_matchers/DKM/weights/DKMv3_outdoor.pth
+area_matcher:
+  _target_: area_matchers.dmesa.DMesaAreaMatcher
+  datasetName: ${dataset_name}
+  W: ${area_from_size_W}
+  H: ${area_from_size_H}
+  coarse_matcher_name: ASpan
+  level_num: 4
+  level_step:
+  - 560
+  - 390
+  - 256
+  - 130
+  - 0
+  stop_match_level: 3
+  area_crop_mode: expand_padding
+  patch_size_ratio: 0.125
+  valid_gaussian_width: sqrt2
+  source_area_selection_mode: direct
+  iou_fusion_thd: 0.8
+  patch_match_num_thd: 30
+  match_mode: pms_GF
+  coarse_match_all_in_one: 1
+  dual_match: 1
+  draw_verbose: ${verbose}
+geo_area_matcher:
+  _target_: geo_area_matchers.egam.EGeoAreaMatcher
+  datasetName: ${dataset_name}
+  area_from_size_W: ${area_from_size_W}
+  area_from_size_H: ${area_from_size_H}
+  crop_size_W: ${crop_size_W}
+  crop_size_H: ${crop_size_H}
+  crop_from_size_W: ${crop_from_size_W}
+  crop_from_size_H: ${crop_from_size_H}
+  eval_from_size_W: ${eval_from_size_W}
+  eval_from_size_H: ${eval_from_size_H}
+  std_match_num: 1000
+  alpha_list:
+  - 0.5
+  - 2.0
+  - 3.0
+  - 3.5
+  - 5.0
+  adaptive_size_thd: 1.0
+  valid_inside_area_match_num: 100
+  reject_out_area_flag: 1
+  crop_mode: 0
+  sac_mode: MAGSAC
+  sampler_name: ''
+  occ_size: 1
+  common_occ_flag: 1
+  verbose: ${verbose}
+evaler:
+  _target_: metric.instance_eval.InstanceEval
+  sample_mode: random
+  eval_corr_num: ${match_num}
+  sac_mode: MAGSAC
+  out_path: ${out_path}
+  draw_verbose: ${verbose}
+name: dmesa-dkm-md-eval
+dataset_name: MegaDepth
+test_area_acc: false
+test_pose_err: 1
+test_pm_acc: false
+pm_acc_thds:
+- 0.0001
+- 0.0003
+- 0.0005
+- 0.0007
+- 0.001
+- 0.003
+- 0.005
+area_from_size_W: 640
+area_from_size_H: 480
+eval_from_size_W: 640
+eval_from_size_H: 480
+crop_from_size_W: 1296
+crop_from_size_H: 968
+crop_size_W: 832
+crop_size_H: 832
+verbose: 0
+out_path: /opt/data/private/A2PM-git/A2PM-MESA/res/${name}-res
+match_num: 1000

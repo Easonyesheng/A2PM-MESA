@@ -1,0 +1,12 @@
+[submodule "point_matchers/ASpanFormer"]
+	path = point_matchers/ASpanFormer
+	url = git@github.com:Easonyesheng/ml-aspanformer.git
+[submodule "point_matchers/DKM"]
+	path = point_matchers/DKM
+	url = git@github.com:Easonyesheng/DKM.git
+[submodule "point_matchers/LoFTR"]
+	path = point_matchers/LoFTR
+	url = git@github.com:Easonyesheng/LoFTR.git
+[submodule "point_matchers/SuperGluePretrainedNetwork"]
+	path = point_matchers/SuperGluePretrainedNetwork
+	url = git@github.com:Easonyesheng/SuperGluePretrainedNetwork.git

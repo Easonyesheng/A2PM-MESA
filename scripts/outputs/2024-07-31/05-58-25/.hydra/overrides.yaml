@@ -1,0 +1,9 @@
+- +experiment=a2pm_mesa_egam_dkm_megadepth
+- test_area_acc=False
+- test_pm_acc=False
+- verbose=0
+- name=mesa-f-dkm-md-eval
+- dataset_name=MegaDepth
+- dataset.scene_name=MegaDepth
+- dataset.image_name0=0015_0.1_0.3_1473
+- dataset.image_name1=0015_0.1_0.3_1426

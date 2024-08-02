@@ -1,0 +1,31 @@
+_target_: dataloader.scannet.ScanNetDataloader
+
+root_path: /opt/data/private/SA2M/data/scannet_test_1500 
+color_folder: color
+color_post: jpg
+depth_folder: depth
+depth_post: png
+depth_factor: 1000.0
+K_folder: intrinsic
+pose_folder: pose
+pose_post: txt
+
+# SAM
+sem_mode: SAM
+sem_folder: /opt/data/private/SA2M/data/SAMRes
+sem_post: npy
+
+# # SEEM
+# sem_mode: SEEM
+# sem_folder: /opt/data/private/SA2M/data/SNSEEMRes/SAMViTB
+# sem_post: png
+
+# GT
+# sem_mode: GT
+# sem_folder: ''
+# sem_post: png
+
+
+scene_name: ???
+image_name0: ???
+image_name1: ???

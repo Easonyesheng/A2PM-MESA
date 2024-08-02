@@ -1,0 +1,27 @@
+_target_: geo_area_matchers.gam.PRGeoAreaMatcher
+datasetName: ScanNet
+
+area_from_size_W: 640
+area_from_size_H: 480
+
+crop_size_W: 640
+crop_size_H: 640
+
+crop_from_size_W: 1296
+crop_from_size_H: 968
+
+eval_from_size_W: 640
+eval_from_size_H: 480
+
+std_match_num: 1000
+alpha_list: #[0.5, 2.0, 3.0, 5.0, 10.0]
+  - 0.5
+  - 2.0
+  - 3.0
+  - 5.0
+  - 10.0
+filter_area_num: 1
+adaptive_size_thd: 0.6
+reject_out_area_flag: 0
+valid_inside_area_match_num: 200
+verbose: 0

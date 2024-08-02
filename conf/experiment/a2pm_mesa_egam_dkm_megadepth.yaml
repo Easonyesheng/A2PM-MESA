@@ -1,0 +1,70 @@
+# @package _global_
+defaults:
+ - /dataset: megadepth
+ - /point_matcher: dkm_outdoor
+ - /area_matcher: mesa-f
+ - /geo_area_matcher: egam
+ - /evaler: instance_eval
+ - _self_
+
+name: mesa-f-egam-dkm-megadepth
+dataset_name: MegaDepth
+test_area_acc: 0
+test_pose_err: 1
+test_pm_acc: 0
+
+# size info
+area_from_size_W: 640 # semantic size
+area_from_size_H: 480
+
+eval_from_size_W: 640 # not used
+eval_from_size_H: 480
+
+crop_from_size_W: 1296 # not used
+crop_from_size_H: 968
+
+crop_size_W: 832
+crop_size_H: 832
+
+# others
+verbose: 1
+out_path: /opt/data/private/A2PM-git/A2PM-MESA/res/${name}-res
+match_num: 5000
+
+############################################# UPDATE #############################################
+# match info for eval
+evaler:
+  eval_corr_num: ${match_num}
+  sample_mode: grid
+  sac_mode: MAGSAC
+  out_path: ${out_path}
+
+# update point_matcher
+point_matcher:
+  dataset_name: ${dataset_name}
+
+## update the size info for gam
+geo_area_matcher:
+  datasetName: ${dataset_name}
+  std_match_num: ${match_num}
+  alpha_list: [3]
+  crop_mode: 2
+  crop_size_W: ${crop_size_W}
+  crop_size_H: ${crop_size_H}
+  crop_from_size_W: ${crop_from_size_W}
+  crop_from_size_H: ${crop_from_size_H}
+  eval_from_size_W: ${eval_from_size_W}
+  eval_from_size_H: ${eval_from_size_H}
+  area_from_size_W: ${area_from_size_W}
+  area_from_size_H: ${area_from_size_H}
+  reject_out_area_flag: 1
+  verbose: ${verbose}
+
+
+## update the size info for area_matcher
+area_matcher:
+  datasetName: ${dataset_name}
+  W: ${area_from_size_W}
+  H: ${area_from_size_H}
+  draw_verbose: ${verbose}
+

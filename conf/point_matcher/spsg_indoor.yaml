@@ -1,0 +1,4 @@
+_target_: point_matchers.spsg.SPSGMatcher
+
+dataset_name: ScanNet
+weights: 'indoor'

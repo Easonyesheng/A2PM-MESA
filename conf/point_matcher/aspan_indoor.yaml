@@ -1,0 +1,6 @@
+_target_: point_matchers.aspanformer.ASpanMatcher
+
+config_path: '/opt/data/private/A2PM-git/A2PM-MESA/point_matchers/ASpanFormer/configs'
+weights: '/opt/data/private/SA2M/Matchers/ASpanFormer/weights/indoor.ckpt'
+dataset_name: ??? # ScanNet or ETH3D or KITTI
+

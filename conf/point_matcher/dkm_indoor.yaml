@@ -1,0 +1,4 @@
+_target_: point_matchers.dkm.DKMMatcher
+
+dataset_name: ScanNet
+weights: '/opt/data/private/SA2M/hydra-mesa/point_matchers/DKM/weights/DKMv3_indoor.pth'

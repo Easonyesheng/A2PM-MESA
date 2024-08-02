@@ -1,0 +1,27 @@
+_target_: area_matchers.sem_am.SemAreaMatcher
+
+semantic_mode: SEEM
+
+datasetName: ScanNet
+
+W: 640
+H: 480
+
+# params
+connected_thd: 3600
+radius_thd_up: 128
+radius_thd_down: 100
+desc_type: 2
+small_label_filted_thd_on_bound: 20
+small_label_filted_thd_inside_area: 900
+combined_obj_dist_thd: 200
+leave_multi_obj_match: 0
+obj_desc_match_thd: 0.5
+same_overlap_dist: 100
+label_list_area_thd: 400
+overlap_radius: 128
+overlap_desc_dist_thd: 0.25
+inv_overlap_pyramid_ratio: 8
+output_patch_size: 256
+
+draw_verbose: 0

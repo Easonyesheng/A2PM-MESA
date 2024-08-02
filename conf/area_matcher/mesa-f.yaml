@@ -1,0 +1,26 @@
+_target_: area_matchers.mesa.MesaAreaMatcher
+
+W: 640
+H: 480
+
+coarse_matcher_name: 'ASpan'
+level_num: 4
+level_step: [560, 390, 256, 130, 0]
+adj_weight: 0.01
+stop_match_level: 3
+coarse_match_thd: 0.3
+patch_size: 64
+similar_area_dist_thd: 20
+area_w: 480
+area_h: 480
+sigma_thd: 0.1
+global_energy_weights: [10,1,1,1]
+iou_fusion_thd: 0.8
+candi_energy_thd: 0.7
+global_refine: 1
+fast_version: 0
+global_energy_candy_range: 0.1
+energy_norm_way: 'minmax'
+datasetName: ???
+
+draw_verbose: 0

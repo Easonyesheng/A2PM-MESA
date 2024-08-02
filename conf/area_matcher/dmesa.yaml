@@ -1,0 +1,18 @@
+_target_: area_matchers.dmesa.DMesaAreaMatcher
+datasetName: 'ScanNet'
+W: 640
+H: 480
+coarse_matcher_name: 'ASpan'
+level_num: 4
+level_step: [560, 390, 256, 130, 0]
+stop_match_level: 3
+area_crop_mode: 'expand_padding'
+patch_size_ratio: 0.125
+valid_gaussian_width: 'sqrt2'
+source_area_selection_mode: 'direct'
+iou_fusion_thd: 0.8
+patch_match_num_thd: 30
+match_mode: 'pms_GF'
+coarse_match_all_in_one: 1
+dual_match: 1
+draw_verbose: 0

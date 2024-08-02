@@ -1,0 +1,7 @@
+_target_: point_matchers.loftr.LoFTRMatcher
+
+# config_path: 'path/to/ASpanFormer/configs/'
+config_path: '/opt/data/private/A2PM-git/A2PM-MESA/point_matchers/LoFTR/configs'
+weights: '/opt/data/private/SA2M/hydra-mesa/point_matchers/LoFTR/weights/outdoor_ds.ckpt'
+dataset_name: ??? 
+cross_domain: False

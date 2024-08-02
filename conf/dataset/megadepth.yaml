@@ -1,0 +1,10 @@
+_target_: dataloader.megadepth.MegaDepthDataloader
+
+root_path: /opt/data/private/SA2M/data/megadepth_test_1500
+scene_name: ???
+image_name0: ???
+image_name1: ???
+
+sem_mode: SAM
+sem_folder: /opt/data/private/SA2M/data/SAMRes
+sem_post: npy

@@ -1,0 +1,6 @@
+- +experiment=a2pm_dmesa_egam_loftr_scannet
+- name=test
+- dataset_name=ScanNet
+- dataset.scene_name=scene0720_00
+- dataset.image_name0=180
+- dataset.image_name1=2580
