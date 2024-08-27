@@ -2,7 +2,7 @@
  * @Author: EasonZhang
  * @Date: 2024-07-26 15:03:49
  * @LastEditors: EasonZhang
- * @LastEditTime: 2024-08-27 23:30:44
+ * @LastEditTime: 2024-08-27 23:35:29
  * @FilePath: /A2PM-MESA/README.md
  * @Description: Readme
  * 
@@ -11,7 +11,8 @@
 
 # A2PM-MESA
 
-> The family of Area to Point Matching.
+> The family of Area to Point Matching, which is good at handling matching challenges like **large/various resolution images**, **large scale/viewpoint changes** and etc.
+
 ![A2PM](assets/A2PM.png)
 
 This is a user-friendly implementation of **Area to Point Matching** (A2PM) framework, powered by [hydra](hydra.cc).
