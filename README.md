@@ -2,7 +2,7 @@
  * @Author: EasonZhang
  * @Date: 2024-07-26 15:03:49
  * @LastEditors: EasonZhang
- * @LastEditTime: 2024-08-27 23:35:29
+ * @LastEditTime: 2024-08-27 23:43:47
  * @FilePath: /A2PM-MESA/README.md
  * @Description: Readme
  * 
@@ -46,6 +46,13 @@ It contains the implementation of [SGAM](https://arxiv.org/abs/2305.00194) (arXi
 - [Benchmark Test](#benchmark-test)
   - [Expected Results of provided scripts](#expected-results-of-provided-scripts)
 - [Citation](#citation)
+
+---
+# News and TODOs
+- [ ] Add the warpper for single image pair matching.
+- [ ] Add more point matchers
+  - [ ] [RoMa](https://github.com/Parskatt/RoMa)
+  - [ ] [MASt3R](https://github.com/naver/mast3r)
 
 ---
 # Installation
