@@ -31,6 +31,7 @@ It contains the implementation of [SGAM](https://arxiv.org/abs/2305.00194) (arXi
 
 ---
 # Table of Contents
+- [News and TODOs](#news-and-todos)
 - [Installation](#installation)
   - [Clone the Repository](#clone-the-repository)
   - [Environment Creation](#environment-creation)
