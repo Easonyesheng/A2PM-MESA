@@ -2,7 +2,7 @@
  * @Author: EasonZhang
  * @Date: 2024-07-26 15:03:49
  * @LastEditors: EasonZhang
- * @LastEditTime: 2024-08-27 23:43:47
+ * @LastEditTime: 2024-08-27 23:47:37
  * @FilePath: /A2PM-MESA/README.md
  * @Description: Readme
  * 
@@ -17,7 +17,7 @@
 
 This is a user-friendly implementation of **Area to Point Matching** (A2PM) framework, powered by [hydra](hydra.cc).
 
-It contains the implementation of [SGAM](https://arxiv.org/abs/2305.00194) (arXiv'23), a training-free version of [MESA](https://openaccess.thecvf.com/content/CVPR2024/html/Zhang_MESA_Matching_Everything_by_Segmenting_Anything_CVPR_2024_paper.html) (CVPR'24) and [DMESA](https://arxiv.org/abs/2408.00279) (arXiv'24).
+It contains the implementation of [SGAM](https://arxiv.org/abs/2305.00194) (arXiv'23), a training-free version of [MESA](https://openaccess.thecvf.com/content/CVPR2024/html/Zhang_MESA_Matching_Everything_by_Segmenting_Anything_CVPR_2024_paper.html) (CVPR'24, [project page](https://cvl.sjtu.edu.cn/getpaper/1103)) and [DMESA](https://arxiv.org/abs/2408.00279) (arXiv'24).
 
 *Due to the power of hydra, the implementation is highly configurable and easy to **extend**.*
 
