@@ -144,7 +144,9 @@ In the following, we will introduce how to use the code by describing its compon
 
 - Their configurations are put in `conf/point_matcher/`, with warppers in `point_matchers/`.
 
-- For some of them, the inside paths need to be modified, which we have fixed in the submodules in `point_matchers/`.
+- For some of them, the inside paths need to be modified, which has been fixed in the submodules we provided in `point_matchers/`.
+  - Use `​git clone --recursive` when you clone the repo.
+  - Or use `git submodule update --init  --recursive` after direct clone.
 
 - Before running, you need download the pre-trained models and put them in the corresponding paths in the configuration `yaml` files.
 
