@@ -1,8 +1,8 @@
 <!--
  * @Author: EasonZhang
  * @Date: 2024-07-26 15:03:49
- * @LastEditors: Easonyesheng preacher@sjtu.edu.cn
- * @LastEditTime: 2024-08-02 11:18:03
+ * @LastEditors: EasonZhang
+ * @LastEditTime: 2024-08-27 23:30:44
  * @FilePath: /A2PM-MESA/README.md
  * @Description: Readme
  * 
@@ -29,8 +29,34 @@ It contains the implementation of [SGAM](https://arxiv.org/abs/2305.00194) (arXi
 
 
 ---
+# Table of Contents
+- [Installation](#installation)
+  - [Clone the Repository](#clone-the-repository)
+  - [Environment Creation](#environment-creation)
+  - [Basic Dependencies](#basic-dependencies)
+- [Usage: hydra-based Configuration](#usage-hydra-based-configuration)
+  - [Dataset](#dataset)
+  - [Segmentation Preprocessing](#segmentation-preprocessing)
+  - [Area Matching](#area-matching)
+  - [Point Matching](#point-matching)
+  - [Match Fusion (Geometry Area Matching)](#match-fusion-geometry-area-matching)
+  - [A2PM](#a2pm)
+  - [Evaluation](#evaluation)
+- [Benchmark Test](#benchmark-test)
+  - [Expected Results of provided scripts](#expected-results-of-provided-scripts)
+- [Citation](#citation)
+
+---
 # Installation
 To begin with, you need to install the dependencies following the instructions below.
+
+## Clone the Repository
+```bash
+git clone --recursive https://github.com/Easonyesheng/A2PM-MESA
+# or if you have already cloned the repository
+# git submodule update --init --recursive
+cd A2PM-MESA
+```
 
 ## Environment Creation
 - We recommend using `conda` to create a new environment for this project.
