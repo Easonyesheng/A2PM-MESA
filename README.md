@@ -24,7 +24,6 @@ It contains the implementation of [SGAM](https://arxiv.org/abs/2305.00194) (arXi
 *It supports the implementation of feature matching approaches adopting the A2PM framework, and also enables the combination of new point matching and area matching methods.*
 
 
-
 ## Qualitative Results of MESA and DMESA
 ![Qua](assets/Qua.png)
 
@@ -50,6 +49,8 @@ It contains the implementation of [SGAM](https://arxiv.org/abs/2305.00194) (arXi
 
 ---
 # News and TODOs
+- [x] **2024-09-11**: [SAM2](https://github.com/facebookresearch/segment-anything-2) is supported in the segmentation preprocessing. See [here](#segmentation-preprocessing).
+
 - [ ] Add the warpper for single image pair matching.
 - [ ] Add more point matchers
   - [ ] [RoMa](https://github.com/Parskatt/RoMa)
@@ -119,6 +120,16 @@ In the following, we will introduce how to use the code by describing its compon
 
 ### Usage
 - See the `segmentor/sam_seg.sh` for the usage of the SAM segmentation code.
+
+### SAM2
+- Now, we support the [SAM2](https://github.com/facebookresearch/segment-anything-2) model in the segmentation preprocessing. 
+- Note the SAM2 seems to provide less masks than SAM, see the [issue](https://github.com/facebookresearch/segment-anything-2/issues/148), but it is faster anyway.
+- If you encounter the `hydra` initialization error, add the following code in the `SAM2/sam2/__init__.py`:
+    ```python
+    from hydra.core.global_hydra import GlobalHydra
+    GlobalHydra.instance().clear()
+    ```
+  
 
 
 ## Area Matching

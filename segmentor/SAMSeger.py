@@ -2,7 +2,7 @@
 Author: EasonZhang
 Date: 2023-05-17 15:57:27
 LastEditors: EasonZhang
-LastEditTime: 2024-07-19 20:43:14
+LastEditTime: 2024-09-11 15:14:53
 FilePath: /SA2M/hydra-mesa/segmentor/SAMSeger.py
 Description: SAM-based Image Segmenter
 
@@ -18,9 +18,12 @@ import numpy as np
 import cv2
 from loguru import logger
 from .seg_utils import MaskViewer
+import torch
 
 # TODO: Modify to your SAM path
 from SAM.segment_anything import sam_model_registry, SamAutomaticMaskGenerator
+from SAM2.sam2.build_sam import build_sam2
+from SAM2.sam2.automatic_mask_generator import SAM2AutomaticMaskGenerator
 
 class SAMSeger(object):
     """
@@ -37,26 +40,46 @@ class SAMSeger(object):
         """
         self.W = configs["W"]
         self.H = configs["H"]
+        self.SAM_name = configs["SAM_name"]
+        assert self.SAM_name in ["SAM", "SAM2"]
         self.sam_model_type = configs["sam_model_type"]
         self.sam_model_path = configs["sam_model_path"]
         self.save_folder = configs["save_folder"]
         self.points_per_side = configs["points_per_side"]
 
-        self.sam_model = sam_model_registry[self.sam_model_type](checkpoint=self.sam_model_path)
-        self.sam_mask_generator = SamAutomaticMaskGenerator(
-            model=self.sam_model,
-            points_per_side=self.points_per_side,
-        )
+        if self.SAM_name == "SAM":
+            self.sam_model = sam_model_registry[self.sam_model_type](checkpoint=self.sam_model_path)
+            self.sam_mask_generator = SamAutomaticMaskGenerator(
+                model=self.sam_model,
+                points_per_side=self.points_per_side,
+            )
+        elif self.SAM_name == "SAM2":
+            checkpoint = self.sam_model_path
+            torch.autocast(device_type="cuda", dtype=torch.bfloat16).__enter__()
+            model_cfg = self.sam_model_type
+            sam2 = build_sam2(model_cfg, checkpoint, device='cuda', apply_postprocessing=False)
+            mask_g = SAM2AutomaticMaskGenerator(sam2)
+            self.sam_mask_generator = mask_g
+        else:
+            raise ValueError("SAM_name must be SAM or SAM2")
 
         self.viewer = MaskViewer(self.save_folder)
 
-    def img_loader(self, path):
+    def img_loader_SAM(self, path):
         """
         """
         image = cv2.imread(path, -1)
         image = cv2.resize(image, (self.W, self.H))
         logger.info(f"load image as {image.shape}, {image.dtype}")
         return image
+    
+    def img_loader_SAM2(self, path):
+        import PIL.Image as Image
+        img = Image.open(path)
+        img = img.resize((self.W, self.H))
+        img = np.array(img.convert('RGB'))
+
+        return img
 
     def segment(self, img_path, sort_flag=True, save_flag=True, save_img_flag=False, save_name=""):
         """
@@ -75,7 +98,10 @@ class SAMSeger(object):
                 crop_box : the crop of the image used to generate this mask in XYWH format
             }
         """
-        img = self.img_loader(img_path)
+        if self.SAM_name == "SAM":
+            img = self.img_loader_SAM(img_path)
+        elif self.SAM_name == "SAM2":
+            img = self.img_loader_SAM2(img_path)
 
         masks = self.sam_mask_generator.generate(img)
 
@@ -87,6 +113,7 @@ class SAMSeger(object):
                 save_name = osp.splitext(osp.basename(img_path))[0]
             save_full_name = osp.join(self.save_folder, save_name)
             if not osp.exists(self.save_folder):
+                logger.info(f"create folder {self.save_folder}")
                 os.makedirs(self.save_folder)
 
             np.save(save_full_name, masks)
