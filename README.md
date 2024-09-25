@@ -115,8 +115,8 @@ In the following, we will introduce how to use the code by describing its compon
 
 - To use Segment Anything Model (SAM) for segmentation, we provide our inference code in `segmentor/`. To use it, you need to:
   - clone the [SAM repository](https://github.com/facebookresearch/segment-anything) and put it into the `segmentor/..` folder, corresponding to the path set in the `segmentor/SAMSeger.py - L23`. 
-  - intall the dependencies in the SAM repository.
-  - set the pre-trained model path in the configuration dict in `segmentor/ImgSAMSeg.py - L34`.
+  - install the dependencies of SAM.
+  - set the pre-trained model path in `segmentor/ImgSAMSeg.py - L34`.
 
 ### Usage
 - See the `segmentor/sam_seg.sh` for the usage of the SAM segmentation code.
@@ -150,7 +150,7 @@ In the following, we will introduce how to use the code by describing its compon
 
   - `DMESA`
     - A dense counterpart of MESA proposed in [paper](https://arxiv.org/abs/2408.00279), more einfficient and flexible.
-    - The implementation in `area_matchers/dmesa.py`.
+    - The implementation is in `area_matchers/dmesa.py`.
     - The configuration is in `conf/area_matcher/dmesa.yaml`. 
 
 
@@ -192,7 +192,7 @@ In the following, we will introduce how to use the code by describing its compon
 
 - The implementation is in `scripts/test_a2pm.py`. You can run the shell script `scripts/test_in_dev.sh` to test the A2PM framework on a pair of images. 
 
-- The pipeline configuration is set in `conf/experiment/*.yaml`. You can choose the one you want to use by setting the `+experiment=xxx.yaml` in the shell script.
+- The pipeline configurations are set in `conf/experiment/*.yaml`. You can choose the one you want to use by setting the `+experiment=xxx.yaml` in the shell script.
 
 
 ## Evaluation
@@ -204,7 +204,7 @@ In the following, we will introduce how to use the code by describing its compon
 
 - The `metric/instance_eval.py` is used to evaluate the instance-level matching results. It is used in `test_a2pm.py`.
 
-- The `metric/eval_ratios.py` is used to evaluate the batch-level matching results. Set the paths in the py file and run it to get the evaluation results.
+- The `metric/eval_ratios.py` is used to evaluate the batch-level matching results. Set the paths in the `py` file and run it to get the evaluation results.
 
 ---
 # Benchmark Test
@@ -235,7 +235,7 @@ Take DKM as an example, the expected results are as follows:
 
 - In this evaluation code, we fix the random seed to '2' (see `scripts/test_a2pm.py`), which is different from the settings in our paper (without fixing the random seed). Thus, the results are slightly different from the results in the paper, but the effectiveness of our methods is consistent.
 
-- Also, the parameters in the configuration files are set to the default values. Due to the complexity of the parameter settings, we have not tuned the parameters for the best performance. 
+- Also, the parameters in the configuration files are set to the default values. Due to the complexity of the parameter settings, we have not tuned the parameters for all AM+PM combinations. 
   - Better results can be achieved by tuning the parameters for specific datasets and tasks. 
   - However, the default parameters are enough to show the effectiveness of our methods.
 
