@@ -685,8 +685,8 @@ def calc_E_from_corrs(corrs, K0, K1, sac_mode="RANSAC", thresh=0.5, conf=0.9999)
 def recover_F_from_E_K(E, K0, K1):
     """
     """
-    K0 = np.array(K0)
-    K1 = np.array(K1)
+    K0 = np.mat(K0).I
+    K1 = np.mat(K1).I
 
     E = E / np.linalg.norm(E)
     F = np.matmul(np.matmul(K1.T, E), K0)
