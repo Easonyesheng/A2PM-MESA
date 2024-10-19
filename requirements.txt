@@ -1,4 +1,4 @@
-opencv_python==4.4.0.46
+opencv_python==4.8.0
 albumentations==0.5.1 --no-binary=imgaug,albumentations
 ray>=1.0.1
 einops==0.3.0

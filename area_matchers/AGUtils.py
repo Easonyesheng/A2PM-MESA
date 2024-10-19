@@ -326,6 +326,7 @@ class MaskViewer(object):
             
             if key == "mask":
                 bbox = area_info["area_bbox"]
+                bbox = [int(b) for b in bbox]
                 # turn color to scalar
                 # draw bbox
                 cv2.rectangle(masks_show, (bbox[0], bbox[2]), (bbox[1], bbox[3]), color, 2)

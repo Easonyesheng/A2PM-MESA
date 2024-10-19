@@ -1,27 +1,38 @@
 <!--
  * @Author: EasonZhang
  * @Date: 2024-07-26 15:03:49
- * @LastEditors: Easonyesheng preacher@sjtu.edu.cn
- * @LastEditTime: 2024-08-02 11:18:03
+ * @LastEditors: EasonZhang
+ * @LastEditTime: 2024-10-13 20:26:30
  * @FilePath: /A2PM-MESA/README.md
  * @Description: Readme
  * 
  * Copyright (c) 2024 by EasonZhang, All Rights Reserved. 
 -->
 
-# A2PM-MESA
+<!-- add a image before title -->
+<div align="center">
+  <img src="assets/mesa-ava.png" style="height:100px"></img>
+  <h1>Area to Point Matching Framework </h1>
+  <div style="display: flex; justify-content: center; gap: 10px;">
+    <a href='https://arxiv.org/abs/2408.00279'><img src='https://img.shields.io/badge/arXiv-2409.02048-b31b1b.svg'></a> 
+    <a href='https://cvl.sjtu.edu.cn/getpaper/1103'><img src='https://img.shields.io/badge/Project-Page-Green'></a>
+    <a href='https://www.bilibili.com/video/BV19BsFe5E6U/?spm_id_from=333.1365.list.card_archive.click&vd_source=a8ebbc42d41f0658cfa31f10414ec697'><img src='https://img.shields.io/badge/Bilibili-Video-ff69b4'></a>
+  </div>
+</div>
 
-> The family of Area to Point Matching.
+---
+
+> The family of Area to Point Matching, which is good at handling matching challenges like **large/various resolution images**, **large scale/viewpoint changes** and etc.
+
 ![A2PM](assets/A2PM.png)
 
 This is a user-friendly implementation of **Area to Point Matching** (A2PM) framework, powered by [hydra](hydra.cc).
 
-It contains the implementation of [SGAM](https://arxiv.org/abs/2305.00194) (arXiv'23), a training-free version of [MESA](https://openaccess.thecvf.com/content/CVPR2024/html/Zhang_MESA_Matching_Everything_by_Segmenting_Anything_CVPR_2024_paper.html) (CVPR'24) and [DMESA](https://arxiv.org/abs/2408.00279) (arXiv'24).
+It contains the implementation of [SGAM](https://arxiv.org/abs/2305.00194) (arXiv'23), a training-free version of [MESA](https://openaccess.thecvf.com/content/CVPR2024/html/Zhang_MESA_Matching_Everything_by_Segmenting_Anything_CVPR_2024_paper.html) (CVPR'24, [project page](https://cvl.sjtu.edu.cn/getpaper/1103)) and [DMESA](https://arxiv.org/abs/2408.00279) (arXiv'24).
 
 *Due to the power of hydra, the implementation is highly configurable and easy to **extend**.*
 
 *It supports the implementation of feature matching approaches adopting the A2PM framework, and also enables the combination of new point matching and area matching methods.*
-
 
 
 ## Qualitative Results of MESA and DMESA
@@ -29,8 +40,44 @@ It contains the implementation of [SGAM](https://arxiv.org/abs/2305.00194) (arXi
 
 
 ---
+# Table of Contents
+- [News and TODOs](#news-and-todos)
+- [Installation](#installation)
+  - [Clone the Repository](#clone-the-repository)
+  - [Environment Creation](#environment-creation)
+  - [Basic Dependencies](#basic-dependencies)
+- [Usage: hydra-based Configuration](#usage-hydra-based-configuration)
+  - [Dataset](#dataset)
+  - [Segmentation Preprocessing](#segmentation-preprocessing)
+  - [Area Matching](#area-matching)
+  - [Point Matching](#point-matching)
+  - [Match Fusion (Geometry Area Matching)](#match-fusion-geometry-area-matching)
+  - [A2PM](#a2pm)
+  - [Evaluation](#evaluation)
+- [Benchmark Test](#benchmark-test)
+  - [Expected Results of provided scripts](#expected-results-of-provided-scripts)
+- [Citation](#citation)
+
+---
+# News and TODOs
+- [x] **2024-09-11**: [SAM2](https://github.com/facebookresearch/segment-anything-2) is supported in the segmentation preprocessing. See [here](#segmentation-preprocessing).
+
+- [ ] Add the warpper for single image pair matching.
+- [ ] Add more point matchers
+  - [ ] [RoMa](https://github.com/Parskatt/RoMa)
+  - [ ] [MASt3R](https://github.com/naver/mast3r)
+
+---
 # Installation
 To begin with, you need to install the dependencies following the instructions below.
+
+## Clone the Repository
+```bash
+git clone --recursive https://github.com/Easonyesheng/A2PM-MESA
+# or if you have already cloned the repository
+# git submodule update --init --recursive
+cd A2PM-MESA
+```
 
 ## Environment Creation
 - We recommend using `conda` to create a new environment for this project.
@@ -79,11 +126,21 @@ In the following, we will introduce how to use the code by describing its compon
 
 - To use Segment Anything Model (SAM) for segmentation, we provide our inference code in `segmentor/`. To use it, you need to:
   - clone the [SAM repository](https://github.com/facebookresearch/segment-anything) and put it into the `segmentor/..` folder, corresponding to the path set in the `segmentor/SAMSeger.py - L23`. 
-  - intall the dependencies in the SAM repository.
-  - set the pre-trained model path in the configuration dict in `segmentor/ImgSAMSeg.py - L34`.
+  - install the dependencies of SAM.
+  - set the pre-trained model path in `segmentor/ImgSAMSeg.py - L34`.
 
 ### Usage
 - See the `segmentor/sam_seg.sh` for the usage of the SAM segmentation code.
+
+### SAM2
+- Now, we support the [SAM2](https://github.com/facebookresearch/segment-anything-2) model in the segmentation preprocessing. 
+- Note the SAM2 seems to provide less masks than SAM, see the [issue](https://github.com/facebookresearch/segment-anything-2/issues/148), but it is faster anyway.
+- If you encounter the `hydra` initialization error, add the following code in the `SAM2/sam2/__init__.py`:
+    ```python
+    from hydra.core.global_hydra import GlobalHydra
+    GlobalHydra.instance().clear()
+    ```
+  
 
 
 ## Area Matching
@@ -104,7 +161,7 @@ In the following, we will introduce how to use the code by describing its compon
 
   - `DMESA`
     - A dense counterpart of MESA proposed in [paper](https://arxiv.org/abs/2408.00279), more einfficient and flexible.
-    - The implementation in `area_matchers/dmesa.py`.
+    - The implementation is in `area_matchers/dmesa.py`.
     - The configuration is in `conf/area_matcher/dmesa.yaml`. 
 
 
@@ -118,7 +175,9 @@ In the following, we will introduce how to use the code by describing its compon
 
 - Their configurations are put in `conf/point_matcher/`, with warppers in `point_matchers/`.
 
-- For some of them, the inside paths need to be modified, which we have fixed in the submodules in `point_matchers/`.
+- For some of them, the inside paths need to be modified, which has been fixed in the submodules we provided in `point_matchers/`.
+  - Use `​git clone --recursive` when you clone the repo.
+  - Or use `git submodule update --init  --recursive` after direct clone.
 
 - Before running, you need download the pre-trained models and put them in the corresponding paths in the configuration `yaml` files.
 
@@ -144,7 +203,7 @@ In the following, we will introduce how to use the code by describing its compon
 
 - The implementation is in `scripts/test_a2pm.py`. You can run the shell script `scripts/test_in_dev.sh` to test the A2PM framework on a pair of images. 
 
-- The pipeline configuration is set in `conf/experiment/*.yaml`. You can choose the one you want to use by setting the `+experiment=xxx.yaml` in the shell script.
+- The pipeline configurations are set in `conf/experiment/*.yaml`. You can choose the one you want to use by setting the `+experiment=xxx.yaml` in the shell script.
 
 
 ## Evaluation
@@ -156,7 +215,7 @@ In the following, we will introduce how to use the code by describing its compon
 
 - The `metric/instance_eval.py` is used to evaluate the instance-level matching results. It is used in `test_a2pm.py`.
 
-- The `metric/eval_ratios.py` is used to evaluate the batch-level matching results. Set the paths in the py file and run it to get the evaluation results.
+- The `metric/eval_ratios.py` is used to evaluate the batch-level matching results. Set the paths in the `py` file and run it to get the evaluation results.
 
 ---
 # Benchmark Test
@@ -187,7 +246,7 @@ Take DKM as an example, the expected results are as follows:
 
 - In this evaluation code, we fix the random seed to '2' (see `scripts/test_a2pm.py`), which is different from the settings in our paper (without fixing the random seed). Thus, the results are slightly different from the results in the paper, but the effectiveness of our methods is consistent.
 
-- Also, the parameters in the configuration files are set to the default values. Due to the complexity of the parameter settings, we have not tuned the parameters for the best performance. 
+- Also, the parameters in the configuration files are set to the default values. Due to the complexity of the parameter settings, we have not tuned the parameters for all AM+PM combinations. 
   - Better results can be achieved by tuning the parameters for specific datasets and tasks. 
   - However, the default parameters are enough to show the effectiveness of our methods.
 
