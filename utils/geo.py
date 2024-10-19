@@ -2,7 +2,7 @@
 Author: EasonZhang
 Date: 2024-06-19 21:30:03
 LastEditors: Easonyesheng preacher@sjtu.edu.cn
-LastEditTime: 2024-07-27 15:16:45
+LastEditTime: 2024-10-16 21:45:31
 FilePath: /SA2M/hydra-mesa/utils/geo.py
 Description: geo utils
 
@@ -382,7 +382,7 @@ def estimate_pose(kpts0, kpts1, K0, K1, thresh, conf=0.99999, sac_mode="RANSAC")
     K1 = np.array(K1)
     
     # normalize keypoints
-    kpts0 = (kpts0 - K0[[0, 1], [2, 2]][None]) / K0[[0, 1], [0, 1]][None]
+    kpts0 = (kpts0 - K0[[0, 1], [2, 2]][None]) / K0[[0, 1], [0, 1]][None] # normalize by minus principal point and divide by focal length
     kpts1 = (kpts1 - K1[[0, 1], [2, 2]][None]) / K1[[0, 1], [0, 1]][None]
 
     # normalize ransac threshold
