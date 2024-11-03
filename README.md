@@ -2,7 +2,7 @@
  * @Author: EasonZhang
  * @Date: 2024-07-26 15:03:49
  * @LastEditors: EasonZhang
- * @LastEditTime: 2024-10-13 20:26:30
+ * @LastEditTime: 2024-11-03 15:49:55
  * @FilePath: /A2PM-MESA/README.md
  * @Description: Readme
  * 
@@ -41,6 +41,7 @@ It contains the implementation of [SGAM](https://arxiv.org/abs/2305.00194) (arXi
 
 ---
 # Table of Contents
+- [Table of Contents](#table-of-contents)
 - [News and TODOs](#news-and-todos)
 - [Installation](#installation)
   - [Clone the Repository](#clone-the-repository)
@@ -49,20 +50,24 @@ It contains the implementation of [SGAM](https://arxiv.org/abs/2305.00194) (arXi
 - [Usage: hydra-based Configuration](#usage-hydra-based-configuration)
   - [Dataset](#dataset)
   - [Segmentation Preprocessing](#segmentation-preprocessing)
+    - [Usage](#usage)
+    - [SAM2](#sam2)
   - [Area Matching](#area-matching)
   - [Point Matching](#point-matching)
   - [Match Fusion (Geometry Area Matching)](#match-fusion-geometry-area-matching)
   - [A2PM](#a2pm)
+  - [DEMO](#demo)
   - [Evaluation](#evaluation)
 - [Benchmark Test](#benchmark-test)
   - [Expected Results of provided scripts](#expected-results-of-provided-scripts)
 - [Citation](#citation)
+- [Acknowledgement](#acknowledgement)
 
 ---
 # News and TODOs
 - [x] **2024-09-11**: [SAM2](https://github.com/facebookresearch/segment-anything-2) is supported in the segmentation preprocessing. See [here](#segmentation-preprocessing).
 
-- [ ] Add the warpper for single image pair matching.
+- [x] **2024-11-03** Add the warpper for single image pair matching. See [here]()
 - [ ] Add more point matchers
   - [ ] [RoMa](https://github.com/Parskatt/RoMa)
   - [ ] [MASt3R](https://github.com/naver/mast3r)
@@ -205,6 +210,16 @@ In the following, we will introduce how to use the code by describing its compon
 
 - The pipeline configurations are set in `conf/experiment/*.yaml`. You can choose the one you want to use by setting the `+experiment=xxx.yaml` in the shell script.
 
+## DEMO
+- We provide a demo script `scripts/demo.py` with corresponding configurations in `conf/experiment/demo.yaml`. You can run the script like:
+  ```shell
+  cd scripts
+  python demo.py +experiment=demo
+  ```
+- We provide a set of demo images in `./demo/`, which are sampled from the ETH3D dataset. 
+  - The SAM results must be provided in `./demo/samres`, if you want to use the SAM-based area matcher.
+  - If no intrinsic camera parameters are provided, you should use `gam` as the `geo_area_matcher`, otherwise, you can use `egam`.
+- Set the `geo_area_matcher: gam` in the `conf/experiment/demo.yaml` to use the original GAM, which can draw the matching results on the images.
 
 ## Evaluation
 

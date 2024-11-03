@@ -2,3 +2,6 @@
 ./scripts/outputs
 assets/.DS_Store
 .DS_Store
+
+*.pyc
+*.log

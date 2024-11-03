@@ -139,7 +139,7 @@ class EGeoAreaMatcher(AbstractGeoAreaMatcher):
         self.scene_name = dataloader.scene_name
 
         # load imgs
-        if self.datasetName == "MegaDepth" or self.datasetName == "YFCC" or self.datasetName == "ETH3D":
+        if self.datasetName == "MegaDepth" or self.datasetName == "YFCC" or self.datasetName == "ETH3D" or self.datasetName == "demo":
             # load images with resize and padding, update the crop/eval_from_size
             # these datasets, eval and crop on the original images
             self.ori_img0, self.ori_img1, self.scale0, self.scale1 = dataloader.load_images()
@@ -179,7 +179,7 @@ class EGeoAreaMatcher(AbstractGeoAreaMatcher):
             # turn ndarray to matrix, YFCC need to inverse
             self.pose0 = self.pose0.I
             self.pose1 = self.pose1.I
-        elif self.datasetName == "KITTI" or self.datasetName == "ETH3D" or self.datasetName == "MegaDepth":
+        elif self.datasetName == "KITTI" or self.datasetName == "ETH3D" or self.datasetName == "MegaDepth" or self.datasetName == "demo":
             pass
         else:
             raise NotImplementedError
@@ -530,7 +530,7 @@ class EGeoAreaMatcher(AbstractGeoAreaMatcher):
             temp_alpha_area1s = [self.all_input_matched_area1s[idx] for idx in alpha_inlier_idxs_dict[alpha]]
 
             # 0. calc total area cover size
-            if self.datasetName == "MegaDepth" or self.datasetName == "YFCC" or self.datasetName == "ETH3D":
+            if self.datasetName == "MegaDepth" or self.datasetName == "YFCC" or self.datasetName == "ETH3D" or self.datasetName == "demo":
                 size_ratio0 = self.calc_size_cover_ratio(temp_alpha_area0s, self.crop_from_size_W0, self.crop_from_size_H0)
                 size_ratio1 = self.calc_size_cover_ratio(temp_alpha_area1s, self.crop_from_size_W1, self.crop_from_size_H1)
             elif self.datasetName == "ScanNet" or self.datasetName == "KITTI" or self.datasetName == "MatterPort3D":
@@ -572,7 +572,7 @@ class EGeoAreaMatcher(AbstractGeoAreaMatcher):
         assert self.sampler_name != "", f"sampler_name is empty"
 
         if self.sampler_name == "GridFill":
-            from .MatchSampler import GridFillSampler
+            from models.MatchSampler import GridFillSampler
 
             sampler_cfg = {
                 "W0": self.eval_from_size_W0,
@@ -719,7 +719,7 @@ class EGeoAreaMatcher(AbstractGeoAreaMatcher):
         rt_corrs = recover_corrs_offset_scales(temp_corrs, offset_zip, scale_zip) # corrs are in the crop_from_size
 
         # recover to eval size
-        if self.datasetName == "MegaDepth" or self.datasetName == "YFCC" or self.datasetName == "ETH3D":
+        if self.datasetName == "MegaDepth" or self.datasetName == "YFCC" or self.datasetName == "ETH3D" or self.datasetName == "demo":
             rt_corrs = tune_corrs_size_diff(rt_corrs, self.crop_from_size_W0, self.crop_from_size_W1, self.crop_from_size_H0, self.crop_from_size_H1, self.eval_from_size_W0, self.eval_from_size_W1, self.eval_from_size_H0, self.eval_from_size_H1)
         elif self.datasetName == "ScanNet" or self.datasetName == "KITTI" or self.datasetName == "MatterPort3D":
             rt_corrs = tune_corrs_size(rt_corrs, self.crop_from_size_W, self.crop_from_size_H, self.eval_from_size_W, self.eval_from_size_H)
@@ -803,7 +803,7 @@ class EGeoAreaMatcher(AbstractGeoAreaMatcher):
         # self.draw_area_match_res(rt_corrs, name)
         
         # recover to eval size
-        if self.datasetName == "MegaDepth" or self.datasetName == "YFCC" or self.datasetName == "ETH3D":
+        if self.datasetName == "MegaDepth" or self.datasetName == "YFCC" or self.datasetName == "ETH3D" or self.datasetName == "demo":
         # if self.datasetName == "MegaDepth":
             rt_corrs = tune_corrs_size_diff(rt_corrs, self.crop_from_size_W0, self.crop_from_size_W1, self.crop_from_size_H0, self.crop_from_size_H1, self.eval_from_size_W0, self.eval_from_size_W1, self.eval_from_size_H0, self.eval_from_size_H1)
         elif self.datasetName == "ScanNet" or self.datasetName == "KITTI" or self.datasetName == "MatterPort3D":
@@ -824,7 +824,7 @@ class EGeoAreaMatcher(AbstractGeoAreaMatcher):
         assert matched_area1s is not None, f"all_area1_matches is None"
         assert len(matched_area0s) == len(matched_area1s), f"len(all_area0_matches) != len(all_area1_matches)"
 
-        if self.datasetName == "MegaDepth" or self.datasetName == "YFCC" or self.datasetName == "ETH3D":
+        if self.datasetName == "MegaDepth" or self.datasetName == "YFCC" or self.datasetName == "ETH3D" or self.datasetName == "demo":
             self.all_input_matched_area0s = self.tune_area_list_size(matched_area0s, self.area_from_size_W, self.area_from_size_H, self.crop_from_size_W0, self.crop_from_size_H0)
             self.all_input_matched_area1s = self.tune_area_list_size(matched_area1s, self.area_from_size_W, self.area_from_size_H, self.crop_from_size_W1, self.crop_from_size_H1)
         elif self.datasetName == "ScanNet" or self.datasetName == "KITTI" or self.datasetName == "MatterPort3D":

@@ -60,7 +60,7 @@ class PRGeoAreaMatcher(AbstractGeoAreaMatcher):
         std_match_num,
         valid_inside_area_match_num,
         filter_area_num,
-        reject_out_area_flag,
+        reject_outarea,
         adaptive_size_thd,
         alpha_list,
         datasetName="ScanNet", 
@@ -69,7 +69,7 @@ class PRGeoAreaMatcher(AbstractGeoAreaMatcher):
         """
         self._name = "RawGeoAMer"
         self.datasetName = datasetName
-        self.reject_outarea = reject_out_area_flag
+        self.reject_outarea = reject_outarea
 
         ## area matches come from the area_from_size
         self.area_from_size_W, self.area_from_size_H = area_from_size_W, area_from_size_H
@@ -114,7 +114,7 @@ class PRGeoAreaMatcher(AbstractGeoAreaMatcher):
         self.scene_name = dataloader.scene_name
 
         # load imgs
-        if self.datasetName == "MegaDepth" or self.datasetName == "YFCC" or self.datasetName == "ETH3D":
+        if self.datasetName == "MegaDepth" or self.datasetName == "YFCC" or self.datasetName == "ETH3D" or self.datasetName == "demo":
             # load images with resize and padding, update the crop/eval_from_size
             # these datasets, eval and crop on the original images
             self.ori_img0, self.ori_img1, self.scale0, self.scale1 = dataloader.load_images()
@@ -155,7 +155,7 @@ class PRGeoAreaMatcher(AbstractGeoAreaMatcher):
             # turn ndarray to matrix, YFCC need to inverse
             self.pose0 = self.pose0.I
             self.pose1 = self.pose1.I
-        elif self.datasetName == "KITTI" or self.datasetName == "ETH3D" or self.datasetName == "MegaDepth":
+        elif self.datasetName == "KITTI" or self.datasetName == "ETH3D" or self.datasetName == "MegaDepth" or self.datasetName == "demo":
             pass
         else:
             raise NotImplementedError
@@ -227,7 +227,7 @@ class PRGeoAreaMatcher(AbstractGeoAreaMatcher):
         Args:
             area = [u_min, u_max, v_min, v_max]
         """
-        if self.datasetName == "MegaDepth" or self.datasetName == "YFCC":
+        if self.datasetName == "MegaDepth" or self.datasetName == "YFCC" or self.datasetName == "demo":
             self.ori_doubt_areas0 = self.tune_area_list_size(areas0, self.area_from_size_W, self.area_from_size_H, self.crop_from_size_W0, self.crop_from_size_H0)
             self.ori_doubt_areas1 = self.tune_area_list_size(areas1, self.area_from_size_W, self.area_from_size_H, self.crop_from_size_W1, self.crop_from_size_H1)
         else:
@@ -499,7 +499,7 @@ class PRGeoAreaMatcher(AbstractGeoAreaMatcher):
         """
         assert len(matched_area0s) == len(matched_area1s), "invalid pair"
 
-        if self.datasetName == "MegaDepth" or self.datasetName == "YFCC":
+        if self.datasetName == "MegaDepth" or self.datasetName == "YFCC" or self.datasetName == "demo":
             matched_area0s = self.tune_area_list_size(matched_area0s, self.area_from_size_W, self.area_from_size_H, self.crop_from_size_W0, self.crop_from_size_H0)
             matched_area1s = self.tune_area_list_size(matched_area1s, self.area_from_size_W, self.area_from_size_H, self.crop_from_size_W1, self.crop_from_size_H1)
         else:
@@ -547,7 +547,7 @@ class PRGeoAreaMatcher(AbstractGeoAreaMatcher):
         temp_corrs = self.matcher.return_matches()
 
         # tune to eval_from_size
-        if self.datasetName == "MegaDepth" or self.datasetName == "YFCC":
+        if self.datasetName == "MegaDepth" or self.datasetName == "YFCC" or self.datasetName == "demo":
             temp_corrs = self.tune_corrs_size_diff(temp_corrs, self.crop_size_W, self.crop_size_W, self.crop_size_H, self.crop_size_H, self.eval_from_size_W0, self.eval_from_size_W1, self.eval_from_size_H0, self.eval_from_size_H1)
         else:   
             temp_corrs = self.tune_corrs_size(temp_corrs, self.crop_size_W, self.crop_size_H, self.eval_from_size_W, self.eval_from_size_H)
@@ -567,7 +567,7 @@ class PRGeoAreaMatcher(AbstractGeoAreaMatcher):
         """
         match_num = self.std_match_num
         # if self.datasetName == "MegaDepth":
-        if self.datasetName == "MegaDepth" or self.datasetName == "YFCC":
+        if self.datasetName == "MegaDepth" or self.datasetName == "YFCC" or self.datasetName == "demo":
             ori_img0_resized = cv2.resize(self.ori_img0, (self.eval_from_size_W0, self.eval_from_size_H0))
             ori_img1_resized = cv2.resize(self.ori_img1, (self.eval_from_size_W1, self.eval_from_size_H1))
         else:
@@ -632,7 +632,7 @@ class PRGeoAreaMatcher(AbstractGeoAreaMatcher):
             temp_corrs = self.match_area_pair_mind_size(temp_area0, self.rejecting_matched_area1s[i], f"rejecting_{i}") # corrs in eval_from_size
 
             # areas are in crop_from_size, tune to eval_from_size
-            if self.datasetName == "MegaDepth" or self.datasetName == "YFCC":
+            if self.datasetName == "MegaDepth" or self.datasetName == "YFCC" or self.datasetName == "demo":
                 area0_in_eval_size = self.tune_area_size(temp_area0, self.crop_from_size_W0, self.crop_from_size_H0, self.eval_from_size_W0, self.eval_from_size_H0)
                 area1_in_eval_size = self.tune_area_size(self.rejecting_matched_area1s[i], self.crop_from_size_W1, self.crop_from_size_H1, self.eval_from_size_W1, self.eval_from_size_H1)
             else:
@@ -851,7 +851,7 @@ class PRGeoAreaMatcher(AbstractGeoAreaMatcher):
                 self.draw_match_areas(after_reject_area0s, after_reject_area1s, f"phi{alpha_temp}_after_rejection")
 
             # calc the area size in two images
-            if self.datasetName == "MegaDepth" or self.datasetName == "YFCC":
+            if self.datasetName == "MegaDepth" or self.datasetName == "YFCC" or self.datasetName == "demo":
                 size_ratio0 = self.calc_area_size_in_ori_ratio(after_reject_area0s, self.crop_from_size_W0, self.crop_from_size_H0)
                 size_ratio1 = self.calc_area_size_in_ori_ratio(after_reject_area1s, self.crop_from_size_W1, self.crop_from_size_H1)
             else:
@@ -1244,7 +1244,7 @@ class PRGeoAreaMatcher(AbstractGeoAreaMatcher):
             matched_area1s: [[u_min, u_max, v_min, v_max]s] in crop from size
             corrs: [[u0, v0, u1, v1]s] in eval from size
         """
-        if self.datasetName == "MegaDepth" or self.datasetName == "YFCC":
+        if self.datasetName == "MegaDepth" or self.datasetName == "YFCC" or self.datasetName == "demo":
             corrs_crop = self.tune_corrs_size_diff(corrs, self.eval_from_size_W0, self.eval_from_size_W1, self.eval_from_size_H0, self.eval_from_size_H1, self.crop_from_size_W0, self.crop_from_size_W1, self.crop_from_size_H0, self.crop_from_size_H1)
         # elif self.datasetName == "YFCC":
         #     corrs_crop = self.tune_corrs_size_diff(corrs, self.eval_from_size_W, self.eval_from_size_W, self.eval_from_size_H, self.eval_from_size_H, self.crop_from_size_W0, self.crop_from_size_W1, self.crop_from_size_H0, self.crop_from_size_H1)
@@ -1362,7 +1362,7 @@ class PRGeoAreaMatcher(AbstractGeoAreaMatcher):
         # self.draw_area_match_res(rt_corrs, name)
         
         # recover to eval size
-        if self.datasetName == "MegaDepth" or self.datasetName == "YFCC":
+        if self.datasetName == "MegaDepth" or self.datasetName == "YFCC" or self.datasetName == "demo":
         # if self.datasetName == "MegaDepth":
             rt_corrs = self.tune_corrs_size_diff(rt_corrs, self.crop_from_size_W0, self.crop_from_size_W1, self.crop_from_size_H0, self.crop_from_size_H1, self.eval_from_size_W0, self.eval_from_size_W1, self.eval_from_size_H0, self.eval_from_size_H1)
         # elif self.datasetName == "YFCC":
