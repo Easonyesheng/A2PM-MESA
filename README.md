@@ -67,7 +67,7 @@ It contains the implementation of [SGAM](https://arxiv.org/abs/2305.00194) (arXi
 # News and TODOs
 - [x] **2024-09-11**: [SAM2](https://github.com/facebookresearch/segment-anything-2) is supported in the segmentation preprocessing. See [here](#segmentation-preprocessing).
 
-- [x] **2024-11-03** Add the warpper for single image pair matching. See [here](#demo)
+- [x] **2024-11-03**: Add the warpper for single image pair matching. See [here](#demo)
 - [ ] Add more point matchers
   - [ ] [RoMa](https://github.com/Parskatt/RoMa)
   - [ ] [MASt3R](https://github.com/naver/mast3r)
