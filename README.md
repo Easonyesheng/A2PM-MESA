@@ -140,6 +140,7 @@ In the following, we will introduce how to use the code by describing its compon
 ### SAM2
 - Now, we support the [SAM2](https://github.com/facebookresearch/segment-anything-2) model in the segmentation preprocessing. 
 - Note the SAM2 seems to provide less masks than SAM, see the [issue](https://github.com/facebookresearch/segment-anything-2/issues/148), but it is faster anyway.
+- Set `sam_name=SAM2` in `segmentor/sam_seg.sh` and config the model path in `segmentor/ImgSAMSeg.py#L48` to use it.
 - If you encounter the `hydra` initialization error, add the following code in the `SAM2/sam2/__init__.py`:
     ```python
     from hydra.core.global_hydra import GlobalHydra
