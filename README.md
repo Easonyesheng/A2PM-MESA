@@ -96,7 +96,7 @@ conda activate A2PM
   - Note the requirements of the torch version is soft, and the code is tested on `torch==2.0.0+cu118`.
 
   ```bash
-  pip install torch==2.0.0+cu118 torchvision==0.15.1+cu118 torchaudio==2.0.1 -index-url https://download.pytorch.org/whl/cu118
+  pip install torch==2.0.0+cu118 torchvision==0.15.1+cu118 torchaudio==2.0.1 --index-url https://download.pytorch.org/whl/cu118
   ```
 
 - Install the basic dependencies by running the following command.
