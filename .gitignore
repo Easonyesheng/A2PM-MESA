@@ -5,3 +5,5 @@ assets/.DS_Store
 
 *.pyc
 *.log
+
+**__pycache__/*
