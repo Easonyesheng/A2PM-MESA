@@ -241,11 +241,19 @@ In the following, we will introduce how to use the code by describing its compon
 You can run the benchmark test by running the shell script such as:
 
 ```shell
-./scripts/dmesa-dkm-md.sh # DMESA+DKM on MegaDepth1500
+cd ./scripts
+./dmesa-dkm-md.sh # DMESA+DKM on MegaDepth1500
+
+# check the metric result
+cd ../metric
+python eval_ratios.py
+# NOTE: the path in eval_ratios.py#L21 need to be modified.
+
 ```
 
 
 You can change the configurations in the shell script to test different methods, i.e. `+experiment=xxx`.
+Also, modify the path in `eval_ratios.py#L21` (`${exp_root_path}/res`, `exp_root_path` in shell scripts) and folder name in `eval_ratios.py#L24` (the folder where results are saved).
 
 ## Expected Results of provided scripts
 Take DKM as an example, the expected results are as follows:
