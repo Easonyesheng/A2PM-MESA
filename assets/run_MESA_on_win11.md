@@ -5,16 +5,16 @@
 **1.**
 下载[SAM](https://github.com/facebookresearch/segment-anything)粘贴到A2PM-MESA目录下；
 
-   Download **SAM** and paste it into the **A2PM-MESA** directory.
+   Download [SAM](https://github.com/facebookresearch/segment-anything) and paste it into the `A2PM-MESA` directory.
 
 **2.**
 下载[SAM2](https://github.com/facebookresearch/sam2)，将其中的sam2粘贴到A2PM-MESA\segmentor目录下（别问为什么，SAM2项目路径内部问题，源码内部有整段解释为何会有包错误）；
 
-Download **SAM2** and paste the **sam2** in it into the **A2PM-MESA\segmentor** directory (don't ask why, there is a problem inside the SAM2 project path, there is a whole paragraph inside the source code explaining why there is a package error);
+Download [SAM2](https://github.com/facebookresearch/sam2) and paste the `sam2` in it into the `A2PM-MESA\segmentor` directory (don't ask why, there is a problem inside the SAM2 project path, there is a whole paragraph inside the source code explaining why there is a package error);
 
 **3.**
-修改**SAMSeger.py**文件内         
-modify    file **SAMSeger.py **  
+修改`SAMSeger.py`文件内         
+modify file `SAMSeger.py`  
 
 ```
 from SAM.segment_anything import sam_model_registry, SamAutomaticMaskGenerator
@@ -32,9 +32,9 @@ from sam2.automatic_mask_generator import SAM2AutomaticMaskGenerator
 ```
 
 **4.**
-下载sam_vit_h_4b8939.pth模型文件放在A2PM-MESA\segmentor目录下，同时修改该目录下的ImgSAMSeg.py文件，将`"sam_model_path": f"{current_path}/SAM/sam_vit_h_4b8939.pth",`替换为你下载的模型地址
+下载`sam_vit_h_4b8939.pth`模型文件放在`A2PM-MESA\segmentor`目录下，同时修改该目录下的`ImgSAMSeg.py`文件，将`"sam_model_path": f"{current_path}/SAM/sam_vit_h_4b8939.pth",`替换为你下载的模型地址
 
-  Download the **sam_vit_h_4b8939.pth** model file and place it in the **A2PM-MESA\segmentor** directory. Additionally, modify the **ImgSAMSeg.py** file in the same directory
+  Download the `sam_vit_h_4b8939.pth` model file and place it in the `A2PM-MESA\segmentor` directory. Additionally, modify the `ImgSAMSeg.py` file in the same directory.
 
 ```python
 SAM_configs = {
@@ -52,7 +52,10 @@ Replace with the address of the model you downloaded。
 
 **5.**
 
-cd `F:\VSCodeProject\A2PM-MESA\segmentor` (modify to your address)
+```bash
+cd F:\VSCodeProject\A2PM-MESA\segmentor
+```
+(modify to your address)
 
 ```python
 python ImgSAMSeg.py --img_path "F:\VSCodeProject\A2PM-MESA\dataset\scannet_test_1500\scene0720_00\color\180.jpg" --save_folder "F:\VSCodeProject\A2PM-MESA\result\private\SA2M\data\SAMRes\scene0720_00" --save_name "180"
@@ -64,7 +67,7 @@ python ImgSAMSeg.py --img_path "F:\VSCodeProject\A2PM-MESA\dataset\scannet_test_
 
 结果的地址要与 `A2PM-MESA\conf\dataset\scannet_sam.yaml` 文件下的路径一致
 
-correspond with the address in   `**`A2PM-MESA\conf\dataset\scannet_sam.yaml`
+correspond with the address in `A2PM-MESA\conf\dataset\scannet_sam.yaml`
 
 ## 二 根据第一步的结果进行MESA+DKM拼配
 
@@ -79,14 +82,14 @@ python test_a2pm.py  +experiment=a2pm_mesa_egam_dkm_scannet
 ## 三 进行基准测试  Perform benchmark testing.
 
 **1.**
-根据A2PM-MESA\scripts\scannet_pairs.txt中需要的图片依次调用第一步中的命令生成所需.npy文件（只进行部分测试,前十几张照片即可）
+根据`A2PM-MESA\scripts\scannet_pairs.txt`中需要的图片依次调用第一步中的命令生成所需`.npy`文件（只进行部分测试,前十几张照片即可）
 
-   According to the pictures required in **A2PM-MESA\scripts\scannet_pairs.txt**, call the command of the first step to generate the required **.npy** file (only part of the test, the first dozen photos can be used).
+   According to the pictures required in `A2PM-MESA\scripts\scannet_pairs.txt`, call the command of the first step to generate the required `.npy` file (only part of the test, the first dozen photos can be used).
 
 **2.**
-在A2PM-MESA\scripts下新建mesa-f-dkm-sn.py文件,文件第8，10，11行需要自行修改
+在`A2PM-MESA\scripts`下新建`mesa-f-dkm-sn.py`文件,文件第8，10，11行需要自行修改
 
-  (Create a **mesa-f-dkm-sn.py** file under **A2PM-MESA\scripts**, and you need to modify lines 8, 10, and 11 of the file)
+  (Create a `mesa-f-dkm-sn.py` file under `A2PM-MESA\scripts`, and you need to modify lines 8, 10, and 11 of the file)
 
 ```
 import os
