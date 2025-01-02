@@ -247,7 +247,7 @@ cd ./scripts
 # check the metric result
 cd ../metric
 python eval_ratios.py
-# NOTE: the path in eval_ratios.py#L21 need to be modified.
+# NOTE: eval_ratios.py#L21~L26 need to be modified accordingly.
 
 ```
 
