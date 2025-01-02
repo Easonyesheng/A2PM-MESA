@@ -68,7 +68,7 @@ It contains the implementation of [SGAM](https://arxiv.org/abs/2305.00194) (arXi
 - [x] **2024-09-11**: [SAM2](https://github.com/facebookresearch/segment-anything-2) is supported in the segmentation preprocessing. See [here](#segmentation-preprocessing).
 
 - [x] **2024-11-03**: Add the warpper for single image pair matching. See [here](#demo)
-- [ ] **2025-01-02**: An operation manual about running MESA on Win11 has been added [here](https://github.com/Easonyesheng/A2PM-MESA/blob/main/assets/run_MESA_on_win11.md), Thanks @[MY-QY](https://github.com/MY-QY)!
+- [x] **2025-01-02**: An operation manual about running MESA on Win11 has been added [here](https://github.com/Easonyesheng/A2PM-MESA/blob/main/assets/run_MESA_on_win11.md), Thanks @[MY-QY](https://github.com/MY-QY)!
 - [ ] Add more point matchers
   - [ ] [RoMa](https://github.com/Parskatt/RoMa)
   - [ ] [MASt3R](https://github.com/naver/mast3r)
