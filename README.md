@@ -244,7 +244,8 @@ You can run the benchmark test by running the shell script such as:
 cd ./scripts
 ./dmesa-dkm-md.sh # DMESA+DKM on MegaDepth1500
 
-# check the metric result
+# check the metric results
+# TODO: Merge into the same script
 cd ../metric
 python eval_ratios.py
 # NOTE: eval_ratios.py#L21~L26 need to be modified accordingly.
