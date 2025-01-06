@@ -157,3 +157,13 @@ run the benchmark test program
 ```bash
 python mesa-f-dkm-sn.py
 ```
+
+**4.**
+统计metric
+
+```bash
+cd ../metric
+python eval_ratios.py
+```
+- NOTE: eval_ratios.py#L21~L26 需要修改到对应路径和文件夹名字.
+
