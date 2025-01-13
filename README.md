@@ -272,7 +272,9 @@ Take DKM as an example, the expected results are as follows:
 |Pose AUC@20 | 85.72 | 86.47 | 86.97 |
 
 
-- In this evaluation code, we fix the random seed to '2' (see `scripts/test_a2pm.py`), which is different from the settings in our paper (without fixing the random seed). Thus, the results are slightly different from the results in the paper, but the effectiveness of our methods is consistent.
+- In this evaluation code, we fix the random seed to '2' (see `scripts/test_a2pm.py`), which is different from the settings in our paper (without fixing the random seed). Thus, the results are slightly different from the results in the paper for DMESA, but the effectiveness of our methods is consistent.
+
+- The training-free version of MESA showcases a slight precision drop comprared with MESA (paper verison), but it still improves the baseline performance.
 
 - Also, the parameters in the configuration files are set to the default values. Due to the complexity of the parameter settings, we have not tuned the parameters for all AM+PM combinations. 
   - Better results can be achieved by tuning the parameters for specific datasets and tasks. 
