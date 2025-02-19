@@ -71,7 +71,7 @@ def test(cfg: DictConfig) -> None:
     amer = hydra.utils.instantiate(cfg.area_matcher)
     logger.info(f"amer: {amer.name()}")
     validate_type(amer, AbstractAreaMatcher)
-    area_matches0, area_matches1 = amer.area_matching(dataloader, cfg.out_path)
+    area_matches0, area_matches1 = amer.area_matching(dataloader, cfg.out_path) # here is the area matches from the area matcher, areas are represented by 4 coordinate list: [u_min, u_max, v_min, v_max]
 
     logger.success(f"area matching done, area_matches len: {len(area_matches0)}")
 
@@ -87,9 +87,21 @@ def test(cfg: DictConfig) -> None:
     )
     alpha_corrs_dict, alpha_inlier_idxs_dict, _ = gamer.geo_area_matching_refine(area_matches0, area_matches1)
 
+
+
     logger.success(f"geo area matching done")
     for alpha in alpha_corrs_dict.keys():
         logger.success(f"for alpha: {alpha}, areas num: {len(alpha_inlier_idxs_dict[alpha])}")
+        # get inlier area matches
+        inlier_area_matches0 = [area_matches0[i] for i in alpha_inlier_idxs_dict[alpha]]
+        inlier_area_matches1 = [area_matches1[i] for i in alpha_inlier_idxs_dict[alpha]]
+
+        # NOTE: description about how to use the matched areas
+        # areas are represented by 4 coordinate list: [u_min, u_max, v_min, v_max]
+        # the matched areas are stored in inlier_area_matches0 and inlier_area_matches1
+        # for example, inlier_area_matches0[0]=[u0_min, u0_max, v0_min, v0_max] is matched with inlier_area_matches1[0]=[u1_min, u1_max, v1_min, v1_max]
+        # you can choose a proper alpha by modifying the `alpha_list` in the config file of the geo area matcher you used
+        # such as `alpha_list: [0.1, 0.2, 0.3, 0.4, 0.5]` in L17 of `conf/geo_area_matcher/egam.yaml`
 
 
     for alpha in alpha_corrs_dict.keys():
