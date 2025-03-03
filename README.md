@@ -46,24 +46,19 @@ It contains the implementation of [SGAM](https://arxiv.org/abs/2305.00194) (arXi
 - [Table of Contents](#table-of-contents)
 - [News and TODOs](#news-and-todos)
 - [Installation](#installation)
-  - [Clone the Repository](#clone-the-repository)
-  - [Environment Creation](#environment-creation)
-  - [Basic Dependencies](#basic-dependencies)
-- [Usage: hydra-based Configuration](#usage-hydra-based-configuration)
+- [Usage](#usage)
+- [Segmentation Preprocessing](#segmentation-preprocessing)
+- [DEMO](#demo)
+- [hydra-based Configuration](#hydra-based-configuration)
   - [Dataset](#dataset)
-  - [Segmentation Preprocessing](#segmentation-preprocessing)
-    - [Usage](#usage)
-    - [SAM2](#sam2)
   - [Area Matching](#area-matching)
   - [Point Matching](#point-matching)
   - [Match Fusion (Geometry Area Matching)](#match-fusion-geometry-area-matching)
   - [A2PM](#a2pm)
-  - [DEMO](#demo)
   - [Evaluation](#evaluation)
 - [Benchmark Test](#benchmark-test)
   - [Expected Results of provided scripts](#expected-results-of-provided-scripts)
 - [Citation](#citation)
-- [Acknowledgement](#acknowledgement)
 
 ---
 # News and TODOs
@@ -112,10 +107,47 @@ conda activate A2PM
 
 ---
 
-# Usage: hydra-based Configuration
+# Usage
 This code is based on [hydra](https://hydra.cc/), which is a powerful configuration system for Python applications. The documentation of hydra can be found [here](https://hydra.cc/docs/intro/).
 
-In the following, we will introduce how to use the code by describing its components with hydra configurations.
+> Please carefully read the following instructions to understand how to use this code with your own needs.
+
+- If you wanna test your environment, you can turn to [DEMO](#demo) for a quick start, where we provide off-the-shelf configurations in `./conf/experiment/demo.yaml` and minimal input files in `./demo/`.
+
+  - The code entry point is in `./scripts/xxx.py`, where you can run the code with their configurations in `./conf/experiment/xxx.yaml`.
+
+- If you want to run the full pipeline, you can turn to [Benchmark Test](#benchmark-test); but you need to prepare SAM results for your datasets following the instructions in [Segmentation Preprocessing](#segmentation-preprocessing).
+
+- If you want to dive into the code and develop your own methods based on this framework:
+  - You first need to understand the basic logic of [hydra](https://hydra.cc/) we used: Initialize a python class with configurations in a `yaml` file. We keep the names of `class-yaml` pairs consistent in the code.
+  - You can follow the instructions in [hydra-based Configuration](#hydra-based-configuration) to understand and configure every component of the A2PM framework.
+  - You can also add new components by adding new classes and configurations in the corresponding folders.
+
+# Segmentation Preprocessing
+> The segmentation results are needed for the area matching methods.
+
+- To use Segment Anything Model (SAM) for segmentation, we provide our inference code in `segmentor/`. To use it, you need to:
+  - clone the [SAM repository](https://github.com/facebookresearch/segment-anything) and put it into the `segmentor/..` folder, corresponding to the path set in the `segmentor/SAMSeger.py - L23`. 
+  - install the dependencies of SAM.
+  - set the pre-trained model path in `segmentor/ImgSAMSeg.py - L34`.
+
+# DEMO
+- We provide a demo script `scripts/demo.py` with corresponding configurations in `conf/experiment/demo.yaml`. You can run the script like:
+  ```shell
+  cd scripts
+  python demo.py +experiment=demo
+  ```
+- We provide a set of demo images in `./demo/`, which are sampled from the ETH3D dataset. 
+  - The SAM results must be provided in `./demo/samres`, if you want to use the SAM-based area matcher.
+  - If no intrinsic camera parameters are provided, you should use `gam` as the `geo_area_matcher`, otherwise, you can use `egam`.
+- Set the `geo_area_matcher: gam` in the `conf/experiment/demo.yaml` to use the original GAM, which can draw the matching results on the images.
+
+---
+
+
+# hydra-based Configuration
+
+In the following, we will introduce each components of this code with corresponding hydra configurations.
 
 ## Dataset
 >We offer dataloaders for two widely-used datasets, including `ScanNet1500` and `MegaDepth1500`. 
@@ -131,13 +163,6 @@ In the following, we will introduce how to use the code by describing its compon
 
 - More datasets can be easily added by adding new dataloaders in `dataloader/` and setting the corresponding configurations in `conf/dataset/`.
 
-## Segmentation Preprocessing
-> The segmentation results are needed for the area matching methods.
-
-- To use Segment Anything Model (SAM) for segmentation, we provide our inference code in `segmentor/`. To use it, you need to:
-  - clone the [SAM repository](https://github.com/facebookresearch/segment-anything) and put it into the `segmentor/..` folder, corresponding to the path set in the `segmentor/SAMSeger.py - L23`. 
-  - install the dependencies of SAM.
-  - set the pre-trained model path in `segmentor/ImgSAMSeg.py - L34`.
 
 ### Usage
 - See the `segmentor/sam_seg.sh` for the usage of the SAM segmentation code.
@@ -216,16 +241,6 @@ In the following, we will introduce how to use the code by describing its compon
 
 - The pipeline configurations are set in `conf/experiment/*.yaml`. You can choose the one you want to use by setting the `+experiment=xxx.yaml` in the shell script.
 
-## DEMO
-- We provide a demo script `scripts/demo.py` with corresponding configurations in `conf/experiment/demo.yaml`. You can run the script like:
-  ```shell
-  cd scripts
-  python demo.py +experiment=demo
-  ```
-- We provide a set of demo images in `./demo/`, which are sampled from the ETH3D dataset. 
-  - The SAM results must be provided in `./demo/samres`, if you want to use the SAM-based area matcher.
-  - If no intrinsic camera parameters are provided, you should use `gam` as the `geo_area_matcher`, otherwise, you can use `egam`.
-- Set the `geo_area_matcher: gam` in the `conf/experiment/demo.yaml` to use the original GAM, which can draw the matching results on the images.
 
 ## Evaluation
 
@@ -239,8 +254,11 @@ In the following, we will introduce how to use the code by describing its compon
 - The `metric/eval_ratios.py` is used to evaluate the batch-level matching results. Set the paths in the `py` file and run it to get the evaluation results.
 
 ---
+
 # Benchmark Test
 You can run the benchmark test by running the shell script such as:
+
+> **NOTE**: eval_ratios.py#L21~L26 need to be modified accordingly.
 
 ```shell
 cd ./scripts
@@ -250,13 +268,11 @@ cd ./scripts
 # TODO: Merge into the same script
 cd ../metric
 python eval_ratios.py
-# NOTE: eval_ratios.py#L21~L26 need to be modified accordingly.
-
+# eval_ratios.py#L21~L26 need to be modified accordingly.
 ```
 
-
-You can change the configurations in the shell script to test different methods, i.e. `+experiment=xxx`.
-Also, modify the path in `eval_ratios.py#L21` (`${exp_root_path}/res`, `exp_root_path` in shell scripts) and folder name in `eval_ratios.py#L24` (the folder where results are saved).
+- You can change the configurations in the shell script to test different methods, i.e. `+experiment=xxx`.
+- Also, modify the path in `eval_ratios.py#L21` (`${exp_root_path}/res`, `exp_root_path` in shell scripts) and folder name in `eval_ratios.py#L24` (the folder where results are saved) to get the evaluation results.
 
 ## Expected Results of provided scripts
 Take DKM as an example, the expected results are as follows:
