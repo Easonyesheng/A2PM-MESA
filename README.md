@@ -114,12 +114,12 @@ This code is based on [hydra](https://hydra.cc/), which is a powerful configurat
 
 - If you wanna test your environment, you can turn to [DEMO](#demo) for a quick start, where we provide off-the-shelf configurations in `./conf/experiment/demo.yaml` and minimal input files in `./demo/`.
 
-  - The code entry point is in `./scripts/demo.py`, where you can run the code with their configurations in `./conf/experiment/demo.yaml`.
+  - The code entry point is in `./scripts/demo.py`, where you can run the code with its configuration in `./conf/experiment/demo.yaml`.
 
 - If you want to run the full pipeline, you can turn to [Benchmark Test](#benchmark-test); but you need to prepare SAM results for your datasets following the instructions in [Segmentation Preprocessing](#segmentation-preprocessing).
 
 - If you want to dive into the code and develop your own methods based on this framework:
-  - You first need to understand the basic logic of [hydra](https://hydra.cc/) we used: Initialize a python class with configurations in a `yaml` file. We keep the names of `class-yaml` pairs consistent in the code.
+  - You first need to understand the basic logic of [hydra](https://hydra.cc/) we used: Initialize a python class with its configuration in a `yaml` file. We keep the names of `class-yaml` pairs consistent in the code.
   - You can follow the instructions in [hydra-based Configuration](#hydra-based-configuration) to understand and configure every component of the A2PM framework.
   - You can also add new components by adding new classes and configurations in the corresponding folders.
 
