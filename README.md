@@ -114,7 +114,7 @@ This code is based on [hydra](https://hydra.cc/), which is a powerful configurat
 
 - If you wanna test your environment, you can turn to [DEMO](#demo) for a quick start, where we provide off-the-shelf configurations in `./conf/experiment/demo.yaml` and minimal input files in `./demo/`.
 
-  - The code entry point is in `./scripts/xxx.py`, where you can run the code with their configurations in `./conf/experiment/xxx.yaml`.
+  - The code entry point is in `./scripts/demo.py`, where you can run the code with their configurations in `./conf/experiment/demo.yaml`.
 
 - If you want to run the full pipeline, you can turn to [Benchmark Test](#benchmark-test); but you need to prepare SAM results for your datasets following the instructions in [Segmentation Preprocessing](#segmentation-preprocessing).
 
@@ -258,11 +258,11 @@ In the following, we will introduce each components of this code with correspond
 # Benchmark Test
 You can run the benchmark test by running the shell script such as:
 
-> **NOTE**: eval_ratios.py#L21~L26 need to be modified accordingly.
+> **NOTE**: eval_ratios.py#L21~L26 (about the result path) need to be modified accordingly.
 
 ```shell
 cd ./scripts
-./dmesa-dkm-md.sh # DMESA+DKM on MegaDepth1500
+./dmesa-dkm-md.sh # DMESA+DKM on MegaDepth1500; named as {area-matcher}-{point-matcher}-{dataset}.sh
 
 # check the metric results
 # TODO: Merge into the same script
