@@ -131,6 +131,22 @@ This code is based on [hydra](https://hydra.cc/), which is a powerful configurat
   - install the dependencies of SAM.
   - set the pre-trained model path in `segmentor/ImgSAMSeg.py - L34`.
 
+
+### Usage
+- See the `segmentor/sam_seg.sh` for the usage of the SAM segmentation code.
+
+### SAM2
+- Now, we support the [SAM2](https://github.com/facebookresearch/segment-anything-2) model in the segmentation preprocessing. 
+- Note the SAM2 seems to provide less masks than SAM, see the [issue](https://github.com/facebookresearch/segment-anything-2/issues/148), but it is faster anyway.
+- Set `--sam_name SAM2` in `segmentor/sam_seg.sh` and config the model path in `segmentor/ImgSAMSeg.py#L48` to use it.
+- If you encounter the `hydra` initialization error, add the following code in the `SAM2/sam2/__init__.py`:
+    ```python
+    from hydra.core.global_hydra import GlobalHydra
+    GlobalHydra.instance().clear()
+    ```
+  
+
+
 # DEMO
 - We provide a demo script `scripts/demo.py` with corresponding configurations in `conf/experiment/demo.yaml`. You can run the script like:
   ```shell
@@ -163,20 +179,6 @@ In the following, we will introduce each components of this code with correspond
 
 - More datasets can be easily added by adding new dataloaders in `dataloader/` and setting the corresponding configurations in `conf/dataset/`.
 
-
-### Usage
-- See the `segmentor/sam_seg.sh` for the usage of the SAM segmentation code.
-
-### SAM2
-- Now, we support the [SAM2](https://github.com/facebookresearch/segment-anything-2) model in the segmentation preprocessing. 
-- Note the SAM2 seems to provide less masks than SAM, see the [issue](https://github.com/facebookresearch/segment-anything-2/issues/148), but it is faster anyway.
-- Set `--sam_name SAM2` in `segmentor/sam_seg.sh` and config the model path in `segmentor/ImgSAMSeg.py#L48` to use it.
-- If you encounter the `hydra` initialization error, add the following code in the `SAM2/sam2/__init__.py`:
-    ```python
-    from hydra.core.global_hydra import GlobalHydra
-    GlobalHydra.instance().clear()
-    ```
-  
 
 
 ## Area Matching
