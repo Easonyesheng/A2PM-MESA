@@ -39,6 +39,8 @@ It contains the implementation of [SGAM](https://arxiv.org/abs/2305.00194) (arXi
 ![Qua](assets/Qua.png)
 
 ### Continuous Matching
+> from top to bottom: `SGAM`, `SGAM_ASpan`, `ASpan`.
+
 ![gif](https://github.com/Easonyesheng/SGAM/blob/main/assets/QR1.gif)
 
 ---
