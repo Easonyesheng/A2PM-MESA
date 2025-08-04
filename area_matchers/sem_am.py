@@ -570,7 +570,7 @@ class SemAreaMatcher(AbstractAreaMatcher):
                 if k in self.label_list and temp_stas_dict[k] > self.small_label_filted_thd_on_bound and k != label:
                     bin_desc[self.label_list.index(k)+offset] = 1
 
-        # left
+        # right
         if bound_label[1] == 1:
             offset = l
             temp_u_s = max(0, u_max-radius)
@@ -622,11 +622,11 @@ class SemAreaMatcher(AbstractAreaMatcher):
                 if k in self.label_list and temp_stas_dict[k] > self.small_label_filted_thd_on_bound and k != label:
                     bin_desc[self.label_list.index(k)+offset] = 1
 
-        # right
+        # left  
         if bound_label[3] == 1:
             offset = l*3
             temp_u_s = max(0, u_min-radius)
-            temp_u_e = min(H, u_min+radius)
+            temp_u_e = min(W, u_min+radius)
             # bound_patch = sem[temp_u_s:temp_u_e, v_min:v_max]
             bound_patch = sem[v_min:v_max, temp_u_s:temp_u_e]
             temp_patch = np.squeeze(bound_patch.reshape((-1,1))).tolist()
@@ -638,7 +638,7 @@ class SemAreaMatcher(AbstractAreaMatcher):
         if bound_label[3] == 0:
             offset = l*3
             temp_u_s = max(0, u_min-radius)
-            temp_u_e = min(H, u_min+radius)
+            temp_u_e = min(W, u_min+radius)
             # bound_patch = sem[temp_u_s:temp_u_e, v_min:v_max]
             bound_patch = sem[v_min:v_max, temp_u_s:temp_u_e]
             temp_patch = np.squeeze(bound_patch.reshape((-1,1))).tolist()
@@ -649,6 +649,7 @@ class SemAreaMatcher(AbstractAreaMatcher):
                     bin_desc[self.label_list.index(k)+offset] = 1
 
         return bin_desc
+
     
     def construct_bin_desc_with_order_along_bound_multiscale(self, area, label, sem, radius=2, ms_list=[1, 1.6, 2.2]):
         """ get desc with multi scale
