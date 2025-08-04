@@ -556,8 +556,8 @@ class SemAreaMatcher(AbstractAreaMatcher):
             temp_stas_dict = collections.Counter(temp_patch)
 
             for k in temp_stas_dict.keys():
-                if k in self.label_list and temp_stas_dict[k] > self.small_label_filted_thd_on_bound:
-                    bin_desc[self.label_list.index(k)+offset] = 1
+                if k in sorted_labels and temp_stas_dict[k] > self.small_label_filted_thd_on_bound:
+                    bin_desc[sorted_labels.index(k)+offset] = 1
         elif bound_label[0] == 0:
             offset = 0
             temp_v_s = max(0, v_min-radius)
@@ -567,8 +567,8 @@ class SemAreaMatcher(AbstractAreaMatcher):
             temp_patch = np.squeeze(bound_patch.reshape((-1,1))).tolist()
             temp_stas_dict = collections.Counter(temp_patch)
             for k in temp_stas_dict.keys():
-                if k in self.label_list and temp_stas_dict[k] > self.small_label_filted_thd_on_bound and k != label:
-                    bin_desc[self.label_list.index(k)+offset] = 1
+                if k in sorted_labels and temp_stas_dict[k] > self.small_label_filted_thd_on_bound and k != label:
+                    bin_desc[sorted_labels.index(k)+offset] = 1
 
         # right
         if bound_label[1] == 1:
@@ -581,9 +581,9 @@ class SemAreaMatcher(AbstractAreaMatcher):
             temp_stas_dict = collections.Counter(temp_patch)
 
             for k in temp_stas_dict.keys():
-                if k in self.label_list and temp_stas_dict[k] > self.small_label_filted_thd_on_bound:
-                    bin_desc[self.label_list.index(k)+offset] = 1
-        if bound_label[1] == 0:
+                if k in sorted_labels and temp_stas_dict[k] > self.small_label_filted_thd_on_bound:
+                    bin_desc[sorted_labels.index(k)+offset] = 1
+        elif bound_label[1] == 0:
             offset = l
             temp_u_s = max(0, u_max-radius)
             temp_u_e = min(W, u_max+radius)
@@ -593,8 +593,8 @@ class SemAreaMatcher(AbstractAreaMatcher):
             temp_stas_dict = collections.Counter(temp_patch)
 
             for k in temp_stas_dict.keys():
-                if k in self.label_list and temp_stas_dict[k] > self.small_label_filted_thd_on_bound and k != label:
-                    bin_desc[self.label_list.index(k)+offset] = 1
+                if k in sorted_labels and temp_stas_dict[k] > self.small_label_filted_thd_on_bound and k != label:
+                    bin_desc[sorted_labels.index(k)+offset] = 1
 
         # down
         if bound_label[2] == 1:
@@ -607,9 +607,9 @@ class SemAreaMatcher(AbstractAreaMatcher):
             temp_stas_dict = collections.Counter(temp_patch)
 
             for k in temp_stas_dict.keys():
-                if k in self.label_list and temp_stas_dict[k] > self.small_label_filted_thd_on_bound:
-                    bin_desc[self.label_list.index(k)+offset] = 1
-        if bound_label[2] == 0:
+                if k in sorted_labels and temp_stas_dict[k] > self.small_label_filted_thd_on_bound:
+                    bin_desc[sorted_labels.index(k)+offset] = 1
+        elif bound_label[2] == 0:
             offset = l*2
             temp_v_s = max(0, v_max-radius)
             temp_v_e = min(H, v_max+radius)
@@ -619,8 +619,8 @@ class SemAreaMatcher(AbstractAreaMatcher):
             temp_stas_dict = collections.Counter(temp_patch)
 
             for k in temp_stas_dict.keys():
-                if k in self.label_list and temp_stas_dict[k] > self.small_label_filted_thd_on_bound and k != label:
-                    bin_desc[self.label_list.index(k)+offset] = 1
+                if k in sorted_labels and temp_stas_dict[k] > self.small_label_filted_thd_on_bound and k != label:
+                    bin_desc[sorted_labels.index(k)+offset] = 1
 
         # left  
         if bound_label[3] == 1:
@@ -633,9 +633,9 @@ class SemAreaMatcher(AbstractAreaMatcher):
             temp_stas_dict = collections.Counter(temp_patch)
 
             for k in temp_stas_dict.keys():
-                if k in self.label_list and temp_stas_dict[k] > self.small_label_filted_thd_on_bound:
-                    bin_desc[self.label_list.index(k)+offset] = 1
-        if bound_label[3] == 0:
+                if k in sorted_labels and temp_stas_dict[k] > self.small_label_filted_thd_on_bound:
+                    bin_desc[sorted_labels.index(k)+offset] = 1
+        elif bound_label[3] == 0:
             offset = l*3
             temp_u_s = max(0, u_min-radius)
             temp_u_e = min(W, u_min+radius)
@@ -645,8 +645,8 @@ class SemAreaMatcher(AbstractAreaMatcher):
             temp_stas_dict = collections.Counter(temp_patch)
 
             for k in temp_stas_dict.keys():
-                if k in self.label_list and temp_stas_dict[k] > self.small_label_filted_thd_on_bound and k != label:
-                    bin_desc[self.label_list.index(k)+offset] = 1
+                if k in sorted_labels and temp_stas_dict[k] > self.small_label_filted_thd_on_bound and k != label:
+                    bin_desc[sorted_labels.index(k)+offset] = 1
 
         return bin_desc
 
