@@ -1,0 +1,3 @@
+_target_: point_matchers.mast3r.Mast3rMatcher
+weight_path: "/opt/data/private/3DGS/checkpoints/MASt3R_ViTLarge_BaseDecoder_512_catmlpdpt_metric.pth"
+device: 'cuda'

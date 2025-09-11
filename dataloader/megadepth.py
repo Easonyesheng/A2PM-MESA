@@ -1,8 +1,8 @@
 '''
 Author: EasonZhang
 Date: 2024-06-29 11:45:30
-LastEditors: EasonZhang
-LastEditTime: 2024-07-01 19:46:51
+LastEditors: Easonyesheng preacher@sjtu.edu.cn
+LastEditTime: 2025-09-10 17:21:17
 FilePath: /SA2M/hydra-mesa/dataloader/megadepth.py
 Description: dataloader for MegaDepth
     Most data of MegaDepth is saved in npz file
@@ -107,17 +107,25 @@ class MegaDepthDataloader(AbstractDataloader):
         self.pose1 = np.matrix(self.pose1).astype(np.float32)
 
     # override
-    def load_images(self, W=None, H=None, PMer=False):
+    def load_images(self, W=None, H=None, PMer=False, color=False):
         """
         """
         if not PMer:
             return super().load_images(W, H)
         else:
-            # specific for PMer: need padding
-            match_color0, mask0, size0_ = load_img_padding_rt_size(self.img0_path, [W, H])
-            crop_W0, crop_H0 = size0_ # NOTE: only used for PMer
-            match_color1, mask1, size1_ = load_img_padding_rt_size(self.img1_path, [W, H])
-            crop_W1, crop_H1 = size1_
+            if not color:
+                # specific for PMer: need padding
+                match_color0, mask0, size0_ = load_img_padding_rt_size(self.img0_path, [W, H])
+                crop_W0, crop_H0 = size0_ # NOTE: only used for PMer
+                match_color1, mask1, size1_ = load_img_padding_rt_size(self.img1_path, [W, H])
+                crop_W1, crop_H1 = size1_
+            else:
+                # specific for PMer: need padding
+                match_color0, mask0, size0_ = load_img_padding_rt_size(self.img0_path, [W, H], color=True)
+                crop_W0, crop_H0 = size0_ # NOTE: only used for PMer
+                match_color1, mask1, size1_ = load_img_padding_rt_size(self.img1_path, [W, H], color=True)
+                crop_W1, crop_H1 = size1_
+                assert match_color0.shape[2] == 3 and match_color1.shape[2] == 3, f"img0 and img1 should have 3 channels for mast3r, but got {match_color0.shape} and {match_color1.shape}"
 
             return match_color0, mask0, crop_W0, crop_H0, match_color1, mask1, crop_W1, crop_H1
 

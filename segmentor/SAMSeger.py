@@ -1,8 +1,8 @@
 '''
 Author: EasonZhang
 Date: 2023-05-17 15:57:27
-LastEditors: EasonZhang
-LastEditTime: 2024-09-11 15:14:53
+LastEditors: Easonyesheng preacher@sjtu.edu.cn
+LastEditTime: 2025-09-06 12:23:22
 FilePath: /SA2M/hydra-mesa/segmentor/SAMSeger.py
 Description: SAM-based Image Segmenter
 
@@ -22,8 +22,9 @@ import torch
 
 # TODO: Modify to your SAM path
 from SAM.segment_anything import sam_model_registry, SamAutomaticMaskGenerator
-from SAM2.sam2.build_sam import build_sam2
-from SAM2.sam2.automatic_mask_generator import SAM2AutomaticMaskGenerator
+# TODO: uncomment if using SAM2
+# from SAM2.sam2.build_sam import build_sam2
+# from SAM2.sam2.automatic_mask_generator import SAM2AutomaticMaskGenerator
 
 class SAMSeger(object):
     """
@@ -53,13 +54,13 @@ class SAMSeger(object):
                 model=self.sam_model,
                 points_per_side=self.points_per_side,
             )
-        elif self.SAM_name == "SAM2":
-            checkpoint = self.sam_model_path
-            torch.autocast(device_type="cuda", dtype=torch.bfloat16).__enter__()
-            model_cfg = self.sam_model_type
-            sam2 = build_sam2(model_cfg, checkpoint, device='cuda', apply_postprocessing=False)
-            mask_g = SAM2AutomaticMaskGenerator(sam2)
-            self.sam_mask_generator = mask_g
+        # elif self.SAM_name == "SAM2":
+        #     checkpoint = self.sam_model_path
+        #     torch.autocast(device_type="cuda", dtype=torch.bfloat16).__enter__()
+        #     model_cfg = self.sam_model_type
+        #     sam2 = build_sam2(model_cfg, checkpoint, device='cuda', apply_postprocessing=False)
+        #     mask_g = SAM2AutomaticMaskGenerator(sam2)
+        #     self.sam_mask_generator = mask_g
         else:
             raise ValueError("SAM_name must be SAM or SAM2")
 
@@ -81,7 +82,7 @@ class SAMSeger(object):
 
         return img
 
-    def segment(self, img_path, sort_flag=True, save_flag=True, save_img_flag=False, save_name=""):
+    def segment(self, img_path, sort_flag=True, save_flag=True, save_img_flag=False, save_name="", embed_name=""):
         """
         Args:
             img_path
@@ -102,8 +103,12 @@ class SAMSeger(object):
             img = self.img_loader_SAM(img_path)
         elif self.SAM_name == "SAM2":
             img = self.img_loader_SAM2(img_path)
-
-        masks = self.sam_mask_generator.generate(img)
+        
+        try:
+            masks = self.sam_mask_generator.generate(img, embed_name)
+        except Exception as e:
+            masks = self.sam_mask_generator.generate(img)
+        
 
         if sort_flag:
             masks.sort(key=lambda x: x["area"], reverse=True)

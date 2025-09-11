@@ -2,7 +2,7 @@
 Author: EasonZhang
 Date: 2024-06-28 19:30:20
 LastEditors: Easonyesheng preacher@sjtu.edu.cn
-LastEditTime: 2024-07-31 20:29:17
+LastEditTime: 2025-09-11 15:18:42
 FilePath: /SA2M/hydra-mesa/metric/eval_ratios.py
 Description: scripts for evaluation of ratios
 
@@ -25,6 +25,8 @@ root_folder = 'dmesa-dkm-md-eval-res'
 root_folder = 'dmesa-dkm-scannet-res'
 root_folder = 'mesa-f-dkm-md-eval-res'
 # root_folder = 'mesa-f-dkm-sn-eval-res'
+root_folder = "mesa-f-mast3r-md-eval-res"
+root_folder = "mesa-f-mast3r-sn-eval-res"
 
 
 

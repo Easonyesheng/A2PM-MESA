@@ -1,13 +1,10 @@
-./res/
-./scripts/outputs
-./Hierarchical-Localization_local
-./SAM
-./R1/
-./reconer
-./conf/reconer
-./dust3r-local
-./mast3r-local
-./scripts/outputs
+res/
+Hierarchical-Localization_local/
+SAM/
+R1/
+reconer/
+conf/reconer/
+scripts/outputs/
 assets/.DS_Store
 .DS_Store
 

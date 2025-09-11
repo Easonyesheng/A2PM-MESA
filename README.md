@@ -1,8 +1,8 @@
 <!--
  * @Author: EasonZhang
  * @Date: 2024-07-26 15:03:49
- * @LastEditors: EasonZhang
- * @LastEditTime: 2024-11-03 15:49:55
+ * @LastEditors: Easonyesheng preacher@sjtu.edu.cn
+ * @LastEditTime: 2025-09-11 15:33:58
  * @FilePath: /A2PM-MESA/README.md
  * @Description: Readme
  * 
@@ -48,30 +48,43 @@ It contains the implementation of [SGAM](https://arxiv.org/abs/2305.00194) (arXi
 - [Table of Contents](#table-of-contents)
 - [News and TODOs](#news-and-todos)
 - [Installation](#installation)
+  - [Clone the Repository](#clone-the-repository)
+  - [Environment Creation](#environment-creation)
+  - [Basic Dependencies](#basic-dependencies)
 - [Usage](#usage)
 - [Segmentation Preprocessing](#segmentation-preprocessing)
+    - [Usage](#usage-1)
+    - [SAM2](#sam2)
 - [DEMO](#demo)
 - [hydra-based Configuration](#hydra-based-configuration)
   - [Dataset](#dataset)
   - [Area Matching](#area-matching)
   - [Point Matching](#point-matching)
+    - [MASt3R Configuration Notes](#mast3r-configuration-notes)
   - [Match Fusion (Geometry Area Matching)](#match-fusion-geometry-area-matching)
   - [A2PM](#a2pm)
   - [Evaluation](#evaluation)
 - [Benchmark Test](#benchmark-test)
   - [Expected Results of provided scripts](#expected-results-of-provided-scripts)
+    - [Expected Results of DKM](#expected-results-of-dkm)
+    - [Expected Results of MASt3R](#expected-results-of-mast3r)
+    - [Results Notes](#results-notes)
 - [Citation](#citation)
+- [Acknowledgement](#acknowledgement)
 
 ---
 # News and TODOs
-- [x] **2024-09-11**: [SAM2](https://github.com/facebookresearch/segment-anything-2) is supported in the segmentation preprocessing. See [here](#segmentation-preprocessing).
+- [x] **2025-09-11**: MASt3R is supported in the point matching. The expected results are provided in [here](#expected-results-of-mast3r). The configuration notes are provided in [here](#mast3r-configuration-notes).
+- [x] **2025-01-02**: An operation manual about running MESA on Win11 has been added [here](https://github.com/Easonyesheng/A2PM-MESA/blob/main/assets/run_MESA_on_win11.md), Thanks @[MY-QY](https://github.com/MY-QY)!
 
 - [x] **2024-11-03**: Add the warpper for single image pair matching. See [here](#demo)
-- [x] **2025-01-02**: An operation manual about running MESA on Win11 has been added [here](https://github.com/Easonyesheng/A2PM-MESA/blob/main/assets/run_MESA_on_win11.md), Thanks @[MY-QY](https://github.com/MY-QY)!
-- [ ] Add more point matchers
-  - [ ] [RoMa](https://github.com/Parskatt/RoMa)
-  - [ ] [MASt3R](https://github.com/naver/mast3r)
 
+- [x] **2024-09-11**: [SAM2](https://github.com/facebookresearch/segment-anything-2) is supported in the segmentation preprocessing. See [here](#segmentation-preprocessing).
+
+- [ ] Add more point matchers
+
+  - [ ] [DUSt3R](https://github.com/naver/dust3r)
+  - [ ] [RoMa](https://github.com/Parskatt/RoMa)
 ---
 # Installation
 To begin with, you need to install the dependencies following the instructions below.
@@ -211,7 +224,8 @@ In the following, we will introduce each components of this code with correspond
 - Here, we provide four point matchers, including: 
   - `Sparse`: {[SuperPoint+SuperGlue](https://github.com/magicleap/SuperGluePretrainedNetwork)}
   - `Semi-Dense`: {[ASpanFormer](https://github.com/apple/ml-aspanformer), [LoFTR](https://github.com/zju3dv/LoFTR)}
-  - `Dense`: {[DKM](https://github.com/Parskatt/DKM)}. 
+  - `Dense`: {[DKM](https://github.com/Parskatt/DKM), [MASt3R](https://github.com/naver/mast3r)}
+
 
 - Their configurations are put in `conf/point_matcher/`, with warppers in `point_matchers/`.
 
@@ -222,6 +236,16 @@ In the following, we will introduce each components of this code with correspond
 - Before running, you need download the pre-trained models and put them in the corresponding paths in the configuration `yaml` files.
 
 - More point matchers can be easily added by adding simialr warppers.
+
+### MASt3R Configuration Notes
+  - DO NOT forget to run `git submodule update --init --recursive` to get the submodules in `point_matchers/mast3r/`.
+    - If meet some `import` error, please check the `sys.append` lines in `point_matchers/mast3r.py`.
+  - Note that the `mast3r` requires specific environment, please refer to its [repo](https://github.com/naver/mast3r).
+    - Need `git submodule update --init --recursive`  in the `point_matchers/mast3r/` folder to get `dust3r` and `dust3r/croco`.
+  - After installation, run `pip install loguru hydra-core seaborn kornia yacs pytorch-lightning` in the `mast3r` conda environment.
+    - If there are more missing packages, please install them accordingly.
+  - For `mast3r`'s **Results**, see [here](#expected-results-of-mast3r). 
+  - We use the weights provided in the `mast3r` repo: `MASt3R_ViTLarge_BaseDecoder_512_catmlpdpt_metric.pth`.
 
 ## Match Fusion (Geometry Area Matching)
 
@@ -279,6 +303,8 @@ python eval_ratios.py
 - Also, modify the path in `eval_ratios.py#L21` (`${exp_root_path}/res`, `exp_root_path` in shell scripts) and folder name in `eval_ratios.py#L24` (the folder where results are saved) to get the evaluation results.
 
 ## Expected Results of provided scripts
+
+### Expected Results of DKM
 Take DKM as an example, the expected results are as follows:
 
 |SN1500($640\times480$)|DKM|MESA-free+DKM|DMESA+DKM|
@@ -293,7 +319,21 @@ Take DKM as an example, the expected results are as follows:
 |Pose AUC@10 | 76.75 | 77.38 | 78.46 | 
 |Pose AUC@20 | 85.72 | 86.47 | 86.97 |
 
+### Expected Results of MASt3R
+We use $512\times512$ images for MASt3R, as it is trained on this resolution.
+|SN1500($512\times512$)|MASt3R|MESA-free+MASt3R|DMESA+MASt3R|
+|:---:|:---:|:---:|:---:|
+|Pose AUC@5 | 28.25 | 32.79 | 30.96 |
+|Pose AUC@10 | 51.01 | 55.13 | 52.41 | 
+|Pose AUC@20 | 69.69 | 72.60 | 69.74 |
 
+|MD1500($512\times 512$) | MASt3R | MESA-free+MASt3R | DMESA+MASt3R |
+|:---:|:---:|:---:| :---:|
+|Pose AUC@5 | 63.61 | 63.85 | 65.65 |
+|Pose AUC@10 | 76.75 | 77.38 | 78.46 | 
+|Pose AUC@20 | 85.72 | 86.47 | 86.97 |
+
+### Results Notes
 - In this evaluation code, we fix the random seed to '2' (see `scripts/test_a2pm.py`), which is different from the settings in our paper (without fixing the random seed). Thus, the results are slightly different from the results in the paper for DMESA, but the effectiveness of our methods is consistent.
 
 - The training-free version of MESA showcases a slight precision drop comprared with MESA (paper verison), but it still improves the baseline performance.

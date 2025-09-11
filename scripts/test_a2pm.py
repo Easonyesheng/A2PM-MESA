@@ -1,8 +1,8 @@
 '''
 Author: EasonZhang
 Date: 2024-06-12 20:31:50
-LastEditors: EasonZhang
-LastEditTime: 2024-07-26 16:29:24
+LastEditors: Easonyesheng preacher@sjtu.edu.cn
+LastEditTime: 2025-09-11 12:44:11
 FilePath: /A2PM-MESA/scripts/test_a2pm.py
 Description: test hydra-powered a2pm
 
@@ -74,9 +74,17 @@ def test(cfg: DictConfig) -> None:
         ori_corrs = dataloader.tune_corrs_size_to_eval(ori_corrs, cfg.crop_size_W, cfg.crop_size_H, cfg.eval_from_size_W, cfg.eval_from_size_H)
 
     elif cfg.dataset_name in ['MegaDepth', 'YFCC', 'ETH3D']: # need padding
+        color = pmer.name() in ['Mast3rMatcher', 'Dust3rMatcher'] # mast3r needs color image
+        
+        if color: logger.warning(f"using color image for mast3r")
+        
         img0, mask0, match_in_W0, match_in_H0,\
-        img1, mask1, match_in_W1, match_in_H1 = dataloader.load_images(cfg.crop_size_W, cfg.crop_size_H, PMer=True)
+        img1, mask1, match_in_W1, match_in_H1 = dataloader.load_images(cfg.crop_size_W, cfg.crop_size_H, PMer=True, color=color)
         pmer.set_corr_num_init(cfg.match_num)
+        
+        if color:
+            assert img0.shape[2] == 3 and img1.shape[2] == 3, f"img0 and img1 should have 3 channels for mast3r, but got {img0.shape[2]} and {img1.shape[2]}"
+        
         ori_corrs = pmer.match(img0, img1, mask0, mask1)
         ori_corrs = dataloader.tune_corrs_size_to_eval(ori_corrs,\
                                                 match_in_W0, match_in_H0,\

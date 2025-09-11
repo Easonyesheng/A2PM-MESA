@@ -1,8 +1,8 @@
 '''
 Author: EasonZhang
 Date: 2024-10-19 21:54:21
-LastEditors: EasonZhang
-LastEditTime: 2024-11-03 15:14:50
+LastEditors: Easonyesheng preacher@sjtu.edu.cn
+LastEditTime: 2025-09-09 14:02:28
 FilePath: /SA2M/hydra-mesa/dataloader/demo_pair_loader.py
 Description: data loader for demo pair
 
@@ -121,6 +121,10 @@ class DemoPairLoader(AbstractDataloader):
     def load_semantics(self) -> Tuple[np.ndarray, np.ndarray]:
         """ load semantic info
         """
+        if self.sem_folder == "":
+            logger.warning(f"no semantic segmentation provided, return None")
+            return None, None
+
         sem0 = np.load(self.sem0_path, allow_pickle=True)
         sem1 = np.load(self.sem1_path, allow_pickle=True)
         return sem0, sem1

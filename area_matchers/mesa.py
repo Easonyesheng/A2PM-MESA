@@ -2,7 +2,7 @@
 Author: EasonZhang
 Date: 2024-06-20 11:42:48
 LastEditors: Easonyesheng preacher@sjtu.edu.cn
-LastEditTime: 2024-07-30 15:35:34
+LastEditTime: 2025-09-08 16:18:56
 FilePath: /SA2M/hydra-mesa/area_matchers/mesa.py
 Description: traning-free version mesa
 
@@ -99,6 +99,10 @@ class MesaAreaMatcher(AbstractAreaMatcher):
         self.scene_name = dataloader.scene_name
 
         self.img0, self.img1, self.scale0, self.scale1 = dataloader.load_images(self.W, self.H)
+
+    def init_from_imgs(self, img0, img1, ):
+        """
+        """
 
     def name(self):
         return "MesaAreaMatcher-TrainingFree"

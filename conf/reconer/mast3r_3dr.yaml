@@ -1,0 +1,7 @@
+_target_: reconer.mast3r_3dr.Mast3r3dr
+
+model_path: "/opt/data/private/3DGS/checkpoints/MASt3R_ViTLarge_BaseDecoder_512_catmlpdpt_metric.pth"
+draw_verbose: 0
+orimg_recon_size: 512
+device: 'cuda'
+match_conf_thd: 0.3

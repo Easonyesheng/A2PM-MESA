@@ -2,8 +2,8 @@
 '''
 Author: EasonZhang
 Date: 2023-06-15 17:06:04
-LastEditors: EasonZhang
-LastEditTime: 2024-09-11 15:43:21
+LastEditors: Easonyesheng preacher@sjtu.edu.cn
+LastEditTime: 2025-09-09 11:29:10
 FilePath: /SA2M/hydra-mesa/segmentor/ImgSAMSeg.py
 Description: A script to segment the image using SAM
 
@@ -68,7 +68,7 @@ def SMASeg(args):
     sam_seger = SAMSeger(configs=seg_configs)
 
     img_path = args.img_path
-    sam_res = sam_seger.segment(img_path=img_path, save_name=args.save_name, save_img_flag=False)
+    sam_res = sam_seger.segment(img_path=img_path, save_name=args.save_name, save_img_flag=True, embed_name=args.embed_name)
 
 def args_achieve():
     """
@@ -78,6 +78,7 @@ def args_achieve():
     parser.add_argument("--img_path", type=str, default="/data0/zys/A2PM/data/ScanData/scene0000_00/color/12.jpg", help="The path of the image to be segmented")
     parser.add_argument("--save_folder", type=str, default="/data0/zys/A2PM/testAG/res", help="The folder to save the segmented image")
     parser.add_argument("--save_name", type=str, default="SAMRes", help="The name of the segmented image")
+    parser.add_argument("--embed_name", type=str, default="img_emb", help="The name of the image embedding")
     parser.add_argument("--W", type=int, default=640, help="The width of the image")
     parser.add_argument("--H", type=int, default=480, help="The height of the image")
     args = parser.parse_args()

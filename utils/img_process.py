@@ -1,8 +1,8 @@
 '''
 Author: Eason
 Date: 2022-07-08 15:05:44
-LastEditTime: 2024-06-29 11:48:49
-LastEditors: EasonZhang
+LastEditTime: 2025-09-10 17:29:35
+LastEditors: Easonyesheng preacher@sjtu.edu.cn
 Description: utils for image processing
 FilePath: /SA2M/hydra-mesa/utils/img_process.py
 '''
@@ -650,11 +650,17 @@ def load_gray_scale_tensor_cv(im_path, device, imsize=None, value_to_scale=min, 
     im = transforms.functional.to_tensor(im).unsqueeze(0).to(device)
     return im, scale, mask
 
-def load_img_padding_rt_size(img_path, imsize, dfactor=8):
+def load_img_padding_rt_size(img_path, imsize, dfactor=8, color=False):
     """ load img & padding to square & resize to multiple of dfactor & return size
     """
-    im = cv2.imread(img_path, cv2.IMREAD_GRAYSCALE)
-    ho, wo = im.shape
+    if not color:
+        im = cv2.imread(img_path, cv2.IMREAD_GRAYSCALE)
+        ho, wo = im.shape
+    else:
+        im = cv2.imread(img_path, cv2.IMREAD_COLOR)
+        # logger.warning(f"load color image {im.shape}")
+        ho, wo = im.shape[0], im.shape[1]
+
     assert imsize[0] == imsize[1], f"imsize[0] != imsize[1] {imsize}"
     wt, ht, scale = resize_im(
         wo, ho, imsize[0], dfactor=dfactor,
@@ -662,7 +668,9 @@ def load_img_padding_rt_size(img_path, imsize, dfactor=8):
         enforce=True
     )
     im = cv2.resize(im, (wt, ht))
+    # logger.warning(f"resized image shape {im.shape}")
     im, mask = pad_bottom_right(im, max(wt, ht), ret_mask=True)
+    # logger.warning(f"padded image shape {im.shape}")
     return im, mask, (wt, ht)
 
 def pad_bottom_right(inp, pad_size, ret_mask=False):
@@ -675,11 +683,26 @@ def pad_bottom_right(inp, pad_size, ret_mask=False):
             mask = np.zeros((pad_size, pad_size), dtype=bool)
             mask[:inp.shape[0], :inp.shape[1]] = True
     elif inp.ndim == 3:
+        # cv image is HWC, not CHW
+        # test if cv image
+        if inp.shape[2] != 3:
+            cv_flag = False
+            pass
+        else:
+            # it's a cv image!
+            inp = inp.transpose(2, 0, 1)
+            cv_flag = True
+
         padded = np.zeros((inp.shape[0], pad_size, pad_size), dtype=inp.dtype)
         padded[:, :inp.shape[1], :inp.shape[2]] = inp
         if ret_mask:
             mask = np.zeros((inp.shape[0], pad_size, pad_size), dtype=bool)
             mask[:, :inp.shape[1], :inp.shape[2]] = True
+        
+        if cv_flag:
+            padded = padded.transpose(1, 2, 0)
+            mask = mask.transpose(1, 2, 0)
+
     else:
         raise NotImplementedError()
     return padded, mask
