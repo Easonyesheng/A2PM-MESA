@@ -3,7 +3,7 @@
  # @Author: EasonZhang
  # @Date: 2024-07-18 15:36:50
  # @LastEditors: Easonyesheng preacher@sjtu.edu.cn
- # @LastEditTime: 2025-09-11 18:06:31
+ # @LastEditTime: 2025-09-12 10:34:58
  # @FilePath: /SA2M/hydra-mesa/scripts/qua-res-generator-dmesa-dkm-md.sh
  # @Description: TBD
  # 
@@ -11,7 +11,7 @@
 ### 
 dataset=MegaDepth
 cuda_id=0
-project_name=mesa-f-dust3r-md-eval
+project_name=dmesa-dust3r-md-eval
 exp_root_path=/opt/data/private/A2PM-git/A2PM-MESA
 
 already_done_name_file_folder=${exp_root_path}/res/${project_name}-res/ratios
@@ -49,7 +49,7 @@ do
     echo "performing test on ${complete_pair_name}"
 
     CUDA_VISIBLE_DEVICES=$cuda_id python test_a2pm.py \
-        +experiment=a2pm_mesa_egam_dust3r_megadepth \
+        +experiment=a2pm_dmesa_egam_dust3r_megadepth \
         test_area_acc=False \
         test_pm_acc=False \
         verbose=0 \

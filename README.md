@@ -2,7 +2,7 @@
  * @Author: EasonZhang
  * @Date: 2024-07-26 15:03:49
  * @LastEditors: Easonyesheng preacher@sjtu.edu.cn
- * @LastEditTime: 2025-09-11 15:33:58
+ * @LastEditTime: 2025-09-16 10:21:57
  * @FilePath: /A2PM-MESA/README.md
  * @Description: Readme
  * 
@@ -46,7 +46,7 @@ It contains the implementation of [SGAM](https://arxiv.org/abs/2305.00194) (arXi
 ---
 # Table of Contents
 - [Table of Contents](#table-of-contents)
-- [News and TODOs](#news-and-todos)
+- [News](#news)
 - [Installation](#installation)
   - [Clone the Repository](#clone-the-repository)
   - [Environment Creation](#environment-creation)
@@ -60,7 +60,7 @@ It contains the implementation of [SGAM](https://arxiv.org/abs/2305.00194) (arXi
   - [Dataset](#dataset)
   - [Area Matching](#area-matching)
   - [Point Matching](#point-matching)
-    - [MASt3R Configuration Notes](#mast3r-configuration-notes)
+    - [MASt3R \& DUSt3R Configuration Notes](#mast3r--dust3r-configuration-notes)
   - [Match Fusion (Geometry Area Matching)](#match-fusion-geometry-area-matching)
   - [A2PM](#a2pm)
   - [Evaluation](#evaluation)
@@ -68,23 +68,20 @@ It contains the implementation of [SGAM](https://arxiv.org/abs/2305.00194) (arXi
   - [Expected Results of provided scripts](#expected-results-of-provided-scripts)
     - [Expected Results of DKM](#expected-results-of-dkm)
     - [Expected Results of MASt3R](#expected-results-of-mast3r)
+    - [Expected Results of DUSt3R](#expected-results-of-dust3r)
     - [Results Notes](#results-notes)
 - [Citation](#citation)
 - [Acknowledgement](#acknowledgement)
 
 ---
-# News and TODOs
-- [x] **2025-09-11**: MASt3R is supported in the point matching. The expected results are provided in [here](#expected-results-of-mast3r). The configuration notes are provided in [here](#mast3r-configuration-notes).
+# News
+- [x] **2025-09**: [MASt3R](https://github.com/naver/mast3r) and [DUSt3R](https://github.com/naver/dust3r) are supported. The expected results are provided in [Expected Results of MASt3R](#expected-results-of-mast3r) and [Expected Results of DUSt3R](#expected-results-of-dust3r). The configuration notes are provided in [MASt3R \& DUSt3R Configuration Notes](#mast3r--dust3r-configuration-notes).
 - [x] **2025-01-02**: An operation manual about running MESA on Win11 has been added [here](https://github.com/Easonyesheng/A2PM-MESA/blob/main/assets/run_MESA_on_win11.md), Thanks @[MY-QY](https://github.com/MY-QY)!
 
 - [x] **2024-11-03**: Add the warpper for single image pair matching. See [here](#demo)
 
 - [x] **2024-09-11**: [SAM2](https://github.com/facebookresearch/segment-anything-2) is supported in the segmentation preprocessing. See [here](#segmentation-preprocessing).
 
-- [ ] Add more point matchers
-
-  - [ ] [DUSt3R](https://github.com/naver/dust3r)
-  - [ ] [RoMa](https://github.com/Parskatt/RoMa)
 ---
 # Installation
 To begin with, you need to install the dependencies following the instructions below.
@@ -221,10 +218,10 @@ In the following, we will introduce each components of this code with correspond
 ## Point Matching
 > Point matching is to establish point matches between two (area) images.
 
-- Here, we provide four point matchers, including: 
+- Here, we provide some point matchers, including: 
   - `Sparse`: {[SuperPoint+SuperGlue](https://github.com/magicleap/SuperGluePretrainedNetwork)}
   - `Semi-Dense`: {[ASpanFormer](https://github.com/apple/ml-aspanformer), [LoFTR](https://github.com/zju3dv/LoFTR)}
-  - `Dense`: {[DKM](https://github.com/Parskatt/DKM), [MASt3R](https://github.com/naver/mast3r)}
+  - `Dense`: {[DKM](https://github.com/Parskatt/DKM), [MASt3R](https://github.com/naver/mast3r), [DUSt3R](https://github.com/naver/dust3r)}
 
 
 - Their configurations are put in `conf/point_matcher/`, with warppers in `point_matchers/`.
@@ -237,15 +234,16 @@ In the following, we will introduce each components of this code with correspond
 
 - More point matchers can be easily added by adding simialr warppers.
 
-### MASt3R Configuration Notes
-  - DO NOT forget to run `git submodule update --init --recursive` to get the submodules in `point_matchers/mast3r/`.
-    - If meet some `import` error, please check the `sys.append` lines in `point_matchers/mast3r.py`.
+### MASt3R & DUSt3R Configuration Notes
   - Note that the `mast3r` requires specific environment, please refer to its [repo](https://github.com/naver/mast3r).
-    - Need `git submodule update --init --recursive`  in the `point_matchers/mast3r/` folder to get `dust3r` and `dust3r/croco`.
-  - After installation, run `pip install loguru hydra-core seaborn kornia yacs pytorch-lightning` in the `mast3r` conda environment.
+    - After installation, run `pip install loguru hydra-core seaborn kornia yacs pytorch-lightning PyMaxFlow` in the `mast3r` conda environment.
     - If there are more missing packages, please install them accordingly.
-  - For `mast3r`'s **Results**, see [here](#expected-results-of-mast3r). 
-  - We use the weights provided in the `mast3r` repo: `MASt3R_ViTLarge_BaseDecoder_512_catmlpdpt_metric.pth`.
+  - DO NOT forget to run `git submodule update --init --recursive` to get the submodules in `point_matchers/mast3r/`.
+    - Need `git submodule update --init --recursive`  in the `point_matchers/mast3r/` folder to get `dust3r` and `dust3r/croco`.
+    - If meet some `import` error, please check the `sys.append` lines in `point_matchers/mast3r.py`.
+
+  - For `mast3r`'s **Results**, see [here](#expected-results-of-mast3r); and for `dust3r`'s **Results**, see [here](#expected-results-of-dust3r).
+    - We use the weights provided in the `mast3r` repo: `MASt3R_ViTLarge_BaseDecoder_512_catmlpdpt_metric.pth` & `DUSt3R_ViTLarge_BaseDecoder_512_dpt.pth`.
 
 ## Match Fusion (Geometry Area Matching)
 
@@ -323,15 +321,30 @@ Take DKM as an example, the expected results are as follows:
 We use $512\times512$ images for MASt3R, as it is trained on this resolution.
 |SN1500($512\times512$)|MASt3R|MESA-free+MASt3R|DMESA+MASt3R|
 |:---:|:---:|:---:|:---:|
-|Pose AUC@5 | 28.25 | 32.79 | 30.96 |
-|Pose AUC@10 | 51.01 | 55.13 | 52.41 | 
-|Pose AUC@20 | 69.69 | 72.60 | 69.74 |
+|Pose AUC@5 | 28.25 | 32.79 | 34.23 |
+|Pose AUC@10 | 51.01 | 55.13 | 56.23 | 
+|Pose AUC@20 | 69.69 | 72.60 | 73.42 |
 
 |MD1500($512\times 512$) | MASt3R | MESA-free+MASt3R | DMESA+MASt3R |
 |:---:|:---:|:---:| :---:|
-|Pose AUC@5 | 63.61 | 63.85 | 65.65 |
-|Pose AUC@10 | 76.75 | 77.38 | 78.46 | 
-|Pose AUC@20 | 85.72 | 86.47 | 86.97 |
+|Pose AUC@5 | 46.34 | 53.98 | 57.58 |
+|Pose AUC@10 | 63.02 | 69.99 | 72.00 | 
+|Pose AUC@20 | 76.50 | 81.80 | 82.86 |
+
+### Expected Results of DUSt3R
+We use $512\times512$ images for DUSt3R, as it is trained on this resolution.
+|SN1500($512\times512$)|DUSt3R|MESA-free+DUSt3R|DMESA+DUSt3R|
+|:---:|:---:|:---:|:---:|
+|Pose AUC@5 | 15.84 | 20.72 | 23.01 |
+|Pose AUC@10 | 32.69 | 39.14 | 42.89 | 
+|Pose AUC@20 | 49.36 | 56.62 | 60.86 |
+
+|MD1500($512\times 512$) | DUSt3R | MESA-free+DUSt3R | DMESA+DUSt3R |
+|:---:|:---:|:---:| :---:|
+|Pose AUC@5 | 15.99 | 25.94 | 24.48 |
+|Pose AUC@10 | 33.69 | 44.04 | 42.37 | 
+|Pose AUC@20 | 53.51 | 61.83 | 61.04 |
+
 
 ### Results Notes
 - In this evaluation code, we fix the random seed to '2' (see `scripts/test_a2pm.py`), which is different from the settings in our paper (without fixing the random seed). Thus, the results are slightly different from the results in the paper for DMESA, but the effectiveness of our methods is consistent.
@@ -386,3 +399,4 @@ We thank the authors of the following repositories for their great works:
 - [LoFTR](https://github.com/zju3dv/LoFTR)
 - [DKM](https://github.com/Parskatt/DKM)
 - [SGAM](https://github.com/Easonyesheng/SGAM)
+- [MASt3R](https://github.com/naver/mast3r)

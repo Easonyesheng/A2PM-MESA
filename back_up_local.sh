@@ -3,7 +3,7 @@
  # @Author: Easonyesheng preacher@sjtu.edu.cn
  # @Date: 2025-09-10 17:30:10
  # @LastEditors: Easonyesheng preacher@sjtu.edu.cn
- # @LastEditTime: 2025-09-10 17:34:57
+ # @LastEditTime: 2025-09-11 15:54:05
  # @FilePath: /A2PM-MESA/back_up_local.sh
  # @Description: copy all code to ../A2PM-MESA_local
 ### 
@@ -30,4 +30,5 @@ except="--exclude .git \
         --exclude *.tar.gz \
         "
 
+# use copy, not to delete dst files
 rsync -av $except ./ $dst

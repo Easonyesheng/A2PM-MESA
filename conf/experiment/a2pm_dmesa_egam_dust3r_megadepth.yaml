@@ -1,13 +1,13 @@
 # @package _global_
 defaults:
  - /dataset: megadepth
- - /point_matcher: mast3r
+ - /point_matcher: dust3r
  - /area_matcher: dmesa
  - /geo_area_matcher: egam
  - /evaler: instance_eval
  - _self_
 
-name: 'dmesa-egam-mast3r-megadepth'
+name: 'dmesa-egam-dust3r-megadepth'
 dataset_name: 'MegaDepth'
 test_area_acc: 0
 test_pose_err: 1
