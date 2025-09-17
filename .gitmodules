@@ -13,3 +13,6 @@
 [submodule "reconer/mast3r"]
 	path = reconer/mast3r
 	url = git@github.com:Easonyesheng/mast3r.git
+[submodule "point_matchers/EfficientLoFTR"]
+	path = point_matchers/EfficientLoFTR
+	url = git@github.com:Easonyesheng/EfficientLoFTR.git
