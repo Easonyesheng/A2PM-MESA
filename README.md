@@ -2,7 +2,7 @@
  * @Author: EasonZhang
  * @Date: 2024-07-26 15:03:49
  * @LastEditors: Easonyesheng preacher@sjtu.edu.cn
- * @LastEditTime: 2025-09-17 10:43:39
+ * @LastEditTime: 2025-09-17 14:28:21
  * @FilePath: /A2PM-MESA/README.md
  * @Description: Readme
  * 
@@ -353,9 +353,9 @@ We use $640\times480$ images for ELoFTR, as it is trained on this resolution.
 
 |SN1500($512\times512$)|ELoFTR|MESA-free+ELoFTR|DMESA+ELoFTR|
 |:---:|:---:|:---:|:---:|
-|Pose AUC@5 | 22.15 | - | 23.07 |
-|Pose AUC@10 | 41.08 | - | 41.66 | 
-|Pose AUC@20 | 57.91 | - | 58.27 |
+|Pose AUC@5 | 22.15 | 23.62 | 23.07 |
+|Pose AUC@10 | 41.08 | 42.37 | 41.66 | 
+|Pose AUC@20 | 57.91 | 58.66 | 58.27 |
 
 
 ### Results Notes
