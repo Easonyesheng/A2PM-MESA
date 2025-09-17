@@ -2,7 +2,7 @@
  * @Author: EasonZhang
  * @Date: 2024-07-26 15:03:49
  * @LastEditors: Easonyesheng preacher@sjtu.edu.cn
- * @LastEditTime: 2025-09-16 10:21:57
+ * @LastEditTime: 2025-09-17 10:43:39
  * @FilePath: /A2PM-MESA/README.md
  * @Description: Readme
  * 
@@ -69,13 +69,14 @@ It contains the implementation of [SGAM](https://arxiv.org/abs/2305.00194) (arXi
     - [Expected Results of DKM](#expected-results-of-dkm)
     - [Expected Results of MASt3R](#expected-results-of-mast3r)
     - [Expected Results of DUSt3R](#expected-results-of-dust3r)
+    - [Expected Results of ELoFTR](#expected-results-of-eloftr)
     - [Results Notes](#results-notes)
 - [Citation](#citation)
 - [Acknowledgement](#acknowledgement)
 
 ---
 # News
-- [x] **2025-09**: [MASt3R](https://github.com/naver/mast3r) and [DUSt3R](https://github.com/naver/dust3r) are supported. The expected results are provided in [Expected Results of MASt3R](#expected-results-of-mast3r) and [Expected Results of DUSt3R](#expected-results-of-dust3r). The configuration notes are provided in [MASt3R \& DUSt3R Configuration Notes](#mast3r--dust3r-configuration-notes).
+- [x] **2025-09**: [MASt3R](https://github.com/naver/mast3r), [DUSt3R](https://github.com/naver/dust3r) and [ELoFTR](https://zju3dv.github.io/efficientloftr/) are supported. The expected results are provided in [Expected Results of MASt3R](#expected-results-of-mast3r), [Expected Results of DUSt3R](#expected-results-of-dust3r) and [Expected Results of ELoFTR](#expected-results-of-eloftr). The configuration notes are provided in [MASt3R \& DUSt3R Configuration Notes](#mast3r--dust3r-configuration-notes).
 - [x] **2025-01-02**: An operation manual about running MESA on Win11 has been added [here](https://github.com/Easonyesheng/A2PM-MESA/blob/main/assets/run_MESA_on_win11.md), Thanks @[MY-QY](https://github.com/MY-QY)!
 
 - [x] **2024-11-03**: Add the warpper for single image pair matching. See [here](#demo)
@@ -220,7 +221,7 @@ In the following, we will introduce each components of this code with correspond
 
 - Here, we provide some point matchers, including: 
   - `Sparse`: {[SuperPoint+SuperGlue](https://github.com/magicleap/SuperGluePretrainedNetwork)}
-  - `Semi-Dense`: {[ASpanFormer](https://github.com/apple/ml-aspanformer), [LoFTR](https://github.com/zju3dv/LoFTR)}
+  - `Semi-Dense`: {[ASpanFormer](https://github.com/apple/ml-aspanformer), [LoFTR](https://github.com/zju3dv/LoFTR), [ELoFTR](https://github.com/zju3dv/efficientloftr)}
   - `Dense`: {[DKM](https://github.com/Parskatt/DKM), [MASt3R](https://github.com/naver/mast3r), [DUSt3R](https://github.com/naver/dust3r)}
 
 
@@ -344,6 +345,17 @@ We use $512\times512$ images for DUSt3R, as it is trained on this resolution.
 |Pose AUC@5 | 15.99 | 25.94 | 24.48 |
 |Pose AUC@10 | 33.69 | 44.04 | 42.37 | 
 |Pose AUC@20 | 53.51 | 61.83 | 61.04 |
+
+### Expected Results of ELoFTR
+We use $640\times480$ images for ELoFTR, as it is trained on this resolution.
+- We use the official pre-trained model provided in the [repo](https://github.com/zju3dv/efficientloftr).
+- Only ScanNet1500 is tested here.
+
+|SN1500($512\times512$)|ELoFTR|MESA-free+ELoFTR|DMESA+ELoFTR|
+|:---:|:---:|:---:|:---:|
+|Pose AUC@5 | 22.15 | - | 23.07 |
+|Pose AUC@10 | 41.08 | - | 41.66 | 
+|Pose AUC@20 | 57.91 | - | 58.27 |
 
 
 ### Results Notes

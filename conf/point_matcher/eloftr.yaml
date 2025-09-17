@@ -1,0 +1,3 @@
+_target_: point_matchers.eloftr.ELoFTRMatcher
+
+weights: '/opt/data/private/3DGS/checkpoints/eloftr_outdoor.ckpt'
