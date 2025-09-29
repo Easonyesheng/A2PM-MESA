@@ -2,7 +2,7 @@
  * @Author: EasonZhang
  * @Date: 2024-07-26 15:03:49
  * @LastEditors: Easonyesheng preacher@sjtu.edu.cn
- * @LastEditTime: 2025-09-29 15:58:47
+ * @LastEditTime: 2025-09-29 16:11:37
  * @FilePath: /A2PM-MESA/README.md
  * @Description: Readme
  * 
@@ -143,7 +143,7 @@ This code is based on [hydra](https://hydra.cc/), which is a powerful configurat
 > The segmentation results are needed for the area matching methods.
 
 - To use Segment Anything Model (SAM) for segmentation, we provide our inference code in `segmentor/`. To use it, you need to:
-  - clone the [SAM repository](https://github.com/facebookresearch/segment-anything) and put it into the `segmentor/..` folder, corresponding to the path set in the `segmentor/SAMSeger.py - L23`. 
+  - clone the [SAM repository](https://github.com/facebookresearch/segment-anything) and put it into the `segmentor/..` folder (see the soft link of `SAM`), corresponding to the path set in the `segmentor/SAMSeger.py - L23`. 
   - install the dependencies of SAM.
   - set the pre-trained model path in `segmentor/ImgSAMSeg.py - L34`.
 
@@ -242,8 +242,9 @@ In the following, we will introduce each components of this code with correspond
   - Note that the `mast3r` requires specific environment, please refer to its [repo](https://github.com/naver/mast3r).
     - After installation, run `pip install loguru hydra-core seaborn kornia yacs pytorch-lightning PyMaxFlow` in the `mast3r` conda environment.
     - If there are more missing packages, please install them accordingly.
-  - DO NOT forget to run `git submodule update --init --recursive` to get the submodules in `point_matchers/mast3r/`.
-    - Need `git submodule update --init --recursive`  in the `point_matchers/mast3r/` folder to get `dust3r` and `dust3r/croco`.
+  - DO NOT forget to run `git submodule update --init --recursive` to get the submodules in `reconer/mast3r/`.
+    - Need `git submodule update --init --recursive`  in the `reconer/mast3r/` folder to get `dust3r` and `dust3r/croco`.
+    - Make a soft link of `reconer/mast3r` to `point_matchers/mast3r`.
     - If meet some `import` error, please check the `sys.append` lines in `point_matchers/mast3r.py`.
 
   - For `mast3r`'s **Results**, see [here](#expected-results-of-mast3r); and for `dust3r`'s **Results**, see [here](#expected-results-of-dust3r).
