@@ -2,7 +2,7 @@
  * @Author: EasonZhang
  * @Date: 2024-07-26 15:03:49
  * @LastEditors: Easonyesheng preacher@sjtu.edu.cn
- * @LastEditTime: 2025-09-17 14:28:21
+ * @LastEditTime: 2025-09-29 15:53:52
  * @FilePath: /A2PM-MESA/README.md
  * @Description: Readme
  * 
@@ -351,7 +351,7 @@ We use $640\times480$ images for ELoFTR, as it is trained on this resolution.
 - We use the official pre-trained model provided in the [repo](https://github.com/zju3dv/efficientloftr).
 - Only ScanNet1500 is tested here.
 
-|SN1500($512\times512$)|ELoFTR|MESA-free+ELoFTR|DMESA+ELoFTR|
+|SN1500($640\times480$)|ELoFTR|MESA-free+ELoFTR|DMESA+ELoFTR|
 |:---:|:---:|:---:|:---:|
 |Pose AUC@5 | 22.15 | 23.62 | 23.07 |
 |Pose AUC@10 | 41.08 | 42.37 | 41.66 | 
