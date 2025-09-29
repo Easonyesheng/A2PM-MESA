@@ -3,11 +3,16 @@ Hierarchical-Localization_local/
 SAM/
 SAM
 R1/
-reconer/
+reconer/abstract_3dr.py
+reconer/mast3r_3dr.py
+reconer/mast3r_param.py
 conf/reconer/
 scripts/outputs/
 assets/.DS_Store
 .DS_Store
+
+# get rid of soft links
+*.lnk
 
 *.pyc
 *.log
