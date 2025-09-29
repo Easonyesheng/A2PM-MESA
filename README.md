@@ -2,7 +2,7 @@
  * @Author: EasonZhang
  * @Date: 2024-07-26 15:03:49
  * @LastEditors: Easonyesheng preacher@sjtu.edu.cn
- * @LastEditTime: 2025-09-29 15:53:52
+ * @LastEditTime: 2025-09-29 15:58:47
  * @FilePath: /A2PM-MESA/README.md
  * @Description: Readme
  * 
@@ -35,13 +35,7 @@ It contains the implementation of [SGAM](https://arxiv.org/abs/2305.00194) (arXi
 *It supports the implementation of feature matching approaches adopting the A2PM framework, and also enables the combination of new point matching and area matching methods.*
 
 
-## Qualitative Results of MESA and DMESA
-![Qua](assets/Qua.png)
 
-### Continuous Matching of SGAM
-> from top to bottom: `SGAM`, `SGAM_ASpan`, `ASpan`.
-
-![gif](https://github.com/Easonyesheng/SGAM/blob/main/assets/QR1.gif)
 
 ---
 # Table of Contents
@@ -82,6 +76,15 @@ It contains the implementation of [SGAM](https://arxiv.org/abs/2305.00194) (arXi
 - [x] **2024-11-03**: Add the warpper for single image pair matching. See [here](#demo)
 
 - [x] **2024-09-11**: [SAM2](https://github.com/facebookresearch/segment-anything-2) is supported in the segmentation preprocessing. See [here](#segmentation-preprocessing).
+
+# Qualitative Results of MESA and DMESA
+![Qua](assets/Qua.png)
+
+## Continuous Matching of SGAM
+> from top to bottom: `SGAM`, `SGAM_ASpan`, `ASpan`.
+
+![gif](https://github.com/Easonyesheng/SGAM/blob/main/assets/QR1.gif)
+
 
 ---
 # Installation
