@@ -60,7 +60,7 @@ class PRGeoAreaMatcher(AbstractGeoAreaMatcher):
         std_match_num,
         valid_inside_area_match_num,
         filter_area_num,
-        reject_outarea,
+        reject_out_area_flag,
         adaptive_size_thd,
         alpha_list,
         datasetName="ScanNet", 
@@ -69,7 +69,7 @@ class PRGeoAreaMatcher(AbstractGeoAreaMatcher):
         """
         self._name = "RawGeoAMer"
         self.datasetName = datasetName
-        self.reject_outarea = reject_outarea
+        self.reject_out_area_flag = reject_out_area_flag
 
         ## area matches come from the area_from_size
         self.area_from_size_W, self.area_from_size_H = area_from_size_W, area_from_size_H
@@ -145,8 +145,14 @@ class PRGeoAreaMatcher(AbstractGeoAreaMatcher):
         self.depth0 = None
         self.depth1 = None
         self.depth_factor = None
-        self.K0, self.K1 = dataloader.load_Ks(self.scale0, self.scale1)
-        self.pose0, self.pose1 = dataloader.load_poses()
+        try:
+            self.K0, self.K1 = dataloader.load_Ks(self.scale0, self.scale1)
+            self.pose0, self.pose1 = dataloader.load_poses()
+        except Exception as e:
+            logger.warning(f"load Ks or poses failed: {e}")
+            self.K0, self.K1 = None, None
+            self.pose0, self.pose1 = None, None
+            pass
         
         if self.datasetName == "ScanNet" or self.datasetName == "MatterPort3D":
             self.depth0, self.depth1 = dataloader.load_depths()
@@ -640,7 +646,7 @@ class PRGeoAreaMatcher(AbstractGeoAreaMatcher):
                 area1_in_eval_size = self.tune_area_size(self.rejecting_matched_area1s[i], self.crop_from_size_W, self.crop_from_size_H, self.eval_from_size_W, self.eval_from_size_H)
 
             # filter corrs outside area
-            if self.reject_outarea:
+            if self.reject_out_area_flag:
                 temp_corrs = self.reject_corrs_outside_area(temp_corrs, area0_in_eval_size, area1_in_eval_size)
 
             self.rejecting_all_corrs.append(temp_corrs)

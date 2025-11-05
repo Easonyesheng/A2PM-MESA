@@ -36,7 +36,7 @@ SAM_configs = {
     "sam_model_type": "vit_h",
     "sam_model_path": f"{current_path}/../SAM/sam_vit_h_4b8939.pth",
     "save_folder": "",
-    "points_per_side": 16,
+    "points_per_side": 32,
 }
 
 # SAM2 configs

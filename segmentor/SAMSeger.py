@@ -2,7 +2,7 @@
 Author: EasonZhang
 Date: 2023-05-17 15:57:27
 LastEditors: Easonyesheng preacher@sjtu.edu.cn
-LastEditTime: 2025-09-06 12:23:22
+LastEditTime: 2025-11-05 13:44:00
 FilePath: /SA2M/hydra-mesa/segmentor/SAMSeger.py
 Description: SAM-based Image Segmenter
 
@@ -72,6 +72,12 @@ class SAMSeger(object):
         image = cv2.imread(path, -1)
         image = cv2.resize(image, (self.W, self.H))
         logger.info(f"load image as {image.shape}, {image.dtype}")
+        
+        # handle image with alpha channel
+        if image.shape[2] == 4: # remove alpha channel
+            image = cv2.cvtColor(image, cv2.COLOR_BGRA2BGR)
+            logger.info(f"remove alpha channel, new shape: {image.shape}")
+
         return image
     
     def img_loader_SAM2(self, path):
