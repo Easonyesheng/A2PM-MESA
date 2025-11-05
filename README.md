@@ -143,7 +143,7 @@ This code is based on [hydra](https://hydra.cc/), which is a powerful configurat
 > The segmentation results are needed for the area matching methods.
 
 - To use Segment Anything Model (SAM) for segmentation, we provide our inference code in `segmentor/`. To use it, you need to:
-  - clone the [SAM repository](https://github.com/facebookresearch/segment-anything) and put it into the `segmentor/..` folder (see the soft link of `SAM`), corresponding to the path set in the `segmentor/SAMSeger.py - L23`. 
+  - clone the [SAM repository](https://github.com/facebookresearch/segment-anything) and put it into the `segmentor/..` folder (see the soft link of [`SAM`](https://github.com/Easonyesheng/A2PM-MESA/blob/main/SAM)), corresponding to the path set in the `segmentor/SAMSeger.py - L23`. 
   - install the dependencies of SAM.
   - set the pre-trained model path in `segmentor/ImgSAMSeg.py - L34`.
 
