@@ -175,7 +175,44 @@ class PRGeoAreaMatcher(AbstractGeoAreaMatcher):
         """
         """
         self.ori_img_coors = ori_corrs
-    
+
+        # draw ori corrs
+        self.draw_ori_corrs()
+
+    def draw_ori_corrs(self):
+        """
+        """
+        if self.draw_verbose == 1:
+            out_path = os.path.join(self.out_path, "ori_corrs")
+            test_dir_if_not_create(out_path)
+
+            ori_W0, ori_H0 = self.ori_img0.shape[1], self.ori_img0.shape[0]
+            ori_W1, ori_H1 = self.ori_img1.shape[1], self.ori_img1.shape[0]
+
+            # resize ori_corrs to ori_img size
+            corrs = self.tune_corrs_size_diff(self.ori_img_coors,
+                                    self.crop_size_W,
+                                    self.crop_size_W,
+                                    self.crop_size_H,
+                                    self.crop_size_H,
+                                    ori_W0, ori_W1, ori_H0, ori_H1)
+
+            # downsample if too many corrs
+            if len(corrs) > 500:   
+                indices = np.random.choice(len(corrs), 500, replace=False)
+                corrs = np.array(corrs)
+                corrs = corrs[indices]
+                corrs = corrs.tolist()
+
+            plot_matches_lists_ud(
+                self.ori_img0,
+                self.ori_img1,
+                corrs,
+                out_path, 
+                "ori_corrs", 
+            )
+        
+
     def init_gam(self,
         dataloader,
         point_matcher,
@@ -186,8 +223,8 @@ class PRGeoAreaMatcher(AbstractGeoAreaMatcher):
         """
         self.load_point_matcher(point_matcher)
         self.init_dataloader(dataloader)
-        self.load_ori_corrs(ori_corrs)
         self.set_outpath(out_path)
+        self.load_ori_corrs(ori_corrs)
         self.initialized = True
 
         if self.draw_verbose == 1 or self.draw_adap == 1:
