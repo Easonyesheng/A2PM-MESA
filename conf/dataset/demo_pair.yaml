@@ -1,7 +1,7 @@
 _target_: dataloader.demo_pair_loader.DemoPairLoader
 
 root_path: /opt/data/private/SA2M/hydra-mesa/demo
-scene_name: ""
+scene_name: "demo"
 image_name0: "4119.965344"
 image_name1: "4120.813199"
 color_folder: "color"

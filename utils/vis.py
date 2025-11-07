@@ -2,7 +2,7 @@
 Author: EasonZhang
 Date: 2024-06-19 23:15:51
 LastEditors: Easonyesheng preacher@sjtu.edu.cn
-LastEditTime: 2025-11-07 17:40:27
+LastEditTime: 2025-11-07 17:43:40
 FilePath: /SA2M/hydra-mesa/utils/vis.py
 Description: TBD
 
@@ -43,7 +43,7 @@ def draw_matched_area(img0, img1, area0, area1, color, out_path, name0, name1, s
 
     if save:
         cv2.imwrite(os.path.join(out_path, f"{name0}_{name1}_matched_area.png"), out)
-        logger.info(f"save matched area to {os.path.join(out_path, f'{name0}_{name1}_matched_area.png')}")
+        logger.debug(f"save matched area to {os.path.join(out_path, f'{name0}_{name1}_matched_area.png')}")
     
     return out
 

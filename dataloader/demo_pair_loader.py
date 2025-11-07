@@ -2,7 +2,7 @@
 Author: EasonZhang
 Date: 2024-10-19 21:54:21
 LastEditors: Easonyesheng preacher@sjtu.edu.cn
-LastEditTime: 2025-09-09 14:02:28
+LastEditTime: 2025-11-07 17:57:21
 FilePath: /SA2M/hydra-mesa/dataloader/demo_pair_loader.py
 Description: data loader for demo pair
 
@@ -23,7 +23,6 @@ class DemoPairLoader(AbstractDataloader):
 
     def __init__(self, 
         root_path, 
-        scene_name, # not used
         image_name0, 
         image_name1,
         color_folder,
@@ -32,6 +31,7 @@ class DemoPairLoader(AbstractDataloader):
         sem_post,
         intrin_folder="",
         intrin_post="",
+        scene_name="demo", # not used
         ) -> None:
         super().__init__(root_path, scene_name, image_name0, image_name1)
         self.color_folder = color_folder

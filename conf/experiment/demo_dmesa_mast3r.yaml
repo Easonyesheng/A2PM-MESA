@@ -1,6 +1,6 @@
 # @package _global_
 defaults:
- - /dataset: comac_test
+ - /dataset: demo_pair
  - /point_matcher: mast3r
 #  - /area_matcher: mesa-f
  - /area_matcher: dmesa
@@ -26,7 +26,7 @@ crop_size_W: 512
 crop_size_H: 512
 
 # others
-verbose: 2
+verbose: 1
 out_path: /opt/data/private/SA2M/hydra-mesa/res/${name}-res
 match_num: 1000
 
@@ -54,7 +54,12 @@ geo_area_matcher:
   # specific for spsg
   valid_inside_area_match_num: 10
   verbose: ${verbose}
-
+  alpha_list: #[10.0, 15.0, 20.0, 30.0, 50.0]
+  - 10.0
+  - 15.0
+  - 20.0
+  - 30.0
+  - 50.0
 
 ## update the size info for area_matcher
 area_matcher:

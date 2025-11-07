@@ -1115,9 +1115,9 @@ class PRGeoAreaMatcher(AbstractGeoAreaMatcher):
             return None
         corrs_F0 = corrs[:, :2]
         corrs_F1 = corrs[:, 2:]
-        logger.info(f"achieve corrs with shape {corrs_F0.shape} == {corrs_F1.shape} to calc F")
+        logger.debug(f"achieve corrs with shape {corrs_F0.shape} == {corrs_F1.shape} to calc F")
         F, mask = cv2.findFundamentalMat(corrs_F0, corrs_F1, method=cv2.FM_RANSAC,ransacReprojThreshold=1, confidence=0.99)
-        logger.info(f" calc F as \n {F}")
+        logger.debug(f" calc F as \n {F}")
 
         return F
 
@@ -1232,8 +1232,8 @@ class PRGeoAreaMatcher(AbstractGeoAreaMatcher):
 
             patch1_s = [patch1[0]+W0, patch1[1]+W0, patch1[2], patch1[3]]
 
-            cv2.rectangle(out, (patch0[0], patch0[2]), (patch0[1], patch0[3]), tuple(label_color_dict[i]), 2)
-            cv2.rectangle(out, (patch1_s[0], patch1_s[2]), (patch1_s[1], patch1_s[3]), label_color_dict[i], 2)
+            cv2.rectangle(out, (patch0[0], patch0[2]), (patch0[1], patch0[3]), tuple(label_color_dict[i]), thickness=3)
+            cv2.rectangle(out, (patch1_s[0], patch1_s[2]), (patch1_s[1], patch1_s[3]), label_color_dict[i], thickness=3)
 
             line_s = [(patch0[0]+patch0[1])//2, (patch0[2]+patch0[3])//2]
             line_e = [(patch1_s[0]+patch1_s[1])//2, (patch1_s[2]+patch1_s[3])//2]
@@ -1298,8 +1298,8 @@ class PRGeoAreaMatcher(AbstractGeoAreaMatcher):
 
             patch1_s = [patch1[0]+W0, patch1[1]+W0, patch1[2], patch1[3]]
 
-            cv2.rectangle(out, (patch0[0], patch0[2]), (patch0[1], patch0[3]), tuple(label_area_color_dict[i]), 2)
-            cv2.rectangle(out, (patch1_s[0], patch1_s[2]), (patch1_s[1], patch1_s[3]), label_area_color_dict[i], 2)
+            cv2.rectangle(out, (patch0[0], patch0[2]), (patch0[1], patch0[3]), tuple(label_area_color_dict[i]), 3)
+            cv2.rectangle(out, (patch1_s[0], patch1_s[2]), (patch1_s[1], patch1_s[3]), label_area_color_dict[i], 3)
 
             line_s = [(patch0[0]+patch0[1])//2, (patch0[2]+patch0[3])//2]
             line_e = [(patch1_s[0]+patch1_s[1])//2, (patch1_s[2]+patch1_s[3])//2]

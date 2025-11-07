@@ -2,7 +2,7 @@
 Author: EasonZhang
 Date: 2024-06-19 21:30:03
 LastEditors: Easonyesheng preacher@sjtu.edu.cn
-LastEditTime: 2025-11-07 15:11:44
+LastEditTime: 2025-11-07 17:44:10
 FilePath: /SA2M/hydra-mesa/utils/geo.py
 Description: geo utils
 
@@ -514,7 +514,7 @@ def recover_corrs_offset_scales(corrs, offsets, scales):
             ori_matches: [[u0, v0, u1, v1]s] NOTE list
     """
     uv0, uv1 = corrs[:, :2], corrs[:, 2:]
-    logger.info(f"fuse with offset: {offsets} and scales: {scales}")
+    logger.debug(f"fuse with offset: {offsets} and scales: {scales}")
     # print("uv0 size:", uv0.shape)
     # print("uv1 size:", uv1.shape)
 
@@ -534,7 +534,7 @@ def recover_corrs_offset_scales(corrs, offsets, scales):
         v1_ = v1 * v1_scale
         ori_matches.append([u0_+u0_offset, v0_+v0_offset, u1_+u1_offset, v1_+v1_offset])
     
-    logger.info(f"fuse {len(ori_matches)} matches")
+    logger.debug(f"fuse {len(ori_matches)} matches")
     # print("ori match\n", ori_matches)
     return ori_matches
 
