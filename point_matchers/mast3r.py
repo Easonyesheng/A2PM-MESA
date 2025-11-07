@@ -2,7 +2,7 @@
 Author: Easonyesheng preacher@sjtu.edu.cn
 Date: 2025-09-10 11:27:08
 LastEditors: Easonyesheng preacher@sjtu.edu.cn
-LastEditTime: 2025-09-10 17:15:28
+LastEditTime: 2025-11-07 15:06:27
 FilePath: /A2PM-MESA/point_matchers/mast3r.py
 Description: 
 '''
@@ -83,6 +83,22 @@ class Mast3rMatcher(AbstractPointMatcher):
         view1, pred1 = output['view1'], output['pred1']
         view2, pred2 = output['view2'], output['pred2']
 
+        """ what's inside the pred dict?"""
+        # for k in pred1.keys():
+        #     logger.debug(f"pred1 key: {k}, shape: {pred1[k].shape if isinstance(pred1[k], torch.Tensor) else 'N/A'}")
+        # for k in pred2.keys():
+        #     logger.debug(f"pred2 key: {k}, shape: {pred2[k].shape if isinstance(pred2[k], torch.Tensor) else 'N/A'}")
+        """
+        2025-11-07 14:47:53.249 | INFO     | point_matchers.mast3r:match:88 - pred1 key: pts3d, shape: torch.Size([1, 512, 512, 3])
+        2025-11-07 14:47:53.249 | INFO     | point_matchers.mast3r:match:88 - pred1 key: conf, shape: torch.Size([1, 512, 512])
+        2025-11-07 14:47:53.249 | INFO     | point_matchers.mast3r:match:88 - pred1 key: desc, shape: torch.Size([1, 512, 512, 24])
+        2025-11-07 14:47:53.249 | INFO     | point_matchers.mast3r:match:88 - pred1 key: desc_conf, shape: torch.Size([1, 512, 512])
+        2025-11-07 14:47:53.249 | INFO     | point_matchers.mast3r:match:90 - pred2 key: conf, shape: torch.Size([1, 512, 512])
+        2025-11-07 14:47:53.249 | INFO     | point_matchers.mast3r:match:90 - pred2 key: desc, shape: torch.Size([1, 512, 512, 24])
+        2025-11-07 14:47:53.249 | INFO     | point_matchers.mast3r:match:90 - pred2 key: desc_conf, shape: torch.Size([1, 512, 512])
+        2025-11-07 14:47:53.249 | INFO     | point_matchers.mast3r:match:90 - pred2 key: pts3d_in_other_view, shape: torch.Size([1, 512, 512, 3])
+        """
+
         desc1, desc2 = pred1['desc'].squeeze(0).detach(), pred2['desc'].squeeze(0).detach()
 
         # find 2D-2D matches between the two images
@@ -92,6 +108,7 @@ class Mast3rMatcher(AbstractPointMatcher):
 
         # ignore small border around the edge
         H0, W0 = view1['true_shape'][0]
+        logger.debug(f"matches are in image0 shape: {H0}x{W0}") # 512x512
         valid_matches_im0 = (matches_im0[:, 0] >= 3) & (matches_im0[:, 0] < int(W0) - 3) & (
             matches_im0[:, 1] >= 3) & (matches_im0[:, 1] < int(H0) - 3)
 
@@ -114,4 +131,20 @@ class Mast3rMatcher(AbstractPointMatcher):
 
         return self.matched_corrs
 
+
+    def get_coarse_mkpts_c(self, area0, area1):
+        """ match region and only use coarse level to get coarse mkpts
+        Args:
+            area0, area1: np.ndarray, H,W,3, [0,255], uint8
+        Returns:
+        """
+        if not isinstance(area0, PIL.Image.Image):
+            area0 = PIL.Image.fromarray(area0)
+        if not isinstance(area1, PIL.Image.Image):
+            area1 = PIL.Image.fromarray(area1)
+
+        assert area0.size == area1.size, "area0 and area1 should have the same size"
+        H, W = area0.size[1], area0.size[0]
+        assert H == self.fixed_shape and W == self.fixed_shape, f"area0 and area1 should have the size of {self.fixed_shape}x{self.fixed_shape}, but got {H}x{W}"
+        assert area0.mode == 'RGB' and area1.mode == 'RGB', f"area0 and area1 should be RGB image, but got {area0.mode} and {area1.mode}"
 

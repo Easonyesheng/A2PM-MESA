@@ -2,7 +2,7 @@
 Author: EasonZhang
 Date: 2024-06-19 21:30:03
 LastEditors: Easonyesheng preacher@sjtu.edu.cn
-LastEditTime: 2024-10-16 21:45:31
+LastEditTime: 2025-11-07 15:11:44
 FilePath: /SA2M/hydra-mesa/utils/geo.py
 Description: geo utils
 
@@ -816,7 +816,7 @@ def calc_sampson_1_pt(F, uv0H, uv1H):
     # logger.info(f"Fx1 = {Fx1}\nFTx0 = {FTx0}")
     down = Fx0[0,0]**2 + Fx0[1,0]**2 + FTx1[0,0]**2 + FTx1[1, 0]**2
 
-    # logger.debug(f"calc sampson dist use {up} / {down}")
+    logger.debug(f"calc sampson dist use {up} / {down}")
     
     dist = up / (down + 1e-5)
 

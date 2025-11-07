@@ -1,8 +1,8 @@
 '''
 Author: EasonZhang
 Date: 2024-06-12 20:31:50
-LastEditors: EasonZhang
-LastEditTime: 2024-11-03 15:05:05
+LastEditors: Easonyesheng preacher@sjtu.edu.cn
+LastEditTime: 2025-11-07 15:12:36
 FilePath: /SA2M/hydra-mesa/scripts/demo.py
 Description: test hydra-powered a2pm
 
@@ -50,6 +50,9 @@ def test(cfg: DictConfig) -> None:
     elif cfg.verbose==1:
         logger.remove()
         logger.add(sys.stdout, level="INFO")
+    elif cfg.verbose==2:
+        logger.remove()
+        logger.add(sys.stdout, level="DEBUG")
     else:
         raise NotImplementedError(f"verbose {cfg.verbose} not supported")
 

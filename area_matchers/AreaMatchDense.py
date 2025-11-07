@@ -1,8 +1,8 @@
 '''
 Author: EasonZhang
 Date: 2024-03-23 09:43:01
-LastEditors: EasonZhang
-LastEditTime: 2024-07-20 15:19:35
+LastEditors: Easonyesheng preacher@sjtu.edu.cn
+LastEditTime: 2025-11-07 14:18:37
 FilePath: /SA2M/hydra-mesa/area_matchers/AreaMatchDense.py
 Description: Dense Area Matching via patch-wise match rendering
 
@@ -278,8 +278,6 @@ class AGMatcherDense(object):
                 mkpts_s2d_src = mkpts1_
                 mkpts_s2d_dst = mkpts0_
                 mconf_s2d = mconf_
-
-
         else:
             ag_src = self.areagraph0
             ag_dst = self.areagraph1
@@ -317,7 +315,7 @@ class AGMatcherDense(object):
                 area_match_list_dst_f.append(area_dst)
                 area_match_list_src_f.append(area_src_real)
         elif self.match_mode == 'EM':
-            for i, area_src in enumerate(area_match_list_src): # TODO:
+            for i, area_src in enumerate(area_match_list_src): 
                 area_dst, area_src_real = self.match_given_node_with_mkpts_EM(
                         area_src, 
                         mkpts_s2d_src, mkpts_s2d_dst, mconf_s2d,

@@ -1,8 +1,8 @@
 '''
 Author: EasonZhang
 Date: 2023-06-28 22:11:54
-LastEditors: EasonZhang
-LastEditTime: 2024-07-22 22:56:03
+LastEditors: Easonyesheng preacher@sjtu.edu.cn
+LastEditTime: 2025-11-07 13:33:33
 FilePath: /SA2M/hydra-mesa/area_matchers/CoarseAreaMatcher.py
 Description: Input two sub-images, output inside coarse point matches using off-the-shelf point matcher.
 
@@ -116,7 +116,7 @@ class CoarseAreaMatcher(object):
             raise NotImplementedError(f"Matcher {self.matcher_name} not implemented yet!")
     
     def match(self, area0, area1, resize_flag=True):
-        """
+        """ NOTE: this is the main match function
         Return:
             mkpts0_c: (N, 2), np.array
             mkpts1_c: (N, 2), np.array

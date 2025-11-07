@@ -20,6 +20,7 @@ from utils.geo import (
     Homo_2d_pts, 
     cal_corr_F_and_mean_sd, 
     calc_sampson_dist,
+    calc_sampson_1_pt
 )
 
 from utils.img_process import (
@@ -1036,7 +1037,7 @@ class PRGeoAreaMatcher(AbstractGeoAreaMatcher):
                 temp_corrs_np = np.array(corrs)
                 temp_self_sd = self.calc_sampson(F_temp, temp_corrs_np)
                 self.self_sd_list.append(temp_self_sd)
-                logger.info(f"the {i} match pair calced self sampson dist = {temp_self_sd}")
+                logger.debug(f"the {i} match pair calced self sampson dist = {temp_self_sd}")
             
             # if len(self.self_sd_list) == 0: return 0
             for alpha in alpha_list:
@@ -1181,48 +1182,10 @@ class PRGeoAreaMatcher(AbstractGeoAreaMatcher):
             corrs: nd.array: Nx4
         """
         assert len(corrs.shape) == 2 and corrs.shape[1] == 4, f"invalid shape {corrs.shape}"
-        uv0, uv1 = corrs[:, :2], corrs[:, 2:]
-        uv0_norm = self.norm_pts_NT(uv0)
-        uv1_norm = self.norm_pts_NT(uv1)
-        uv0_h, uv1_h = Homo_2d_pts(uv0_norm), Homo_2d_pts(uv1_norm) # N x 3
-        samp_dist = 0
-
-        for i in range(corrs.shape[0]):
-            samp_dist += self.calc_sampson_1_pt(F, uv0_h[i,:], uv1_h[i,:])
-        
-        samp_dist /= corrs.shape[0]
-
+        logger.info(f"calc sampson distance for {len(corrs)} corrs")
+        samp_dist = calc_sampson_dist(F, corrs)
         return samp_dist
     
-    def calc_sampson_1_pt(self, F, uv0H, uv1H):
-        """
-        Args:
-            uviH: 1 x 3
-            F: 3 x 3
-        Returns:
-            (uv1H^T * F * uv0H)^2 / [(F*uv0H)_0^2 + (F*uv0H)_1^2 + (F^T*uv1H)_0^2 + (F^T*uv1H)_1^2]
-        """
-        uv0H = uv0H.reshape((1,3))
-        uv1H = uv1H.reshape((1,3))
-
-        assert uv0H.shape[0] == 1 and uv0H.shape[1] == 3, f"invalid shape {uv0H.shape}"
-        assert uv1H.shape[0] == 1 and uv1H.shape[1] == 3, f"invalid shape {uv1H.shape}"
-
-        # logger.debug(f"calc sampson dist use:\n{uv0H}\n{uv1H}")
-
-        up = np.matmul(uv1H, np.matmul(F, uv0H.reshape(3,1)))[0][0]
-        up = up**2
-        Fx0 = np.matmul(F, uv0H.T)
-        FTx1 = np.matmul(F.T, uv0H.T)
-        # logger.info(f"Fx1 = {Fx1}\nFTx0 = {FTx0}")
-        down = Fx0[0,0]**2 + Fx0[1,0]**2 + FTx1[0,0]**2 + FTx1[1, 0]**2
-
-        # logger.debug(f"calc sampson dist use {up} / {down}")
-        
-        dist = up / (down + 1e-5)
-
-
-        return dist
 
     def draw_area_match_res(self, temp_corrs, name):
         """
