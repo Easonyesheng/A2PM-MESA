@@ -575,9 +575,13 @@ def calc_sampson_dist_rt_dist(F, corrs_):
 
     assert len(corrs.shape) == 2 and corrs.shape[1] == 4, f"invalid shape {corrs.shape}"
     uv0, uv1 = corrs[:, :2], corrs[:, 2:]
-    uv0_norm = norm_pts_NT(uv0)
-    uv1_norm = norm_pts_NT(uv1)
-    uv0_h, uv1_h = Homo_2d_pts(uv0_norm), Homo_2d_pts(uv1_norm) # N x 3
+    # IMPORTANT: do NOT normalize points here unless F was computed on the
+    # same normalized coordinates. The Fundamental matrix F returned by
+    # cv2.findFundamentalMat is for original pixel coordinates. Normalizing
+    # pts (via norm_pts_NT) without adjusting F causes extremely small
+    # denominators in the Sampson formula and huge distances (as observed
+    # in the logs). Use original pixel coordinates here.
+    uv0_h, uv1_h = Homo_2d_pts(uv0), Homo_2d_pts(uv1) # N x 3
     samp_dist = 0
 
     for i in range(corrs.shape[0]):
@@ -624,9 +628,9 @@ def calc_sampson_dist(F, corrs_):
 
     assert len(corrs.shape) == 2 and corrs.shape[1] == 4, f"invalid shape {corrs.shape}"
     uv0, uv1 = corrs[:, :2], corrs[:, 2:]
-    uv0_norm = norm_pts_NT(uv0)
-    uv1_norm = norm_pts_NT(uv1)
-    uv0_h, uv1_h = Homo_2d_pts(uv0_norm), Homo_2d_pts(uv1_norm) # N x 3
+    # Use original pixel coordinates (F computed on pixel coords). See note
+    # in calc_sampson_dist_rt_dist about normalization mismatch.
+    uv0_h, uv1_h = Homo_2d_pts(uv0), Homo_2d_pts(uv1) # N x 3
     samp_dist = 0
 
     for i in range(corrs.shape[0]):
@@ -813,13 +817,19 @@ def calc_sampson_1_pt(F, uv0H, uv1H):
     up = up**2
     Fx0 = np.matmul(F, uv0H.T)
     FTx1 = np.matmul(F.T, uv1H.T)
-    # logger.info(f"Fx1 = {Fx1}\nFTx0 = {FTx0}")
+    # denominator of Sampson: sum of squared first two components
     down = Fx0[0,0]**2 + Fx0[1,0]**2 + FTx1[0,0]**2 + FTx1[1, 0]**2
 
-    logger.debug(f"calc sampson dist use {up} / {down}")
-    
-    dist = up / (down + 1e-5)
+    # protect against numerically tiny denominators which blow up the
+    # Sampson distance. If down is extremely small we clamp it to a
+    # small positive value; we also log the final computed distance.
+    eps = 1e-12
+    if down < eps:
+        logger.debug(f"very small denominator in Sampson: {down}; clamping to {eps}")
+        down = eps
 
+    dist = up / down
+    logger.debug(f"calc sampson dist use {up} / {down} -> dist={dist}")
 
     return dist
 
