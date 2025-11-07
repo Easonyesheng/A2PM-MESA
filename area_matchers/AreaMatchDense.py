@@ -2,7 +2,7 @@
 Author: EasonZhang
 Date: 2024-03-23 09:43:01
 LastEditors: Easonyesheng preacher@sjtu.edu.cn
-LastEditTime: 2025-11-07 14:18:37
+LastEditTime: 2025-11-07 16:03:04
 FilePath: /SA2M/hydra-mesa/area_matchers/AreaMatchDense.py
 Description: Dense Area Matching via patch-wise match rendering
 
@@ -140,13 +140,14 @@ class AGMatcherDense(object):
             "datasetName": self.datasetName,
             "out_path": self.out_path,
             "pair_name": self.name0 + "_" + self.name1,
-            "area_w": self.W,
-            "area_h": self.H,
+            "area_w": self.W if not self.matcher_name == "mast3r" else 512,
+            "area_h": self.H if not self.matcher_name == "mast3r" else 512,
             "patch_size": 64, # NOT WORK here
             "conf_thd": 0.2, # NOT WORK here
         }
         self.area_matcher = CoarseAreaMatcher(matcher_configs)
         self.area_matcher.init_matcher()
+        self.amc_resize_flag = True if self.matcher_name == "mast3r" else False
 
     def path_loader(self, img_path0, sam_res_path0, img_path1, sam_res_path1, name0, name1):
         """
@@ -257,10 +258,10 @@ class AGMatcherDense(object):
 
 
         # coarse match once
-        mkpts0, mkpts1, mconf, _ = self.area_matcher.match(self.img0, self.img1, resize_flag=False)
+        mkpts0, mkpts1, mconf, _ = self.area_matcher.match(self.img0, self.img1, resize_flag=self.amc_resize_flag)
 
         if self.match_mode == 'EM':
-            mkpts1_, mkpts0_, mconf_, _ = self.area_matcher.match(self.img1, self.img0, resize_flag=False)
+            mkpts1_, mkpts0_, mconf_, _ = self.area_matcher.match(self.img1, self.img0, resize_flag=self.amc_resize_flag)
 
         if len(mkpts0) <= 10 or len(mkpts1) <= 10:
             return [], []
@@ -896,7 +897,7 @@ class AGMatcherDense(object):
         render_img = np.zeros((self.H, self.W), dtype=np.float32)
         render_img_res = np.zeros((self.H, self.W), dtype=np.float32)
         
-        mkpts0, mkpts1, mconf, _ = self.area_matcher.match(src_area_img, target_img, resize_flag=False)
+        mkpts0, mkpts1, mconf, _ = self.area_matcher.match(src_area_img, target_img, resize_flag=self.amc_resize_flag)
         
         if len(mkpts1) <= self.patch_match_num_thd:
             return None, None, None, None
@@ -967,7 +968,7 @@ class AGMatcherDense(object):
         render_img = np.zeros((self.H, self.W), dtype=np.float32)
         render_img_res = np.zeros((self.H, self.W), dtype=np.float32)
         
-        _, mkpts1, mconf, _ = self.area_matcher.match(src_area_img, target_img, resize_flag=False)
+        _, mkpts1, mconf, _ = self.area_matcher.match(src_area_img, target_img, resize_flag=self.amc_resize_flag)
         
         if len(mkpts1) <= self.patch_match_num_thd:
             return None, None, None
@@ -1038,7 +1039,7 @@ class AGMatcherDense(object):
         render_img = np.zeros((self.H, self.W), dtype=np.float32)
         render_img_res = np.zeros((self.H, self.W), dtype=np.float32)
         
-        _, mkpts1, mconf, _ = self.area_matcher.match(src_area_img, target_img, resize_flag=False)
+        _, mkpts1, mconf, _ = self.area_matcher.match(src_area_img, target_img, resize_flag=self.amc_resize_flag)
         
         if len(mkpts1) <= self.patch_match_num_thd:
             return None

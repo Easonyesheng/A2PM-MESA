@@ -2,7 +2,7 @@
 Author: EasonZhang
 Date: 2024-06-20 11:42:48
 LastEditors: Easonyesheng preacher@sjtu.edu.cn
-LastEditTime: 2025-09-08 16:18:56
+LastEditTime: 2025-11-07 16:10:28
 FilePath: /SA2M/hydra-mesa/area_matchers/mesa.py
 Description: traning-free version mesa
 
@@ -123,8 +123,8 @@ class MesaAreaMatcher(AbstractAreaMatcher):
             "coarse_match_thd": self.coarse_match_thd,
             "patch_size": self.patch_size,
             "similar_area_dist_thd": self.similar_area_dist_thd,
-            "area_w": self.area_w,
-            "area_h": self.area_h,
+            "area_w": self.area_w if self.coarse_matcher_name != 'mast3r' else 512,
+            "area_h": self.area_h if self.coarse_matcher_name != 'mast3r' else 512,
             "show_flag": self.draw_verbose,
             "sigma_thd": self.sigma_thd,
             "global_energy_weights": self.global_energy_weights,

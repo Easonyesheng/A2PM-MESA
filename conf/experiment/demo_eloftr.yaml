@@ -1,0 +1,64 @@
+# @package _global_
+defaults:
+ - /dataset: comac_test
+ - /point_matcher: eloftr
+#  - /area_matcher: mesa-f
+ - /area_matcher: dmesa
+ - /geo_area_matcher: gam
+#  - /geo_area_matcher: egam
+ - /evaler: instance_eval
+ - _self_
+
+name: dmesa-f-egam-spsg-single-pair-demo
+dataset_name: MegaDepth # use ScanNet for indoor demo, MegaDepth for outdoor demo
+
+# size info
+area_from_size_W: 640 # semantic size
+area_from_size_H: 480
+
+eval_from_size_W: 640 # NOT USED, we eval on the original size
+eval_from_size_H: 480
+
+crop_from_size_W: 1296 # NOT USED, we crop on the original size
+crop_from_size_H: 968
+
+crop_size_W: 512
+crop_size_H: 512
+
+# others
+verbose: 1
+out_path: /opt/data/private/SA2M/hydra-mesa/res/${name}-res
+match_num: 1000
+
+############################################# UPDATE #############################################
+# match info for eval
+evaler:
+  eval_corr_num: ${match_num}
+  sample_mode: grid
+  sac_mode: MAGSAC
+  out_path: ${out_path}
+  draw_verbose: ${verbose}
+
+
+## update the size info for gam
+geo_area_matcher:
+  datasetName: demo # SPECIFIC for gamer
+  crop_size_W: ${crop_size_W}
+  crop_size_H: ${crop_size_H}
+  crop_from_size_W: ${crop_from_size_W}
+  crop_from_size_H: ${crop_from_size_H}
+  eval_from_size_W: ${eval_from_size_W}
+  eval_from_size_H: ${eval_from_size_H}
+  area_from_size_W: ${area_from_size_W}
+  area_from_size_H: ${area_from_size_H}
+  # specific for spsg
+  valid_inside_area_match_num: 10
+  verbose: ${verbose}
+
+
+## update the size info for area_matcher
+area_matcher:
+  datasetName: ${dataset_name}
+  W: ${area_from_size_W}
+  H: ${area_from_size_H}
+  draw_verbose: ${verbose}

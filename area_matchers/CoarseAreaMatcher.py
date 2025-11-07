@@ -2,7 +2,7 @@
 Author: EasonZhang
 Date: 2023-06-28 22:11:54
 LastEditors: Easonyesheng preacher@sjtu.edu.cn
-LastEditTime: 2025-11-07 13:33:33
+LastEditTime: 2025-11-07 16:07:13
 FilePath: /SA2M/hydra-mesa/area_matchers/CoarseAreaMatcher.py
 Description: Input two sub-images, output inside coarse point matches using off-the-shelf point matcher.
 
@@ -25,6 +25,7 @@ import matplotlib.pyplot as plt
 from utils.geo import tune_corrs_size, tune_mkps_size
 from utils.common import test_dir_if_not_create
 
+supported_matchers = ["ASpan", "LoFTR", "mast3r", "ASpanCD", "LoFTRCD"]
 
 class CoarseAreaMatcher(object):
     """
@@ -51,7 +52,7 @@ class CoarseAreaMatcher(object):
 
         if self.matcher_name == "ASpan":
             from point_matchers.aspanformer import ASpanMatcher
-            logger.info("Initialize ASpan Matcher")
+            logger.debug("Initialize ASpan Matcher")
             if self.datasetName == "ScanNet" or self.datasetName == "KITTI" or self.datasetName == "ETH3D":
                 weight_path = f"{cur_path}/../point_matchers/ASpanFormer/weights/indoor.ckpt"
             elif self.datasetName == "MegaDepth" or self.datasetName == "YFCC":
@@ -68,7 +69,7 @@ class CoarseAreaMatcher(object):
 
         elif self.matcher_name == "ASpanCD":
             from point_matchers.aspanformer import ASpanMatcher
-            logger.info("Initialize ASpan Matcher")
+            logger.debug("Initialize ASpan Matcher")
             if self.datasetName == "ScanNet" or self.datasetName == "KITTI":
                 weight_path = f"{cur_path}/../point_matchers/ASpanFormer/weights/outdoor.ckpt" # cross domain
             elif self.datasetName == "MegaDepth" or self.datasetName == "YFCC":
@@ -83,10 +84,9 @@ class CoarseAreaMatcher(object):
             }
             self.matcher = ASpanMatcher(**aspan_configs)
         
-        # FIXME: finish loftr warpper
         elif self.matcher_name == "LoFTR":
             from point_matchers.loftr import LoFTRMatcher
-            logger.info("Initialize LoFTR Matcher")
+            logger.debug("Initialize LoFTR Matcher")
             if self.datasetName == "ScanNet" or self.datasetName == "KITTI" or self.datasetName == "ETH3D":
                 weight_path = f"{cur_path}/../point_matchers/LoFTR/weights/indoor_ds_new.ckpt"
             elif self.datasetName == "MegaDepth":
@@ -101,7 +101,7 @@ class CoarseAreaMatcher(object):
             self.matcher = LoFTRMatcher(loftr_configs, self.datasetName, mode="tool")
         elif self.matcher_name == "LoFTRCD":
             from point_matchers.loftr import LoFTRMatcher
-            logger.info("Initialize LoFTR Matcher")
+            logger.debug("Initialize LoFTR Matcher")
             if self.datasetName == "ScanNet" or self.datasetName == "KITTI":
                 weight_path = f"{cur_path}/../point_matchers/LoFTR/weights/outdoor_ds.ckpt" # cross domain
             elif self.datasetName == "MegaDepth":
@@ -112,6 +112,12 @@ class CoarseAreaMatcher(object):
                 "weights": weight_path,
                 "cuda_idx": 0,
             }
+            self.matcher = LoFTRMatcher(loftr_configs, self.datasetName, mode="tool")
+        elif self.matcher_name == "mast3r":
+            from point_matchers.mast3r import Mast3rMatcher
+            logger.debug("Initialize Mast3r Matcher")
+            weight_path = "/opt/data/private/3DGS/checkpoints/MASt3R_ViTLarge_BaseDecoder_512_catmlpdpt_metric.pth"
+            self.matcher = Mast3rMatcher(weight_path, device="cuda:0")
         else:
             raise NotImplementedError(f"Matcher {self.matcher_name} not implemented yet!")
     
@@ -143,13 +149,13 @@ class CoarseAreaMatcher(object):
         mkpts0_c = mkpts0_c.cpu().numpy()
         mkpts1_c = mkpts1_c.cpu().numpy()
         mconf = mconf.cpu().numpy()
-        conf_mat = conf_mat.cpu().numpy()
 
-        # tune mkpts size
-        mkpts0_c = tune_mkps_size(mkpts0_c, self.area_w, self.area_h, area0_w, area0_h)
-        mkpts1_c = tune_mkps_size(mkpts1_c, self.area_w, self.area_h, area1_w, area1_h)
-        mkpts0_c = np.array(mkpts0_c)
-        mkpts1_c = np.array(mkpts1_c)
+        # tune mkpts size back to original area size
+        if resize_flag:
+            mkpts0_c = tune_mkps_size(mkpts0_c, self.area_w, self.area_h, area0_w, area0_h)
+            mkpts1_c = tune_mkps_size(mkpts1_c, self.area_w, self.area_h, area1_w, area1_h)
+            mkpts0_c = np.array(mkpts0_c)
+            mkpts1_c = np.array(mkpts1_c)
 
         return mkpts0_c, mkpts1_c, mconf, conf_mat
 
@@ -167,7 +173,7 @@ class CoarseAreaMatcher(object):
         area1 = cv2.resize(area1, (self.area_w, self.area_h))
 
         # logger.info(f"match areas with size: {area0.shape}, {area1.shape}")
-        if self.matcher_name == "ASpan" or self.matcher_name == "LoFTR" or self.matcher_name == "ASpanCD" or self.matcher_name == "LoFTRCD":
+        if self.matcher_name in supported_matchers:
             try:
                 # time_start = cv2.getTickCount()
                 ret = self.matcher.get_coarse_mkpts_c(area0, area1)
@@ -178,12 +184,11 @@ class CoarseAreaMatcher(object):
                 logger.exception(e)
                 return None
 
-            mkpts0_c, mkpts1_c, mconf, conf_mat = ret
+            mkpts0_c, mkpts1_c, mconf, _ = ret
             # put in cpu
             mkpts0_c = mkpts0_c.cpu().numpy()
             mkpts1_c = mkpts1_c.cpu().numpy()
             mconf = mconf.cpu().numpy()
-            conf_mat = conf_mat.cpu().numpy()
             
             # filter by conf_thd
             mkpts0_c = mkpts0_c[mconf > conf_thd]
@@ -202,7 +207,7 @@ class CoarseAreaMatcher(object):
                 # mkpts1_c = tune_mkps_size(mkpts1_c, self.area_w, self.area_h, area1_w, area1_h)
                 # mkpts0_c = np.array(mkpts0_c)
                 # mkpts1_c = np.array(mkpts1_c)
-                self.visulization(area0, area1, mkpts0_c, mkpts1_c, mconf, conf_mat, name=name+f"_{sigma0 :.2f}_{sigma1 :.2f}")
+                self.visualization(area0, area1, mkpts0_c, mkpts1_c, mconf, name=name+f"_{sigma0 :.2f}_{sigma1 :.2f}")
                 pass
         else:
             raise NotImplementedError(f"Matcher {self.matcher_name} not implemented yet!")
@@ -230,8 +235,8 @@ class CoarseAreaMatcher(object):
         occ_ratio = occ_num / (area_w * area_h)
         return occ_ratio
 
-    def visulization(self, area0, area1, mkpts0_c, mkpts1_c, mconf, conf_mat, name=""):
-        """ visulization the matching result in two areas
+    def visualization(self, area0, area1, mkpts0_c, mkpts1_c, mconf, name=""):
+        """ visualization the matching result in two areas
         Args:
             area0: np.array, shape: [area_h, area_w, 3]
             area1: np.array, shape: [area_h, area_w, 3]

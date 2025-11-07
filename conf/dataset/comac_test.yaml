@@ -1,0 +1,11 @@
+_target_: dataloader.demo_pair_loader.DemoPairLoader
+color_folder: color
+color_post: png
+image_name0: "00000000"
+image_name1: "00000001"
+intrin_folder: intrins
+intrin_post: txt
+root_path: /opt/data/private/comac_proj/recon_align/match_folders/test
+scene_name: ''
+sem_folder: samres
+sem_post: npy

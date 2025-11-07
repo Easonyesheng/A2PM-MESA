@@ -2,7 +2,7 @@
 Author: Easonyesheng preacher@sjtu.edu.cn
 Date: 2025-09-10 11:27:08
 LastEditors: Easonyesheng preacher@sjtu.edu.cn
-LastEditTime: 2025-11-07 15:06:27
+LastEditTime: 2025-11-07 15:45:16
 FilePath: /A2PM-MESA/point_matchers/mast3r.py
 Description: 
 '''
@@ -132,11 +132,16 @@ class Mast3rMatcher(AbstractPointMatcher):
         return self.matched_corrs
 
 
-    def get_coarse_mkpts_c(self, area0, area1):
+    def get_coarse_mkpts_c(self, area0, area1, conf_mode="mean"):
         """ match region and only use coarse level to get coarse mkpts
         Args:
             area0, area1: np.ndarray, H,W,3, [0,255], uint8
+            conf_mode: str, "mean" or "min", how to aggregate the match confidence within the area
         Returns:
+            mkpts0, mkpts1: torch.Tensor, Nx2,
+            mconf: torch.Tensor, N, confidence scores of the matches
+            conf_matrix: Not used
+
         """
         if not isinstance(area0, PIL.Image.Image):
             area0 = PIL.Image.fromarray(area0)
@@ -144,7 +149,75 @@ class Mast3rMatcher(AbstractPointMatcher):
             area1 = PIL.Image.fromarray(area1)
 
         assert area0.size == area1.size, "area0 and area1 should have the same size"
-        H, W = area0.size[1], area0.size[0]
+        H, W = area0.size[1], area0.size[0] # NOTE: should be 512x512
         assert H == self.fixed_shape and W == self.fixed_shape, f"area0 and area1 should have the size of {self.fixed_shape}x{self.fixed_shape}, but got {H}x{W}"
         assert area0.mode == 'RGB' and area1.mode == 'RGB', f"area0 and area1 should be RGB image, but got {area0.mode} and {area1.mode}"
 
+        # convert to tensor
+        img0_ = self.ImgNorm(area0)[None].cuda()  # 1,3,H,W
+        img1_ = self.ImgNorm(area1)[None].cuda()  # 1,3,H,W
+
+        images = [
+            dict(img=img0_, true_shape=np.int32([area0.size[::-1]]), idx=0, instance=str(0)),
+            dict(img=img1_, true_shape=np.int32([area1.size[::-1]]), idx=1, instance=str(1)),
+            ]
+
+        output = inference([tuple(images)], self.matcher, self.device, batch_size=1, verbose=False)
+
+        # at this stage, you have the raw dust3r predictions
+        view1, pred1 = output['view1'], output['pred1']
+        view2, pred2 = output['view2'], output['pred2']
+
+        """ what's inside the pred dict?"""
+        # for k in pred1.keys():
+        #     logger.debug(f"pred1 key: {k}, shape: {pred1[k].shape if isinstance(pred1[k], torch.Tensor) else 'N/A'}")
+        # for k in pred2.keys():
+        #     logger.debug(f"pred2 key: {k}, shape: {pred2[k].shape if isinstance(pred2[k], torch.Tensor) else 'N/A'}")
+        """
+        2025-11-07 14:47:53.249 | INFO     | point_matchers.mast3r:match:88 - pred1 key: pts3d, shape: torch.Size([1, 512, 512, 3])
+        2025-11-07 14:47:53.249 | INFO     | point_matchers.mast3r:match:88 - pred1 key: conf, shape: torch.Size([1, 512, 512])
+        2025-11-07 14:47:53.249 | INFO     | point_matchers.mast3r:match:88 - pred1 key: desc, shape: torch.Size([1, 512, 512, 24])
+        2025-11-07 14:47:53.249 | INFO     | point_matchers.mast3r:match:88 - pred1 key: desc_conf, shape: torch.Size([1, 512, 512])
+        2025-11-07 14:47:53.249 | INFO     | point_matchers.mast3r:match:90 - pred2 key: conf, shape: torch.Size([1, 512, 512])
+        2025-11-07 14:47:53.249 | INFO     | point_matchers.mast3r:match:90 - pred2 key: desc, shape: torch.Size([1, 512, 512, 24])
+        2025-11-07 14:47:53.249 | INFO     | point_matchers.mast3r:match:90 - pred2 key: desc_conf, shape: torch.Size([1, 512, 512])
+        2025-11-07 14:47:53.249 | INFO     | point_matchers.mast3r:match:90 - pred2 key: pts3d_in_other_view, shape: torch.Size([1, 512, 512, 3])
+        """
+
+        desc1, desc2 = pred1['desc'].squeeze(0).detach(), pred2['desc'].squeeze(0).detach()
+
+        # find 2D-2D matches between the two images
+        matches_im0, matches_im1 = fast_reciprocal_NNs(desc1, desc2, subsample_or_initxy1=8,
+                                                    device=self.device, dist='dot', block_size=2**13)
+        # matches_im0, matches_im1: np.ndarray, Nx2-w,h
+        match_conf_im0 = pred1['desc_conf'].squeeze(0)[matches_im0[:, 1], matches_im0[:, 0]]  # N,
+        match_conf_im1 = pred2['desc_conf'].squeeze(0)[matches_im1[:, 1], matches_im1[:, 0]]  # N,
+
+        # ignore small border around the edge
+        H0, W0 = view1['true_shape'][0]
+        logger.debug(f"matches are in image0 shape: {H0}x{W0}") # 512x512
+        valid_matches_im0 = (matches_im0[:, 0] >= 3) & (matches_im0[:, 0] < int(W0) - 3) & (
+            matches_im0[:, 1] >= 3) & (matches_im0[:, 1] < int(H0) - 3)
+
+        H1, W1 = view2['true_shape'][0]
+        valid_matches_im1 = (matches_im1[:, 0] >= 3) & (matches_im1[:, 0] < int(W1) - 3) & (
+            matches_im1[:, 1] >= 3) & (matches_im1[:, 1] < int(H1) - 3)
+
+        valid_matches = valid_matches_im0 & valid_matches_im1
+        matches_im0, matches_im1 = matches_im0[valid_matches], matches_im1[valid_matches]
+        match_conf_im0, match_conf_im1 = match_conf_im0[valid_matches], match_conf_im1[valid_matches]
+
+        logger.debug(f"Found {matches_im0.shape[0]} matches between the two areas")
+        mkpts0 = torch.from_numpy(matches_im0).float().to(self.device)  # Nx2
+        mkpts1 = torch.from_numpy(matches_im1).float().to(self.device)
+        if conf_mode == "mean":
+            mconf = (match_conf_im0 + match_conf_im1) / 2.0
+        elif conf_mode == "min":
+            mconf = torch.min(match_conf_im0, match_conf_im1)
+        else:
+            raise NotImplementedError(f"conf_mode {conf_mode} not supported")
+        mconf = mconf.to(self.device)
+
+        conf_matrix = None  # not used
+
+        return mkpts0, mkpts1, mconf, conf_matrix
