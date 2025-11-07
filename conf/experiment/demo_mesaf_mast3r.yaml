@@ -62,4 +62,6 @@ area_matcher:
   W: ${area_from_size_W}
   H: ${area_from_size_H}
   coarse_matcher_name: 'mast3r'
+  coarse_match_thd: 0.8
+  sigma_thd: 0.5
   draw_verbose: ${verbose}

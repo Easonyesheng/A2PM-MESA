@@ -869,12 +869,12 @@ class PRGeoAreaMatcher(AbstractGeoAreaMatcher):
                 src_F = self.calc_F(src_corrs)
                 F_list.append(src_F)
                 temp_sd = self.calc_sampson(src_F, total_corrs_np)
-                logger.info(f"get sampson distance for match pair {i} = {temp_sd}")
+                logger.debug(f"get sampson distance for match pair {i} = {temp_sd}")
 
                 for alpha_temp in self.alpha_list:
                     temp_thd = alpha_thd_dict[alpha_temp]
                     if temp_sd <= temp_thd:
-                        logger.info(f"for alpha {alpha_temp} get inlier match pair with sampson distance = {temp_sd}")
+                        logger.debug(f"for alpha {alpha_temp} get inlier match pair with sampson distance = {temp_sd}")
                         alpha_corrs_dict[alpha_temp].append(src_corrs)
                         alpha_idxs_dict[alpha_temp].append(i)
                         if temp_sd < sampson_dist_min:
@@ -1183,7 +1183,7 @@ class PRGeoAreaMatcher(AbstractGeoAreaMatcher):
             corrs: nd.array: Nx4
         """
         assert len(corrs.shape) == 2 and corrs.shape[1] == 4, f"invalid shape {corrs.shape}"
-        logger.info(f"calc sampson distance for {len(corrs)} corrs")
+        logger.debug(f"calc sampson distance for {len(corrs)} corrs")
         samp_dist = calc_sampson_dist(F, corrs)
         return samp_dist
     
@@ -1238,7 +1238,7 @@ class PRGeoAreaMatcher(AbstractGeoAreaMatcher):
             line_s = [(patch0[0]+patch0[1])//2, (patch0[2]+patch0[3])//2]
             line_e = [(patch1_s[0]+patch1_s[1])//2, (patch1_s[2]+patch1_s[3])//2]
 
-            cv2.line(out, (line_s[0], line_s[1]), (line_e[0], line_e[1]), color=label_color_dict[i], thickness=1, lineType=cv2.LINE_AA)
+            cv2.line(out, (line_s[0], line_s[1]), (line_e[0], line_e[1]), color=label_color_dict[i], thickness=3, lineType=cv2.LINE_AA)
 
         if self.datasetName != "MegaDepth" and self.datasetName != "YFCC":
             out = cv2.resize(out, (self.eval_from_size_W*2, self.eval_from_size_H))        
@@ -1304,7 +1304,7 @@ class PRGeoAreaMatcher(AbstractGeoAreaMatcher):
             line_s = [(patch0[0]+patch0[1])//2, (patch0[2]+patch0[3])//2]
             line_e = [(patch1_s[0]+patch1_s[1])//2, (patch1_s[2]+patch1_s[3])//2]
 
-            cv2.line(out, (line_s[0], line_s[1]), (line_e[0], line_e[1]), color=label_area_color_dict[i], thickness=1, lineType=cv2.LINE_AA)
+            cv2.line(out, (line_s[0], line_s[1]), (line_e[0], line_e[1]), color=label_area_color_dict[i], thickness=3, lineType=cv2.LINE_AA)
 
         # draw corrs
         corr_color = np.zeros((len(corrs_crop), 3), dtype=np.uint8)

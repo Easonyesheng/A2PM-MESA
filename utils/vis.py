@@ -2,7 +2,7 @@
 Author: EasonZhang
 Date: 2024-06-19 23:15:51
 LastEditors: Easonyesheng preacher@sjtu.edu.cn
-LastEditTime: 2025-11-06 11:53:03
+LastEditTime: 2025-11-07 17:40:27
 FilePath: /SA2M/hydra-mesa/utils/vis.py
 Description: TBD
 
@@ -93,6 +93,22 @@ def draw_matched_area_with_mkpts(img0, img1, area0, area1, mkpts0, mkpts1, color
         cv2.imwrite(os.path.join(out_path, f"{name0}_{name1}_matched_area_kpts.png"), out)
         logger.info(f"save matched area to {os.path.join(out_path, f'{name0}_{name1}_matched_area_kpts.png')}")
     
+    return out
+
+def draw_mkpts_in_img(out, mkpts0, mkpts1, color):
+    """
+    """
+    W = out.shape[1] // 2
+    W = int(W)
+
+    for i in range(len(mkpts0)):
+        u0, v0 = int(mkpts0[i][0]), int(mkpts0[i][1])
+        u1, v1 = int(mkpts1[i][0]) + W, int(mkpts1[i][1])
+
+        cv2.circle(out, (u0, v0), 3, color, -1, lineType=cv2.LINE_AA)
+        cv2.circle(out, (u1, v1), 3, color, -1, lineType=cv2.LINE_AA)
+        cv2.line(out, (u0, v0), (u1, v1), color=color, thickness=1, lineType=cv2.LINE_AA)
+
     return out
 
 def paint_semantic(ins0, ins1, out_path="", name0="", name1="", save=True):

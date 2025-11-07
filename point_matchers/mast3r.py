@@ -2,7 +2,7 @@
 Author: Easonyesheng preacher@sjtu.edu.cn
 Date: 2025-09-10 11:27:08
 LastEditors: Easonyesheng preacher@sjtu.edu.cn
-LastEditTime: 2025-11-07 15:45:16
+LastEditTime: 2025-11-07 16:42:06
 FilePath: /A2PM-MESA/point_matchers/mast3r.py
 Description: 
 '''
@@ -132,7 +132,7 @@ class Mast3rMatcher(AbstractPointMatcher):
         return self.matched_corrs
 
 
-    def get_coarse_mkpts_c(self, area0, area1, conf_mode="mean"):
+    def get_coarse_mkpts_c(self, area0, area1, conf_mode="mean", conf_thred=0.5):
         """ match region and only use coarse level to get coarse mkpts
         Args:
             area0, area1: np.ndarray, H,W,3, [0,255], uint8
@@ -192,6 +192,18 @@ class Mast3rMatcher(AbstractPointMatcher):
         # matches_im0, matches_im1: np.ndarray, Nx2-w,h
         match_conf_im0 = pred1['desc_conf'].squeeze(0)[matches_im0[:, 1], matches_im0[:, 0]]  # N,
         match_conf_im1 = pred2['desc_conf'].squeeze(0)[matches_im1[:, 1], matches_im1[:, 0]]  # N,
+        pred_conf_im0 = pred1['conf'].squeeze(0)[matches_im0[:, 1], matches_im0[:, 0]]  # N,
+        pred_conf_im1 = pred2['conf'].squeeze(0)[matches_im1[:, 1], matches_im1[:, 0]]  # N,
+
+        if conf_mode == "mean":
+            # take mean of desc_conf and pred_conf for each match
+            match_conf_im0 = (match_conf_im0 + pred_conf_im0) / 2.0
+            match_conf_im1 = (match_conf_im1 + pred_conf_im1) / 2.0
+        elif conf_mode == "min":
+            match_conf_im0 = torch.min(match_conf_im0, pred_conf_im0)
+            match_conf_im1 = torch.min(match_conf_im1, pred_conf_im1)
+        else:
+            raise NotImplementedError(f"conf_mode {conf_mode} not supported")
 
         # ignore small border around the edge
         H0, W0 = view1['true_shape'][0]
@@ -219,5 +231,11 @@ class Mast3rMatcher(AbstractPointMatcher):
         mconf = mconf.to(self.device)
 
         conf_matrix = None  # not used
+
+        # filter by conf_thred
+        keep_mask = mconf >= conf_thred
+        mkpts0 = mkpts0[keep_mask]
+        mkpts1 = mkpts1[keep_mask]
+        mconf = mconf[keep_mask]
 
         return mkpts0, mkpts1, mconf, conf_matrix
