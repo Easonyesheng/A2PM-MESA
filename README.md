@@ -2,7 +2,7 @@
  * @Author: EasonZhang
  * @Date: 2024-07-26 15:03:49
  * @LastEditors: Easonyesheng preacher@sjtu.edu.cn
- * @LastEditTime: 2025-11-08 15:25:22
+ * @LastEditTime: 2025-11-08 15:27:28
  * @FilePath: /A2PM-MESA/README.md
  * @Description: Readme
  * 
@@ -38,7 +38,7 @@ It contains the implementation of [SGAM](https://arxiv.org/abs/2305.00194) (arXi
 ---
 # Table of Contents
 - [Table of Contents](#table-of-contents)
-- [🥰News🥰](#news)
+- [News](#news)
 - [Qualitative Results of MESA and DMESA](#qualitative-results-of-mesa-and-dmesa)
   - [Continuous Matching of SGAM](#continuous-matching-of-sgam)
 - [Installation](#installation)
@@ -70,9 +70,17 @@ It contains the implementation of [SGAM](https://arxiv.org/abs/2305.00194) (arXi
 
 ---
 # News
-- 🎇 **2025-11-07**: Add the [MASt3R](https://github.com/naver/mast3r) as the support matcher for DMESA and MESA-F, please refer to the [dmesa-configs](https://github.com/Easonyesheng/A2PM-MESA/blob/main/conf/experiment/demo_dmesa_mast3r.yaml) and [mesa-f-configs](https://github.com/Easonyesheng/A2PM-MESA/blob/main/conf/experiment/demo_mesaf_mast3r.yaml) for more details. NOTE the MESA-f is relatively slow with MASt3R.
-- 🖖 **2025-09&10**: [MASt3R](https://github.com/naver/mast3r), [DUSt3R](https://github.com/naver/dust3r) and [ELoFTR](https://zju3dv.github.io/efficientloftr/) are supported. The expected results are provided in [Expected Results of MASt3R](#expected-results-of-mast3r), [Expected Results of DUSt3R](#expected-results-of-dust3r) and [Expected Results of ELoFTR](#expected-results-of-eloftr). The configuration notes are provided in [MASt3R \& DUSt3R Configuration Notes](#mast3r--dust3r-configuration-notes).
-- 🎁 **2025-01-02**: An operation manual about running MESA on Win11 has been added [here](https://github.com/Easonyesheng/A2PM-MESA/blob/main/assets/run_MESA_on_win11.md), Thanks @[MY-QY](https://github.com/MY-QY)!
+- 🎇 **2025-11-07**: Add the [MASt3R](https://github.com/naver/mast3r) as the support matcher for DMESA and MESA-F, please refer to the [dmesa-configs](https://github.com/Easonyesheng/A2PM-MESA/blob/main/conf/experiment/demo_dmesa_mast3r.yaml) and [mesa-f-configs](https://github.com/Easonyesheng/A2PM-MESA/blob/main/conf/experiment/demo_mesaf_mast3r.yaml) for more details. 
+  - NOTE the MESA-f is relatively slow with MASt3R. 
+  - Overall, the generalization ability of MESA&DMESA has been significantly improved.
+- 🖖 **2025-09&10**: [MASt3R](https://github.com/naver/mast3r), [DUSt3R](https://github.com/naver/dust3r) and [ELoFTR](https://zju3dv.github.io/efficientloftr/) are supported. 
+  - The expected results are provided in:
+    - [Expected Results of MASt3R](#expected-results-of-mast3r)
+    - [Expected Results of DUSt3R](#expected-results-of-dust3r) 
+    - [Expected Results of ELoFTR](#expected-results-of-eloftr). 
+  - The configuration notes are provided in [MASt3R \& DUSt3R Configuration Notes](#mast3r--dust3r-configuration-notes).
+- 🎁 **2025-01-02**: An operation manual about running MESA on **Win11** has been added [here](https://github.com/Easonyesheng/A2PM-MESA/blob/main/assets/run_MESA_on_win11.md).
+  - Thanks @[MY-QY](https://github.com/MY-QY)!
 
 - 🕶️ **2024-11-03**: Add the wrapper for single image pair matching. See [here](#demo)
 
