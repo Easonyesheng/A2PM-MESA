@@ -2,7 +2,7 @@
  * @Author: EasonZhang
  * @Date: 2024-07-26 15:03:49
  * @LastEditors: Easonyesheng preacher@sjtu.edu.cn
- * @LastEditTime: 2025-11-08 15:18:48
+ * @LastEditTime: 2025-11-08 15:25:22
  * @FilePath: /A2PM-MESA/README.md
  * @Description: Readme
  * 
@@ -38,7 +38,7 @@ It contains the implementation of [SGAM](https://arxiv.org/abs/2305.00194) (arXi
 ---
 # Table of Contents
 - [Table of Contents](#table-of-contents)
-- [News](#news)
+- [🥰News🥰](#news)
 - [Qualitative Results of MESA and DMESA](#qualitative-results-of-mesa-and-dmesa)
   - [Continuous Matching of SGAM](#continuous-matching-of-sgam)
 - [Installation](#installation)
