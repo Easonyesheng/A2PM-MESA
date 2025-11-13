@@ -6,6 +6,6 @@ image_name1: "00000001"
 intrin_folder: intrins
 intrin_post: txt
 root_path: /opt/data/private/comac_proj/recon_align/match_folders/test
-scene_name: ''
+scene_name: 'comac'
 sem_folder: samres
 sem_post: npy

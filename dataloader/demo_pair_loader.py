@@ -2,7 +2,7 @@
 Author: EasonZhang
 Date: 2024-10-19 21:54:21
 LastEditors: Easonyesheng preacher@sjtu.edu.cn
-LastEditTime: 2025-11-07 17:57:21
+LastEditTime: 2025-11-13 11:19:25
 FilePath: /SA2M/hydra-mesa/dataloader/demo_pair_loader.py
 Description: data loader for demo pair
 
@@ -50,11 +50,11 @@ class DemoPairLoader(AbstractDataloader):
         self.img0_path = os.path.join(self.root_path, self.color_folder, self.image_name0 + f".{self.color_post}")
         self.img1_path = os.path.join(self.root_path, self.color_folder, self.image_name1 + f".{self.color_post}")
 
-        self.sem0_path = os.path.join(self.root_path, self.sem_folder, self.scene_name, self.image_name0 + f".{self.sem_post}")
-        self.sem1_path = os.path.join(self.root_path, self.sem_folder, self.scene_name, self.image_name1 + f".{self.sem_post}")
+        self.sem0_path = os.path.join(self.root_path, self.sem_folder, self.image_name0 + f".{self.sem_post}")
+        self.sem1_path = os.path.join(self.root_path, self.sem_folder, self.image_name1 + f".{self.sem_post}")
 
-        self.K0_path = os.path.join(self.root_path, self.intrin_folder, self.scene_name, self.image_name0 + f".{self.intrin_post}")
-        self.K1_path = os.path.join(self.root_path, self.intrin_folder, self.scene_name, self.image_name1 + f".{self.intrin_post}")
+        self.K0_path = os.path.join(self.root_path, self.intrin_folder, self.image_name0 + f".{self.intrin_post}")
+        self.K1_path = os.path.join(self.root_path, self.intrin_folder, self.image_name1 + f".{self.intrin_post}")
 
     def load_Ks(self, scale0, scale1):
         """ load Ks
