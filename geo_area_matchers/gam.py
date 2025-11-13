@@ -1232,13 +1232,13 @@ class PRGeoAreaMatcher(AbstractGeoAreaMatcher):
 
             patch1_s = [patch1[0]+W0, patch1[1]+W0, patch1[2], patch1[3]]
 
-            cv2.rectangle(out, (patch0[0], patch0[2]), (patch0[1], patch0[3]), tuple(label_color_dict[i]), thickness=3)
-            cv2.rectangle(out, (patch1_s[0], patch1_s[2]), (patch1_s[1], patch1_s[3]), label_color_dict[i], thickness=3)
+            cv2.rectangle(out, (patch0[0], patch0[2]), (patch0[1], patch0[3]), tuple(label_color_dict[i]), thickness=5)
+            cv2.rectangle(out, (patch1_s[0], patch1_s[2]), (patch1_s[1], patch1_s[3]), label_color_dict[i], thickness=5)
 
             line_s = [(patch0[0]+patch0[1])//2, (patch0[2]+patch0[3])//2]
             line_e = [(patch1_s[0]+patch1_s[1])//2, (patch1_s[2]+patch1_s[3])//2]
 
-            cv2.line(out, (line_s[0], line_s[1]), (line_e[0], line_e[1]), color=label_color_dict[i], thickness=3, lineType=cv2.LINE_AA)
+            cv2.line(out, (line_s[0], line_s[1]), (line_e[0], line_e[1]), color=label_color_dict[i], thickness=5, lineType=cv2.LINE_AA)
 
         if self.datasetName != "MegaDepth" and self.datasetName != "YFCC":
             out = cv2.resize(out, (self.eval_from_size_W*2, self.eval_from_size_H))        
@@ -1298,13 +1298,13 @@ class PRGeoAreaMatcher(AbstractGeoAreaMatcher):
 
             patch1_s = [patch1[0]+W0, patch1[1]+W0, patch1[2], patch1[3]]
 
-            cv2.rectangle(out, (patch0[0], patch0[2]), (patch0[1], patch0[3]), tuple(label_area_color_dict[i]), 3)
-            cv2.rectangle(out, (patch1_s[0], patch1_s[2]), (patch1_s[1], patch1_s[3]), label_area_color_dict[i], 3)
+            cv2.rectangle(out, (patch0[0], patch0[2]), (patch0[1], patch0[3]), tuple(label_area_color_dict[i]), 5)
+            cv2.rectangle(out, (patch1_s[0], patch1_s[2]), (patch1_s[1], patch1_s[3]), label_area_color_dict[i], 5)
 
             line_s = [(patch0[0]+patch0[1])//2, (patch0[2]+patch0[3])//2]
             line_e = [(patch1_s[0]+patch1_s[1])//2, (patch1_s[2]+patch1_s[3])//2]
 
-            cv2.line(out, (line_s[0], line_s[1]), (line_e[0], line_e[1]), color=label_area_color_dict[i], thickness=3, lineType=cv2.LINE_AA)
+            cv2.line(out, (line_s[0], line_s[1]), (line_e[0], line_e[1]), color=label_area_color_dict[i], thickness=5, lineType=cv2.LINE_AA)
 
         # draw corrs
         corr_color = np.zeros((len(corrs_crop), 3), dtype=np.uint8)
