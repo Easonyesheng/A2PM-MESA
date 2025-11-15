@@ -1,6 +1,6 @@
 # @package _global_
 defaults:
- - /dataset: comac_test
+ - /dataset: demo_pair
  - /point_matcher: eloftr
 #  - /area_matcher: mesa-f
  - /area_matcher: dmesa

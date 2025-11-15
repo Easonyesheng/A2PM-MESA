@@ -2,7 +2,7 @@
  * @Author: EasonZhang
  * @Date: 2024-07-26 15:03:49
  * @LastEditors: Easonyesheng preacher@sjtu.edu.cn
- * @LastEditTime: 2025-11-08 15:27:28
+ * @LastEditTime: 2025-11-15 11:49:11
  * @FilePath: /A2PM-MESA/README.md
  * @Description: Readme
  * 
@@ -70,9 +70,9 @@ It contains the implementation of [SGAM](https://arxiv.org/abs/2305.00194) (arXi
 
 ---
 # News
-- 🎇 **2025-11-07**: Add the [MASt3R](https://github.com/naver/mast3r) as the support matcher for DMESA and MESA-F, please refer to the [dmesa-configs](https://github.com/Easonyesheng/A2PM-MESA/blob/main/conf/experiment/demo_dmesa_mast3r.yaml) and [mesa-f-configs](https://github.com/Easonyesheng/A2PM-MESA/blob/main/conf/experiment/demo_mesaf_mast3r.yaml) for more details. 
+- 🎇 **2025-11-07**: Add the [MASt3R](https://github.com/naver/mast3r) mode for the area matching of DMESA and MESA-F, please refer to the [mast3r-dmesa-configs](https://github.com/Easonyesheng/A2PM-MESA/blob/main/conf/experiment/demo_dmesa_mast3r.yaml) and [mast3r-mesa-f-configs](https://github.com/Easonyesheng/A2PM-MESA/blob/main/conf/experiment/demo_mesaf_mast3r.yaml) to use. 
   - NOTE the MESA-f is relatively slow with MASt3R. 
-  - Overall, the generalization ability of MESA&DMESA has been significantly improved.
+  - Overall, the generalization ability of MESA&DMESA has been significantly improved by the foundation model MASt3R.
 - 🖖 **2025-09&10**: [MASt3R](https://github.com/naver/mast3r), [DUSt3R](https://github.com/naver/dust3r) and [ELoFTR](https://zju3dv.github.io/efficientloftr/) are supported. 
   - The expected results are provided in:
     - [Expected Results of MASt3R](#expected-results-of-mast3r)
@@ -137,31 +137,31 @@ This code is based on [hydra](https://hydra.cc/), which is a powerful configurat
 
 > Please carefully read the following instructions to understand how to use this code with your own needs.
 
-- If you wanna test your environment, you can turn to [DEMO](#demo) for a quick start, where we provide off-the-shelf configurations in `./conf/experiment/demo.yaml` and minimal input files in `./demo/`.
+- If you wanna test your environment, you can turn to [DEMO](#demo) for a quick start, where we provide off-the-shelf configurations in `./conf/experiment/demo.yaml` and minimal input files in `./demo/` folder.
 
   - The code entry point is in `./scripts/demo.py`, where you can run the code with its configuration in `./conf/experiment/demo.yaml`.
 
 - If you want to run the full pipeline, you can turn to [Benchmark Test](#benchmark-test); but you need to prepare SAM results for your datasets following the instructions in [Segmentation Preprocessing](#segmentation-preprocessing).
 
-- If you want to dive into the code and develop your own methods based on this framework:
-  - You first need to understand the basic logic of [hydra](https://hydra.cc/) we used: Initialize a python class with its configuration in a `yaml` file. We keep the names of `class-yaml` pairs consistent in the code.
-  - You can follow the instructions in [hydra-based Configuration](#hydra-based-configuration) to understand and configure every component of the A2PM framework.
-  - You can also add new components by adding new classes and configurations in the corresponding folders.
+- If you want to dive into the code and develop your own matching methods based on this framework:
+  - You first need to understand the basic logic of [hydra](https://hydra.cc/) we used: Initialize a python class with its configuration as a `yaml` file. We keep the names of `class-yaml` pairs consistent in the code.
+  - Then, you can follow the instructions in [hydra-based Configuration](#hydra-based-configuration) to understand and configure every component of the A2PM framework.
+  - Afterwards, you can also add new components by adding new classes and configurations in the corresponding folders.
 
 # Segmentation Preprocessing
 > The segmentation results are needed for the area matching methods.
 
 - To use Segment Anything Model (SAM) for segmentation, we provide our inference code in `segmentor/`. To use it, you need to:
-  - clone the [SAM repository](https://github.com/facebookresearch/segment-anything) and put it into the `segmentor/..` folder (see the soft link of [`SAM`](https://github.com/Easonyesheng/A2PM-MESA/blob/main/SAM) or use our fork version `./SAM-self` by modifying the folder name), corresponding to the path set in the `segmentor/SAMSeger.py - L23`. 
+  - clone the [SAM repository](https://github.com/facebookresearch/segment-anything) and put it into the `segmentor/..` folder (like the soft link of [`SAM`](https://github.com/Easonyesheng/A2PM-MESA/blob/main/SAM) or use our fork version `./SAM-self` by modifying the folder name to `SAM`), corresponding to the path set in the `segmentor/SAMSeger.py#L23`. 
   - install the dependencies of SAM.
-  - set the pre-trained model path in `segmentor/ImgSAMSeg.py - L34`.
+  - set the pre-trained model path in `segmentor/ImgSAMSeg.py#L34`.
 
 
 ### Usage
-- See the `segmentor/sam_seg.sh` for the usage of the SAM segmentation code.
+- See the `segmentor/sam_seg.sh` for image-level SAM segmentation.
 
 ### SAM2
-- Now, we support the [SAM2](https://github.com/facebookresearch/segment-anything-2) model in the segmentation preprocessing. 
+- We also support the [SAM2](https://github.com/facebookresearch/segment-anything-2) model in the segmentation preprocessing. 
 - Note the SAM2 seems to provide less masks than SAM, see the [issue](https://github.com/facebookresearch/segment-anything-2/issues/148), but it is faster anyway.
 - Set `--sam_name SAM2` in `segmentor/sam_seg.sh` and config the model path in `segmentor/ImgSAMSeg.py#L48` to use it.
 - If you encounter the `hydra` initialization error, add the following code in the `SAM2/sam2/__init__.py`:
@@ -183,6 +183,7 @@ This code is based on [hydra](https://hydra.cc/), which is a powerful configurat
   - If no intrinsic camera parameters are provided, you should use `gam` as the `geo_area_matcher`, otherwise, you can use `egam`.
 - Set the `geo_area_matcher: gam` in the `conf/experiment/demo.yaml` to use the original GAM, which can draw the matching results on the images.
 
+- Some other `yaml` files starting with `demo_` in the `conf/experiment/` folder are also provided for you to test different area matchers and point matchers.
 ---
 
 
@@ -200,7 +201,7 @@ In the following, we will introduce each components of this code with correspond
     - `sem_folder`: path to the folder containing the segmentation results
     - `sem_post`: the file format of the segmentation results (For ScanNet, it is npy if using `SAM`, and png if using `SEEM` or `GT`)
 
-- The segmentation process will be discussed in the following section.
+- The segmentation process is discussed in [Segmentation Preprocessing](#segmentation-preprocessing).
 
 - More datasets can be easily added by adding new dataloaders in `dataloader/` and setting the corresponding configurations in `conf/dataset/`.
 
@@ -245,12 +246,13 @@ In the following, we will introduce each components of this code with correspond
 
 - Before running, you need download the pre-trained models and put them in the corresponding paths in the configuration `yaml` files.
 
-- More point matchers can be easily added by adding simialr warppers.
+- More point matchers can be easily added by adding simialr wrappers.
 
 ### MASt3R & DUSt3R Configuration Notes
   - Note that the `mast3r` requires specific environment, please refer to its [repo](https://github.com/naver/mast3r).
     - After installation, run `pip install loguru hydra-core seaborn kornia yacs pytorch-lightning PyMaxFlow` in the `mast3r` conda environment.
     - If there are more missing packages, please install them accordingly.
+    - Then, you perform MESA/DMESA for `mast3r` and `dust3r`.
   - DO NOT forget to run `git submodule update --init --recursive` to get the submodules in `reconer/mast3r/`.
     - Need `git submodule update --init --recursive`  in the `reconer/mast3r/` folder to get `dust3r` and `dust3r/croco`.
     - Make a soft link of `reconer/mast3r` to `point_matchers/mast3r`.
@@ -298,7 +300,7 @@ In the following, we will introduce each components of this code with correspond
 # Benchmark Test
 You can run the benchmark test by running the shell script such as:
 
-> **NOTE**: eval_ratios.py#L21~L26 (about the result path) need to be modified accordingly.
+> **NOTE**: First, eval_ratios.py#L21~L26 (about the result path) need to be modified accordingly.
 
 ```shell
 cd ./scripts
