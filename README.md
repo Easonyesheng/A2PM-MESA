@@ -71,7 +71,8 @@ It contains the implementation of [SGAM](https://arxiv.org/abs/2305.00194) (arXi
 ---
 # News
 - 🎇 **2025-11-07**: Add the [MASt3R](https://github.com/naver/mast3r) mode for the area matching of DMESA and MESA-F, please refer to the [mast3r-dmesa-configs](https://github.com/Easonyesheng/A2PM-MESA/blob/main/conf/experiment/demo_dmesa_mast3r.yaml) and [mast3r-mesa-f-configs](https://github.com/Easonyesheng/A2PM-MESA/blob/main/conf/experiment/demo_mesaf_mast3r.yaml) to use. 
-  - NOTE the MESA-f is relatively slow with MASt3R. 
+  - NOTE the MESA-f is relatively slow with MASt3R.
+  - Use them in [this environment](#mast3r--dust3r-configuration-notes).
   - Overall, the generalization ability of MESA&DMESA has been significantly improved by the foundation model MASt3R.
 - 🖖 **2025-09&10**: [MASt3R](https://github.com/naver/mast3r), [DUSt3R](https://github.com/naver/dust3r) and [ELoFTR](https://zju3dv.github.io/efficientloftr/) are supported. 
   - The expected results are provided in:
