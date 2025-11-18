@@ -17,3 +17,6 @@
 	path = point_matchers/EfficientLoFTR
 	url = git@github.com:Easonyesheng/EfficientLoFTR.git
 
+[submodule "SAM"]
+	path = SAM
+	url = git@github.com:Easonyesheng/segment-anything.git
