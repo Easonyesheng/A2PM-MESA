@@ -2,7 +2,7 @@
  * @Author: EasonZhang
  * @Date: 2024-07-26 15:03:49
  * @LastEditors: Easonyesheng preacher@sjtu.edu.cn
- * @LastEditTime: 2025-11-15 11:49:11
+ * @LastEditTime: 2025-11-18 11:30:38
  * @FilePath: /A2PM-MESA/README.md
  * @Description: Readme
  * 
@@ -153,9 +153,11 @@ This code is based on [hydra](https://hydra.cc/), which is a powerful configurat
 > The segmentation results are needed for the area matching methods.
 
 - To use Segment Anything Model (SAM) for segmentation, we provide our inference code in `segmentor/`. To use it, you need to:
-  - clone the [SAM repository](https://github.com/facebookresearch/segment-anything) and put it into the `segmentor/..` folder (like the soft link of [`SAM`](https://github.com/Easonyesheng/A2PM-MESA/blob/main/SAM) or use our fork version `./SAM-self` by modifying the folder name to `SAM`), corresponding to the path set in the `segmentor/SAMSeger.py#L23`. 
+  - we provide a forked version of SAM in `./SAM/`, so do not forget to `git submodule update --init --recursive` to get the submodule. 
   - install the dependencies of SAM.
-  - set the pre-trained model path in `segmentor/ImgSAMSeg.py#L34`.
+    - `cd segment-anything; pip install -e .`
+    - `pip install opencv-python pycocotools matplotlib onnxruntime onnx`
+  - [download](https://github.com/facebookresearch/segment-anything#model-checkpoints) and set the pre-trained model path in `segmentor/ImgSAMSeg.py#L34`.
 
 
 ### Usage
