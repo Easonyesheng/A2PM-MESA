@@ -2,7 +2,7 @@
  * @Author: EasonZhang
  * @Date: 2024-07-26 15:03:49
  * @LastEditors: Easonyesheng preacher@sjtu.edu.cn
- * @LastEditTime: 2025-11-24 16:12:51
+ * @LastEditTime: 2025-11-24 16:29:22
  * @FilePath: /A2PM-MESA/README.md
  * @Description: Readme
  * 
@@ -265,7 +265,7 @@ In the following, we will introduce each components of this code with correspond
      3. Then, you perform MESA/DMESA for `mast3r` and `dust3r`.
 
   3. For `mast3r`'s **Results**, see [here](#expected-results-of-mast3r); and for `dust3r`'s **Results**, see [here](#expected-results-of-dust3r).
-    - We use the weights provided in the `mast3r` repo: `MASt3R_ViTLarge_BaseDecoder_512_catmlpdpt_metric.pth` & `DUSt3R_ViTLarge_BaseDecoder_512_dpt.pth`.
+     1. We use the weights provided in the `mast3r` repo: `MASt3R_ViTLarge_BaseDecoder_512_catmlpdpt_metric.pth` & `DUSt3R_ViTLarge_BaseDecoder_512_dpt.pth`.
 
 ## Match Fusion (Geometry Area Matching)
 
@@ -325,7 +325,12 @@ python eval_ratios.py
 ## Expected Results of provided scripts
 
 ### Expected Results of DKM
-Take DKM as an example, the expected results are as follows:
+- Take DKM as an example, the expected results are as follows:
+- Config. files: 
+  - `conf/experiment/a2pm_dmesa_egam_dkm_megadepth.yaml`
+  - `conf/experiment/a2pm_dmesa_egam_dkm_scannet.yaml`
+  - `conf/experiment/a2pm_mesa_egam_dkm_megadepth.yaml`
+  - `conf/experiment/a2pm_mesa_egam_dkm_scannet.yaml`
 
 |SN1500($640\times480$)|DKM|MESA-free+DKM|DMESA+DKM|
 |:---:|:---:|:---:|:---:|
@@ -340,7 +345,13 @@ Take DKM as an example, the expected results are as follows:
 |Pose AUC@20 | 85.72 | 86.47 | 86.97 |
 
 ### Expected Results of MASt3R
-We use $512\times512$ images for MASt3R, as it is trained on this resolution.
+- We use $512\times512$ images for MASt3R, as it is trained on this resolution.
+- Config. files: 
+  - `conf/experiment/a2pm_dmesa_egam_mast3r_megadepth.yaml`
+  - `conf/experiment/a2pm_dmesa_egam_mast3r_scannet.yaml`
+  - `conf/experiment/a2pm_mesa_egam_mast3r_megadepth.yaml`
+  - `conf/experiment/a2pm_mesa_egam_mast3r_scannet.yaml`
+
 |SN1500($512\times512$)|MASt3R|MESA-free+MASt3R|DMESA+MASt3R|
 |:---:|:---:|:---:|:---:|
 |Pose AUC@5 | 28.25 | 32.79 | 34.23 |
@@ -354,7 +365,14 @@ We use $512\times512$ images for MASt3R, as it is trained on this resolution.
 |Pose AUC@20 | 76.50 | 81.80 | 82.86 |
 
 ### Expected Results of DUSt3R
-We use $512\times512$ images for DUSt3R, as it is trained on this resolution.
+- We use $512\times512$ images for DUSt3R, as it is trained on this resolution.
+- Config. files: 
+  - `conf/experiment/a2pm_dmesa_egam_dust3r_megadepth.yaml`
+  - `conf/experiment/a2pm_dmesa_egam_dust3r_scannet.yaml`
+  - `conf/experiment/a2pm_mesa_egam_dust3r_megadepth.yaml`
+  - `conf/experiment/a2pm_mesa_egam_dust3r_scannet.yaml`
+
+
 |SN1500($512\times512$)|DUSt3R|MESA-free+DUSt3R|DMESA+DUSt3R|
 |:---:|:---:|:---:|:---:|
 |Pose AUC@5 | 15.84 | 20.72 | 23.01 |
@@ -368,9 +386,12 @@ We use $512\times512$ images for DUSt3R, as it is trained on this resolution.
 |Pose AUC@20 | 53.51 | 61.83 | 61.04 |
 
 ### Expected Results of ELoFTR
-We use $640\times480$ images for ELoFTR, as it is trained on this resolution.
+- We use $640\times480$ images for ELoFTR, as it is trained on this resolution.
 - We use the official pre-trained model provided in the [repo](https://github.com/zju3dv/efficientloftr).
 - Only ScanNet1500 is tested here.
+- Config. files: 
+  - `conf/experiment/a2pm_dmesa_egam_eloftr_scannet.yaml`
+  - `conf/experiment/a2pm_mesa_egam_eloftr_scannet.yaml`
 
 |SN1500($640\times480$)|ELoFTR|MESA-free+ELoFTR|DMESA+ELoFTR|
 |:---:|:---:|:---:|:---:|
