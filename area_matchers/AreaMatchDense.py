@@ -2,7 +2,7 @@
 Author: EasonZhang
 Date: 2024-03-23 09:43:01
 LastEditors: Easonyesheng preacher@sjtu.edu.cn
-LastEditTime: 2025-11-07 16:03:04
+LastEditTime: 2025-11-24 15:00:06
 FilePath: /SA2M/hydra-mesa/area_matchers/AreaMatchDense.py
 Description: Dense Area Matching via patch-wise match rendering
 
@@ -137,6 +137,7 @@ class AGMatcherDense(object):
         """
         matcher_configs = {
             "matcher_name": self.matcher_name,
+            "mast3r_weight_path": self.dft_cfgs.get("mast3r_weight_path", ""),
             "datasetName": self.datasetName,
             "out_path": self.out_path,
             "pair_name": self.name0 + "_" + self.name1,

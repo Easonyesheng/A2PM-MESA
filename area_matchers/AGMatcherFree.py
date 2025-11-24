@@ -2,7 +2,7 @@
 Author: EasonZhang
 Date: 2023-06-28 21:21:13
 LastEditors: Easonyesheng preacher@sjtu.edu.cn
-LastEditTime: 2024-07-30 15:28:25
+LastEditTime: 2025-11-24 15:06:13
 FilePath: /SA2M/hydra-mesa/area_matchers/AGMatcherFix.py
 Description: Given two images, construct their area graphs and match them. [Graphical Area Matching in Paper]
              First use Self-Energy for Graph-cut, then use Global-Energy for Refinement.
@@ -37,6 +37,7 @@ from utils.geo import calc_areas_iou
 
 dft_config = {
     "matcher_name": "ASpan",
+    "mast3r_weight_path": "", # path to mast3r weights
     "datasetName": "ScanNet",
     "out_path": "/data2/zys/A2PM/testAG/GCRes",
     "level_num": 4,
@@ -83,6 +84,7 @@ class AGMatcherF(object):
 
         self.level_areamatch_dict = defaultdict(list)
         self.matcher_name = dft_config["matcher_name"]
+        self.mast3r_weight_path = dft_config["mast3r_weight_path"] # path to mast3r weights
         self.datasetName = dft_config["datasetName"]
         self.out_path = dft_config["out_path"]
         self.level_num = dft_config["level_num"]
@@ -130,6 +132,7 @@ class AGMatcherF(object):
         """
         matcher_configs = {
             "matcher_name": self.matcher_name,
+            'mast3r_weight_path': self.mast3r_weight_path if self.matcher_name=="mast3r" else "",
             "datasetName": self.datasetName,
             "out_path": self.out_path,
             "pair_name": self.name0 + "_" + self.name1,

@@ -45,11 +45,13 @@ class DMesaAreaMatcher(AbstractAreaMatcher):
         coarse_match_all_in_one,
         dual_match,
         datasetName, 
+        mast3r_weight_path="",
         step_gmm=None,
         draw_verbose=0):
         """
         """
         self.coarse_matcher_name = coarse_matcher_name
+        self.mast3r_weight_path = mast3r_weight_path
         self.level_num = level_num
         self.level_step = level_step
         self.area_crop_mode = area_crop_mode
@@ -92,6 +94,7 @@ class DMesaAreaMatcher(AbstractAreaMatcher):
         """
         AM_config = {
             "matcher_name": self.coarse_matcher_name,
+            "mast3r_weight_path": self.mast3r_weight_path if self.coarse_matcher_name=="mast3r" else "",
             "datasetName": self.datasetName,
             "out_path": self.out_path,
             "level_num": self.level_num,

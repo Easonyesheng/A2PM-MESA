@@ -2,7 +2,7 @@
 Author: EasonZhang
 Date: 2023-06-28 22:11:54
 LastEditors: Easonyesheng preacher@sjtu.edu.cn
-LastEditTime: 2025-11-07 16:07:13
+LastEditTime: 2025-11-24 14:59:43
 FilePath: /SA2M/hydra-mesa/area_matchers/CoarseAreaMatcher.py
 Description: Input two sub-images, output inside coarse point matches using off-the-shelf point matcher.
 
@@ -34,6 +34,7 @@ class CoarseAreaMatcher(object):
         """
         """
         self.matcher_name = configs["matcher_name"]
+        self.mast3r_weight_path = configs.get("mast3r_weight_path", "")
         self.matcher = None
         self.datasetName = configs["datasetName"]
         self.out_path = configs["out_path"]
@@ -116,7 +117,7 @@ class CoarseAreaMatcher(object):
         elif self.matcher_name == "mast3r":
             from point_matchers.mast3r import Mast3rMatcher
             logger.debug("Initialize Mast3r Matcher")
-            weight_path = "/opt/data/private/3DGS/checkpoints/MASt3R_ViTLarge_BaseDecoder_512_catmlpdpt_metric.pth"
+            weight_path = self.mast3r_weight_path
             self.matcher = Mast3rMatcher(weight_path, device="cuda:0")
         else:
             raise NotImplementedError(f"Matcher {self.matcher_name} not implemented yet!")

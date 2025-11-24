@@ -67,4 +67,5 @@ area_matcher:
   W: ${area_from_size_W}
   H: ${area_from_size_H}
   coarse_matcher_name: 'mast3r'
+  mast3r_weight_path: /opt/data/private/3DGS/checkpoints/MASt3R_ViTLarge_BaseDecoder_512_catmlpdpt_metric.pth
   draw_verbose: ${verbose}
