@@ -2,7 +2,7 @@
  * @Author: EasonZhang
  * @Date: 2024-07-26 15:03:49
  * @LastEditors: Easonyesheng preacher@sjtu.edu.cn
- * @LastEditTime: 2025-11-24 15:12:48
+ * @LastEditTime: 2025-11-24 15:21:07
  * @FilePath: /A2PM-MESA/README.md
  * @Description: Readme
  * 
@@ -252,18 +252,19 @@ In the following, we will introduce each components of this code with correspond
 - More point matchers can be easily added by adding simialr wrappers.
 
 ### MASt3R & DUSt3R Configuration Notes
-  - Note that the `mast3r` requires specific environment, please refer to its [repo](https://github.com/naver/mast3r).
-    - After installation, run `pip install loguru hydra-core seaborn kornia yacs pytorch-lightning PyMaxFlow` in the `mast3r` conda environment.
-    - If there are more missing packages, please install them accordingly.
-    - **NOTE:** Some `import` paths are hard-coded in this codebase, please search globally for `sys.path.append("/opt/data/` and change them to your local paths. **If you have any ideas to improve this, please feel free to open an issue or PR.**
-    - Download the `MASt3R_ViTLarge_BaseDecoder_512_catmlpdpt_metric.pth` weights from [here](https://github.com/naver/mast3r?tab=readme-ov-file#mast3r-model) and set the path in `conf/point_matcher/mast3r.yaml#L2`, `conf/experiment/demo_dmesa_mast3r.yaml#L70` and `A2PM-MESA/conf/experiment/demo_mesaf_mast3r.yaml#L66`.
-    - Then, you perform MESA/DMESA for `mast3r` and `dust3r`.
-  - DO NOT forget to run `git submodule update --init --recursive` to get the submodules in `reconer/mast3r/`.
-    - Need `git submodule update --init --recursive`  in the `reconer/mast3r/` folder to get `dust3r` and `dust3r/croco`.
-    - Make a soft link of `reconer/mast3r` to `point_matchers/mast3r`.
-    - If meet some `import` error, please check the `sys.append` lines in `point_matchers/mast3r.py`.
+  1. DO NOT forget to run `git submodule update --init --recursive` to get the submodules in `reconer/mast3r/`.
+     1. Need `git submodule update --init --recursive`  in the `reconer/mast3r/` folder to get `dust3r` and `dust3r/croco`.
+     2. Make a soft link of `reconer/mast3r` to `point_matchers/mast3r`, like: `ln -s reconer/mast3r point_matchers/mast3r`
+     3. **NOTE:** Some `import` paths are hard-coded in this codebase, please search globally for `sys.path.append("/opt/data/` and change them to your local paths. 
+        1. For example, in `A2PM-MESA/reconer/mast3r/mast3r/catmlp_dpt_head.py#L11: sys.path.append("/opt/data/private/A2PM-git/A2PM-MESA/reconer/mast3r/dust3r") `, change it to your local path of `reconer/mast3r/dust3r`.
+        2. **If you have any ideas to improve this, please feel free to open an issue or PR.**
 
-  - For `mast3r`'s **Results**, see [here](#expected-results-of-mast3r); and for `dust3r`'s **Results**, see [here](#expected-results-of-dust3r).
+  2. Note that the `mast3r` requires specific environment, please refer to its [repo](https://github.com/naver/mast3r).
+     1. After installation, run `pip install loguru hydra-core seaborn kornia yacs pytorch-lightning PyMaxFlow` in the `mast3r` conda environment. If there are more missing packages, please install them accordingly.
+     2. Download the `MASt3R_ViTLarge_BaseDecoder_512_catmlpdpt_metric.pth` weights from [here](https://github.com/naver/mast3r?tab=readme-ov-file#mast3r-model) and set the path in `conf/point_matcher/mast3r.yaml#L2`, `conf/experiment/demo_dmesa_mast3r.yaml#L70` and `A2PM-MESA/conf/experiment/demo_mesaf_mast3r.yaml#L66`.
+     3. Then, you perform MESA/DMESA for `mast3r` and `dust3r`.
+
+  3. For `mast3r`'s **Results**, see [here](#expected-results-of-mast3r); and for `dust3r`'s **Results**, see [here](#expected-results-of-dust3r).
     - We use the weights provided in the `mast3r` repo: `MASt3R_ViTLarge_BaseDecoder_512_catmlpdpt_metric.pth` & `DUSt3R_ViTLarge_BaseDecoder_512_dpt.pth`.
 
 ## Match Fusion (Geometry Area Matching)
