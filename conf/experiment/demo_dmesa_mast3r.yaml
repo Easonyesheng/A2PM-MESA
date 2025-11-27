@@ -2,6 +2,7 @@
 defaults:
  - /dataset: demo_pair
  - /point_matcher: mast3r
+#  - /point_matcher: dust3r
 #  - /area_matcher: mesa-f
  - /area_matcher: dmesa
  - /geo_area_matcher: gam

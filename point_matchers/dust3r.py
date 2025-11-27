@@ -2,7 +2,7 @@
 Author: Easonyesheng preacher@sjtu.edu.cn
 Date: 2025-09-11 11:01:17
 LastEditors: Easonyesheng preacher@sjtu.edu.cn
-LastEditTime: 2025-09-11 13:06:39
+LastEditTime: 2025-11-27 11:35:32
 FilePath: /A2PM-MESA/point_matchers/dust3r.py
 Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 '''
@@ -18,8 +18,7 @@ import PIL
 import torchvision.transforms as tvf
 from .abstract_point_matcher import AbstractPointMatcher
 
-import sys
-sys.path.append("/opt/data/private/A2PM-git/A2PM-MESA/point_matchers/mast3r/dust3r")  # noqa
+import reconer.mast3r.mast3r.utils.path_to_dust3r
 from dust3r.inference import inference
 from dust3r.model import AsymmetricCroCo3DStereo
 from dust3r.image_pairs import make_pairs

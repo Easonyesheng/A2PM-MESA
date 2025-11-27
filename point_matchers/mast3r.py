@@ -2,7 +2,7 @@
 Author: Easonyesheng preacher@sjtu.edu.cn
 Date: 2025-09-10 11:27:08
 LastEditors: Easonyesheng preacher@sjtu.edu.cn
-LastEditTime: 2025-11-07 16:42:06
+LastEditTime: 2025-11-27 11:32:58
 FilePath: /A2PM-MESA/point_matchers/mast3r.py
 Description: 
 '''
@@ -15,21 +15,53 @@ from typing import Any, List, Optional
 from loguru import logger
 import random
 import PIL
+import sys
+from pathlib import Path
 
 from .abstract_point_matcher import AbstractPointMatcher
 import torchvision.transforms as tvf
 
-import sys
-sys.path.append("/opt/data/private/A2PM-git/A2PM-MESA/point_matchers/mast3r")  # noqa
-from mast3r.model import AsymmetricMASt3R
-from mast3r.fast_nn import fast_reciprocal_NNs
+# Dynamically resolve the path to 'reconer' relative to this script's location
+current_file = Path(__file__).resolve()
+project_root = current_file.parents[1]  # Adjust based on the relative depth of 'reconer'
 
-import mast3r.utils.path_to_dust3r
+# Add the resolved path to sys.path
+if project_root.exists() and project_root.is_dir():
+    sys.path.append(str(project_root))  # noqa
+    print(f"Added project root to sys.path: {project_root}")
+else:
+    print(f"Error: project root does not exist or is not a directory: {project_root}")
 
-sys.path.append("/opt/data/private/A2PM-git/A2PM-MESA/point_matchers/mast3r/dust3r")  # noqa
-from dust3r.inference import inference
-from dust3r.utils.image import load_images
 
+# Attempt to import modules with error handling
+try:
+    from reconer.mast3r.mast3r.model import AsymmetricMASt3R
+    from reconer.mast3r.mast3r.fast_nn import fast_reciprocal_NNs
+except ImportError as e:
+    logger.error(f"Error importing reconer.mast3r modules: {e}")
+    raise e
+
+try:
+    import reconer.mast3r.mast3r.utils.path_to_dust3r
+    from dust3r.inference import inference
+    from dust3r.utils.image import load_images
+except ImportError as e:
+    logger.error(f"Error importing dust3r modules: {e}")
+    raise e
+
+# # Debugging: List contents of reconer and mast3r directories
+# reconer_dir = project_root / 'reconer'
+# mast3r_dir = reconer_dir / 'mast3r'
+
+# if reconer_dir.exists() and reconer_dir.is_dir():
+#     print(f"Contents of reconer directory: {list(reconer_dir.iterdir())}")
+# else:
+#     print(f"Error: reconer directory does not exist: {reconer_dir}")
+
+# if mast3r_dir.exists() and mast3r_dir.is_dir():
+#     print(f"Contents of mast3r directory: {list(mast3r_dir.iterdir())}")
+# else:
+#     print(f"Error: mast3r directory does not exist: {mast3r_dir}")
 
 class Mast3rMatcher(AbstractPointMatcher):
     """MASt3R Matcher Warper

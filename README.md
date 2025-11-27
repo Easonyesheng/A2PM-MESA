@@ -2,7 +2,7 @@
  * @Author: EasonZhang
  * @Date: 2024-07-26 15:03:49
  * @LastEditors: Easonyesheng preacher@sjtu.edu.cn
- * @LastEditTime: 2025-11-24 16:29:22
+ * @LastEditTime: 2025-11-27 11:38:53
  * @FilePath: /A2PM-MESA/README.md
  * @Description: Readme
  * 
@@ -254,10 +254,7 @@ In the following, we will introduce each components of this code with correspond
 ### MASt3R & DUSt3R Configuration Notes
   1. DO NOT forget to run `git submodule update --init --recursive` to get the submodules in `reconer/mast3r/`.
      1. Need `git submodule update --init --recursive`  in the `reconer/mast3r/` folder to get `dust3r` and `dust3r/croco`.
-     2. Make a soft link of `reconer/mast3r` to `point_matchers/mast3r`, like: `ln -s reconer/mast3r point_matchers/mast3r`
-     3. **NOTE:** Some `import` paths are hard-coded in this codebase, please search globally for `sys.path.append("/opt/data/` and change them to your local paths. 
-        1. For example, in `A2PM-MESA/reconer/mast3r/mast3r/catmlp_dpt_head.py#L11: sys.path.append("/opt/data/private/A2PM-git/A2PM-MESA/reconer/mast3r/dust3r") `, change it to your local path of `reconer/mast3r/dust3r`.
-        2. **If you have any ideas to improve this, please feel free to open an issue or PR.**
+
 
   2. Note that the `mast3r` requires specific environment, please refer to its [repo](https://github.com/naver/mast3r) to create a new environment.
      1. After installation, run `pip install loguru hydra-core seaborn kornia yacs pytorch-lightning PyMaxFlow` in the `mast3r` conda environment. If there are more missing packages, please install them accordingly.
