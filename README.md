@@ -2,7 +2,7 @@
  * @Author: EasonZhang
  * @Date: 2024-07-26 15:03:49
  * @LastEditors: Easonyesheng preacher@sjtu.edu.cn
- * @LastEditTime: 2025-11-27 11:38:53
+ * @LastEditTime: 2025-11-27 11:46:30
  * @FilePath: /A2PM-MESA/README.md
  * @Description: Readme
  * 
@@ -320,6 +320,8 @@ python eval_ratios.py
 - Also, modify the path in `eval_ratios.py#L21` (`${exp_root_path}/res`, `exp_root_path` in shell scripts) and folder name in `eval_ratios.py#L24` (the folder where results are saved) to get the evaluation results.
 
 ## Expected Results of provided scripts
+
+***NOTE:*** The following expected results are achieved before GAM debug in version 200e33af8192308fff5ee1055280334b7aa3befd, so there may be slight differences if you run the code after this [commit](https://github.com/Easonyesheng/A2PM-MESA/tree/200e33af8192308fff5ee1055280334b7aa3befd). The `alpha_list` parameter should be modified accordingly.
 
 ### Expected Results of DKM
 - Take DKM as an example, the expected results are as follows:
