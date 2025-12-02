@@ -27,8 +27,8 @@ crop_size_W: 512
 crop_size_H: 512
 
 # others
-verbose: 1
-out_path: /opt/data/private/SA2M/hydra-mesa/res/${name}-res
+verbose: 2
+out_path: /your/path/to/save/demo_a2pm_results/
 match_num: 1000
 
 ############################################# UPDATE #############################################

@@ -26,7 +26,7 @@ crop_size_W: 480
 crop_size_H: 480
 
 # others
-verbose: 1
+verbose: 2
 out_path: /your/path/to/save/demo_a2pm_results/
 match_num: 1000
 
