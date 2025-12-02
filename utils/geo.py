@@ -2,7 +2,7 @@
 Author: EasonZhang
 Date: 2024-06-19 21:30:03
 LastEditors: Easonyesheng preacher@sjtu.edu.cn
-LastEditTime: 2025-11-07 17:44:10
+LastEditTime: 2025-12-02 15:48:55
 FilePath: /SA2M/hydra-mesa/utils/geo.py
 Description: geo utils
 
@@ -829,7 +829,7 @@ def calc_sampson_1_pt(F, uv0H, uv1H):
         down = eps
 
     dist = up / down
-    logger.debug(f"calc sampson dist use {up} / {down} -> dist={dist}")
+    # logger.debug(f"calc sampson dist use {up} / {down} -> dist={dist}")
 
     return dist
 
