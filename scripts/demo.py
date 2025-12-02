@@ -2,7 +2,7 @@
 Author: EasonZhang
 Date: 2024-06-12 20:31:50
 LastEditors: Easonyesheng preacher@sjtu.edu.cn
-LastEditTime: 2025-11-07 15:12:36
+LastEditTime: 2025-12-02 15:40:14
 FilePath: /SA2M/hydra-mesa/scripts/demo.py
 Description: test hydra-powered a2pm
 
@@ -20,7 +20,7 @@ from point_matchers.abstract_point_matcher import AbstractPointMatcher
 from dataloader.abstract_dataloader import AbstractDataloader
 from area_matchers.abstract_am import AbstractAreaMatcher
 from geo_area_matchers.abstract_gam import AbstractGeoAreaMatcher
-from utils.common import validate_type
+from utils.common import validate_type, test_dir_if_not_create
 from utils.geo import list_of_corrs2corr_list
 
 import random
@@ -106,12 +106,21 @@ def test(cfg: DictConfig) -> None:
         # you can choose a proper alpha by modifying the `alpha_list` in the config file of the geo area matcher you used
         # such as `alpha_list: [0.1, 0.2, 0.3, 0.4, 0.5]` in L17 of `conf/geo_area_matcher/egam.yaml`
 
-
+    corr_out_path = os.path.join(dataloader.root_path, "corrs")
+    test_dir_if_not_create(corr_out_path)
+    img_name0 = dataloader.image_name0
+    img_name1 = dataloader.image_name1
     for alpha in alpha_corrs_dict.keys():
         # draw
-        corrs = list_of_corrs2corr_list(alpha_corrs_dict[alpha])
+        corrs = list_of_corrs2corr_list(alpha_corrs_dict[alpha]) # list of (u0, v0, u1, v1)
         logger.success(f"alpha: {alpha}, corrs num: {len(corrs)}")
-        #TODO: draw corrs
+        #save corrs
+        corr_save_file = os.path.join(corr_out_path, f"{img_name0}_{img_name1}_alpha{alpha}_corrs.txt")
+        with open(corr_save_file, 'w') as f:
+            for (u0, v0, u1, v1) in corrs:
+                f.write(f"{u0} {v0} {u1} {v1}\n")
+        logger.success(f"corrs saved to {corr_save_file}")
+
  
 if __name__ == "__main__":
     test()

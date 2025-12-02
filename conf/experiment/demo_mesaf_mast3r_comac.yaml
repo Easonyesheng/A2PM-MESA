@@ -27,7 +27,7 @@ crop_size_H: 512
 
 # others
 verbose: 1
-out_path: /opt/data/private/SA2M/hydra-mesa/res/${name}-res
+out_path: /opt/data/private/comac_proj/recon_align_data/match_folders/test/a2pm_res
 match_num: 1000
 
 ############################################# UPDATE #############################################
