@@ -2,7 +2,7 @@
  * @Author: EasonZhang
  * @Date: 2024-07-26 15:03:49
  * @LastEditors: Easonyesheng preacher@sjtu.edu.cn
- * @LastEditTime: 2025-12-10 13:38:32
+ * @LastEditTime: 2025-12-11 14:01:42
  * @FilePath: /A2PM-MESA/README.md
  * @Description: Readme
  * 
@@ -433,13 +433,11 @@ If you find this work useful, please consider citing:
 }
 ```
 ```bibtex
-@misc{DMESA,
-    title={DMESA: Densely Matching Everything by Segmenting Anything},
-    author={Yesheng Zhang and Xu Zhao},
-    year={2024},
-    eprint={2408.00279},
-    archivePrefix={arXiv},
-    primaryClass={cs.CV}
+@article{zhang2025dmesa,
+  title={MESA: Effective Matching Redundancy Reduction by Semantic Area Segmentation},
+  author={Zhang, Yesheng and Shen, Shuhan and Zhao, Xu},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  year={2025}
 }
 ```
 
