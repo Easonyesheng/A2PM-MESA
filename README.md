@@ -433,12 +433,16 @@ If you find this work useful, please consider citing:
 }
 ```
 ```bibtex
-@article{DMESA,
-  title={MESA: Effective Matching Redundancy Reduction by Semantic Area Segmentation},
+@ARTICLE{dmesa,
   author={Zhang, Yesheng and Shen, Shuhan and Zhao, Xu},
-  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
-  year={2026}
-}
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence}, 
+  title={MESA: Effective Matching Redundancy Reduction by Semantic Area Segmentation}, 
+  year={2025},
+  volume={},
+  number={},
+  pages={1-18},
+  doi={10.1109/TPAMI.2025.3644296}}
+
 ```
 
 
