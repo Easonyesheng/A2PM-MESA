@@ -40,6 +40,9 @@ evaler:
   out_path: ${out_path}
   draw_verbose: ${verbose}
 
+# update point_matcher
+point_matcher:
+  subsample_or_initxy1: 6  # set the subsample factor for mast3r, 1 means no subsample, if you want more matches, set smaller factor
 
 ## update the size info for gam
 geo_area_matcher:
