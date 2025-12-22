@@ -28,7 +28,7 @@
 
 This is a user-friendly implementation of **Area to Point Matching** (A2PM) framework, powered by [hydra](hydra.cc).
 
-It contains the implementation of [SGAM](https://arxiv.org/abs/2305.00194) (arXiv'23, [early-version-code](https://github.com/Easonyesheng/SGAM)), a training-free version of [MESA](https://openaccess.thecvf.com/content/CVPR2024/html/Zhang_MESA_Matching_Everything_by_Segmenting_Anything_CVPR_2024_paper.html) (CVPR'24, [project page](https://cvl.sjtu.edu.cn/getpaper/1103)) and [DMESA](https://ieeexplore.ieee.org/document/11300989) (TPAMI'25).
+It contains the implementation of [SGAM](https://arxiv.org/abs/2305.00194) (arXiv'23, [early-version-code](https://github.com/Easonyesheng/SGAM)), a training-free version of [MESA](https://openaccess.thecvf.com/content/CVPR2024/html/Zhang_MESA_Matching_Everything_by_Segmenting_Anything_CVPR_2024_paper.html) (CVPR'24, [project page](https://cvl.sjtu.edu.cn/getpaper/1103)) and [DMESA](https://doi.org/10.1109/TPAMI.2025.3644296) (TPAMI'26).
 
 *Due to the power of hydra, the implementation is highly configurable and easy to **extend**.*
 
