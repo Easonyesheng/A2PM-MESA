@@ -72,6 +72,7 @@ class Mast3rMatcher(AbstractPointMatcher):
         weight_path: str,
         device: str = 'cuda',
         fixed_shape=512, # we fix the input shape to 512x512 for mast3r #FIXME: should be configurable
+        subsample_or_initxy1: int = 8, # subsample factor for NN search
         ) -> None: 
         """
         """
@@ -81,6 +82,7 @@ class Mast3rMatcher(AbstractPointMatcher):
         self.fixed_shape = fixed_shape
         self.device = device
         self._name = "Mast3rMatcher"
+        self.subsample_or_initxy1 = subsample_or_initxy1
 
     def match(self, img0, img1, mask0: Optional[Any]=None, mask1: Optional[Any]=None) -> List[List[float]]:
         """
@@ -134,7 +136,7 @@ class Mast3rMatcher(AbstractPointMatcher):
         desc1, desc2 = pred1['desc'].squeeze(0).detach(), pred2['desc'].squeeze(0).detach()
 
         # find 2D-2D matches between the two images
-        matches_im0, matches_im1 = fast_reciprocal_NNs(desc1, desc2, subsample_or_initxy1=8,
+        matches_im0, matches_im1 = fast_reciprocal_NNs(desc1, desc2, subsample_or_initxy1=self.subsample_or_initxy1,
                                                     device=self.device, dist='dot', block_size=2**13)
         
 
@@ -219,7 +221,7 @@ class Mast3rMatcher(AbstractPointMatcher):
         desc1, desc2 = pred1['desc'].squeeze(0).detach(), pred2['desc'].squeeze(0).detach()
 
         # find 2D-2D matches between the two images
-        matches_im0, matches_im1 = fast_reciprocal_NNs(desc1, desc2, subsample_or_initxy1=8,
+        matches_im0, matches_im1 = fast_reciprocal_NNs(desc1, desc2, subsample_or_initxy1=self.subsample_or_initxy1,
                                                     device=self.device, dist='dot', block_size=2**13)
         # matches_im0, matches_im1: np.ndarray, Nx2-w,h
         match_conf_im0 = pred1['desc_conf'].squeeze(0)[matches_im0[:, 1], matches_im0[:, 0]]  # N,
