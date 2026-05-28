@@ -414,11 +414,12 @@ python eval_ratios.py
 If you find this work useful, please consider citing:
 
 ```bibtex
-@article{SGAM,
-  title={Searching from Area to Point: A Hierarchical Framework for Semantic-Geometric Combined Feature Matching},
-  author={Zhang, Yesheng and Zhao, Xu and Qian, Dahong},
-  journal={arXiv preprint arXiv:2305.00194},
-  year={2023}
+@article{SGAM2026,
+  title={Searching from area to point: A semantic guided framework with geometric consistency for accurate feature matching},
+  author={Zhang, Yesheng and Zhao, Xu},
+  journal={Pattern Recognition},
+  pages={113920},
+  year={2026}
 }
 ```
 
